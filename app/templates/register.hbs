@@ -1,0 +1,84 @@
+<main class="page-register">
+
+   <div class="banner">
+    {{#if user}}
+      <h1>Confirm Payment</h1>
+      <p>Enter your payment information below.</p>
+    {{else}}
+      <h1>Register</h1>
+      <p>Have You Previously Registered as a Subscriber? <a href="/user/login">Sign In Here.</a></p>
+    {{/if}}
+  </div>
+
+  <div class="row">
+    {{!-- left column --}}
+    <div class="large-6 medium-centered columns">
+      <div class="tabs-content">
+        {{#if user}}
+
+          {{#compare type "Subscription"}}
+            {{> register/_financial_professionals}}
+          {{else}}
+            {{> register/_24hr_pass}}
+          {{/compare}}
+
+        {{else}}
+
+          {{#compare step "info" }}
+            <div class="content active" id="panel1">
+              <div class="tabs-content">
+                <div class="content active" id="panel1-1">
+                  <h2>Account Information</h2>
+
+                  <form id="register_form" class="tab-ajax" data="2" action="/user/register">
+                    <input type="text" id="calculator-choice" name="purchase" class="invisible" value="financialProfessionalMonthly" autocomplete="false">
+
+                    {{> forms/_account_info}}
+                    <hr>
+                    <div class="tab-error user-errors"></div>
+
+                    <button type="submit" class="primary-btn" id="payment-submit">Next</button>
+
+                  </form>
+
+                  <div data-tab>
+                    <span><a id="login-tab" href="#panel1-2"></a></span>
+                  </div>
+
+                  <p class="problems-registering"><em>Problems registering? Please contact <a href="mailto:guru@nesteggguru.com">Guru@NestEggGuru.com</a></em></p>
+                </div>
+
+                <div class="content" id="panel1-2">
+                  <h2>Login</h2>
+                  <div class="tab-error user-errors"></div>
+                  <form class="tab-ajax" data="2" action="/user/ajax-login" data-abide="ajax">
+                    {{> forms/_login_info}}
+                  </form>
+                </div>
+              </div>
+
+              <div data-tab>
+                <span><a id="next-tab2" href="#panel2"></a></span>
+                <span><a id="next-tab2-1" href="#panel2-1"></a></span>
+              </div>
+
+            </div>
+          {{/compare}}
+
+          {{#compare type "Subscription"}}
+            {{> register/_financial_professionals}}
+          {{else}}
+            {{> register/_24hr_pass}}
+          {{/compare}}
+
+        {{/if}}
+      </div>
+    </div>
+
+    {{!-- right column --}}
+    <!-- {{#compare step "company"}}
+      {{> register/_products}}
+    {{/compare}} -->
+  </div>
+
+</main>

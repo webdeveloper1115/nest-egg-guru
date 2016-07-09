@@ -1,0 +1,1 @@
+sudo forever stop staging-nest-egg-guru

@@ -1,0 +1,37 @@
+<h2>Complete Simulation Results - Projected Nest Egg Values at Retirement</h2>
+<section class="container-simulation-results">
+  <div class="intro-text">
+    <p>Because Nest Egg Guru understands that people absorb and interpret information in varying ways, the complete simulation results are presented in two different graphical formats and in table form.   The dollar amounts represent the nest egg values at each of the illustrated simulation percentiles.</p>
+  </div>
+  <div class="simulation-views">
+    <div class="container-scroll-message scroll-message-savings-results show-for-medium-down">
+      <div class="scroll-message">
+        <p>Please scroll left and right to view all data.</p>
+      </div>
+      <div class="scroll-image">
+        <img src="/img/double_arrow.png" alt="Please scroll left and right to view all data.">
+      </div>
+    </div>
+    <div class="container-simulation-tabs">
+      <ul class="tabs" data-tab>
+        <li class="tab-title active"><a href="#table-view">Table</a></li>
+        <li class="tab-title"><a href="#bar-graph-view">Bar Graph</a></li>
+        <li class="tab-title"><a href="#line-graph-view">Line Graph</a></li>
+      </ul>
+      <div class="tabs-content">
+        <div class="content active table-view" id="table-view">
+          {{> savings/results/_results_table}}          
+        </div>
+        <div class="content bar-graph-view" id="bar-graph-view">
+          <div class="horizontal-bar legend {{type}}"></div>
+          <div class="bar-chart graph"></div>
+        </div>
+        <div class="content line-graph-view" id="line-graph-view">
+          <div class="line-graph legend {{type}}"></div>
+          <div class="line-chart graph"></div>
+        </div>
+      </div>
+    </div>
+    {{> shared/_upgrade_notice}}
+  </div>
+</section>

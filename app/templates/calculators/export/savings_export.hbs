@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>Nest Egg Guru</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/css/foundation.min.css">
+  <style>
+
+    body,
+    html {
+        height: 100%;
+        font-size: 100%;
+    }
+    body {
+        background: #fff;
+        cursor: auto;
+        font-style: normal;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .page-breaker {
+        page-break-after: always;
+    }
+    .medium-margin {
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    h1 {
+        font-size: 16pt !important;
+    }
+    h2 {
+        font-size: .875rem!important;
+        margin: 50px 0 30px;
+        border-bottom: 2px solid #E3E8EC;
+        padding-bottom: 10px;
+        font-family: Montserrat,sans-serif;
+        font-weight: 400;
+        color: #1D2125;
+        letter-spacing: 1.33px;
+        line-height: 19px;
+        text-transform: uppercase;
+    }
+
+    .page-print h2.withdrawal-strategy {
+        font-size: .875rem!important;
+        margin: 400px 0 30px;
+        border-bottom: 2px solid #E3E8EC;
+        padding-bottom: 10px;
+        font-family: Montserrat,sans-serif;
+        font-weight: 400;
+        color: #1D2125;
+        letter-spacing: 1.33px;
+        line-height: 19px;
+        text-transform: uppercase;
+    }
+
+    .bar-graph-view{
+        padding-top: 45px;
+    }
+    h3 {
+        font-size: 12pt !important;
+        font-weight: 400 !important;
+    }
+    p {
+        font-size: 9pt;
+        line-height: 1.3 !important;
+    }
+    a:link,
+    a:visited {
+        background: transparent;
+        text-decoration: none;
+    }
+    a[href]:after {
+        content: none !important;
+    }
+    main a:link:after,
+    main a:visited:after {
+        content: " (" attr(href) ") ";
+        font-size: 80%;
+    }
+    .company {
+        font-size: 11pt !important;
+    }
+
+    .container-input-row {
+        margin-top: 20px;
+    }
+    .container-header {
+        padding: 20px 0 0 0;
+    }
+    .page-print .container-header {
+        text-align: center;
+        padding: 50px 0;
+    }
+    h3, .summary-value {
+        font-size: 11pt !important;
+        line-height: 1.3;
+        font-weight: 400 !important;
+    }
+    .column, .columns {
+        float: left;
+    }
+    .medium-6 {
+        width: 50%;
+    }
+    .medium-8 {
+        width: 75%;
+    }
+    .medium-4 {
+        width: 25%;
+    }
+    .columns.remove-float-on-print {
+        float: none;
+    }
+    .header-logo-only {
+        page-break-before: always !important;
+        page-break-inside: avoid !important;
+    }
+    .header-logo-only a img {
+        max-height: 50px;
+        vertical-align: middle;
+    }
+    .top-bar .name span {
+        line-height: 5.625rem;
+        margin: 0;
+    }
+
+    .top-bar .title-area {
+        margin: 0;
+        position: relative;
+    }
+
+    /* Header Logo */
+    .header-logo-only {
+      border-bottom: 2px solid #E3E8EC;
+    }
+    .header-logo-only .company {
+      color: #1D2125;
+    }
+    .header-logo-only a img {
+      height: 60px;
+      width: 60px;
+    }
+    .header-logo-only .company {
+      font-family: "Lato", sans-serif;
+      color: #384047;
+    }
+    .header-logo-only .top-bar {
+      height: 5.625rem;
+    }
+
+
+    /*  */
+
+    header .company {
+        font-size: 20px;
+        position: relative;
+    }
+    header .motto {
+        height: 1px;
+        font-size: 11px;
+        position: relative;
+        left: 74px;
+        bottom: 70px;
+        display: block;
+        color: #586066;
+        letter-spacing: 1px;
+        font-family: Montserrat,sans-serif;
+    }
+
+    header.white-label-print .tagline {
+        margin: 0;
+        line-height: 35px;
+        font-size: .875rem;
+        color: #B5BDC3
+    }
+
+    @media (max-width:1024px) {
+        header.white-label-print .tagline {
+            /*margin-left: 25px*/
+            right: 25px;
+        }
+    }
+
+    header.white-label-print .nestegg {
+        color: #49BC6B
+    }
+
+    header.white-label-print .company-logo {
+        float: left;
+        padding-top: 15px;
+        padding-right:15px;
+        height: 5.625rem;
+        overflow: hidden
+    }
+
+    header.white-label-print .logo img {
+        max-height: 45px
+    }
+
+    header.white-label-print ul.title-area {
+        width: 100%
+    }
+
+    header.white-label-print .company-info {
+        padding-left: 10px;
+        padding-top: 25px;
+        height: 5.625rem
+    }
+
+    header.white-label-print .company-info .motto {
+        position: static
+    }
+
+    header.white-label-print .company {
+        color: #384047;
+        font-size: 28px;
+        font-size: 1.75rem;
+        letter-spacing: 1px;
+        font-weight: 300;
+        max-height: 25px
+    }
+
+    header.white-label-print .company-link {
+        font-size: 14px;
+        font-size: .875rem;
+        letter-spacing: 0;
+        z-index: 99999999;
+        font-weight: 400;
+        color: #384047
+    }
+
+    .top-bar ul {
+        list-style: none;
+    }
+    .no-page-break .header-logo-only {
+        page-break-before: avoid !important;
+    }
+    p {
+        font-size: 8pt !important;
+        font-weight: 400 !important;
+        color: #666;
+    }
+    .notes {
+        padding: 10px !important;
+    }
+    .portfolio-input {
+        font-size: 10pt !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: 12pt;
+        padding: 0 10px;
+    }
+    .container-withdrawal-adjustment {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    .container-value {
+        margin-top: 0 !important;
+    }
+    .portfolio-labels {
+        font-size: 9pt;
+    }
+    .legend-dot {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .calculator-input-text, calculator-input-text span.big-number {
+        font-size: 24px;
+        line-height: 29px;
+        display: inline-block;
+        color: #49BC6B !important;
+        background-color: transparent;
+        border-color: #49BC6B !important;
+        box-shadow: none;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        padding: 0;
+        margin: 0;
+    }
+    .container-strategy {
+        padding-bottom: 47px;
+        /*border-bottom: 2px solid #E3E8EC*/
+    }
+    .container-strategy-options h3{
+        color: #49BC6B !important
+    }
+
+    .container-slider,
+    .container-value,
+    .container-strategy-options{
+        text-align: right;
+    }
+
+    .container-portfolio-details.free-border-bottom {
+        padding-bottom: 50px;
+        /*border-bottom: 2px solid #E3E8EC;*/
+    }
+    .container-portfolio-details .portfolio-input {
+        background-color: #FFFFFF;
+        border: 1px solid #B5BDC3;
+        width: 75px;
+        height: 40px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: #1D2125;
+        line-height: 36px;
+        box-shadow: none;
+        margin: 0;
+        border-radius: 3px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .container-bottom {
+        padding: 20px 0 0 0;
+        text-align: left;
+        margin-bottom: 70px;
+    }
+    .container-disclaimer {
+        margin-top: 0;
+    }
+
+    .portfolio-input-group .portfolio-input-item {
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .columns+.columns:last-child {
+        float: right;
+    }
+
+    .page-print .container-portfolio-details .portfolio-input {
+        background-color: #FFF;
+        border: 1px solid #B5BDC3;
+        width: 75px;
+        height: 40px;
+        font-family: Lato,sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: #1D2125;
+        line-height: 36px;
+        box-shadow: none;
+        margin: 0;
+        border-radius: 3px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+
+    .left {
+        float: left!important;
+    }
+
+    .container-portfolio-details .chart-legend.primary-legend{
+        margin: 15px 10px;
+        background-color: #5ECF80;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+    }
+
+    .container-portfolio-details .chart-legend.ternary-legend {
+        background-color: #FF9572;
+        margin: 15px 10px;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+    }
+
+    .container-portfolio-details .chart-legend.secondary-legend {
+        background-color: #4A90E2;
+        margin: 15px 10px;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+    }
+
+    .container-portfolio-details .portfolio-labels {
+        margin: 10px 0;
+        line-height: 17px;
+        font-size: 14px;
+        color: #1D2125;
+        font-family: Lato,sans-serif;
+    }
+
+    .page-print .container-portfolio-details .portfolio-input-group .portfolio-input-item {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .page-print .calculator-input-text{
+        display:inline-block;
+        color:#49BC6B;
+        background-color:transparent;
+        border-color:#49BC6B;
+        box-shadow:none;
+        font-family:Lato,sans-serif;
+        font-weight:300;
+        font-size:24px;
+        line-height:29px;
+        padding:0;
+        margin:0
+    }
+
+    /* header info */
+
+    .page-print .columns.medium-centered {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      float: none !important;
+    }
+
+    .print-h1 {
+      font-weight: bold;
+      font-size: 18pt !important;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .print-h2 {
+      font-size: 14pt !important;
+      font-weight: bold;
+    }
+    .print-p-medium {
+      font-size: 12pt !important;
+      margin-bottom: 5px !important;
+    }
+    .print-p-large {
+      font-size: 10pt !important;
+    }
+    .print-p-wrap {
+      margin-top: 30px;
+    }
+    .print-content-list {
+      padding-left: 60px;
+    }
+    .print-content-list li p {
+      margin-bottom: 5px;
+    }
+
+    .page-print .container-white-label-nav {
+      position: relative;
+    }
+    p.tagline {
+      position: absolute;
+      top: 42px;
+      right: 25px;
+    }
+
+    .container-white-label-header {
+      padding-bottom: 50px;
+      border-bottom: 2px solid #E3E8EC;
+    }
+    .container-white-label-header h2 {
+      margin: 50px 0 20px;
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    .container-white-label-header p {
+      margin: 0;
+    }
+    .container-white-label-header .address-info {
+      margin-top: 20px;
+    }
+
+    .container-portfolio-details.free-border-bottom {
+      padding-bottom: 50px;
+      border-bottom: 2px solid #E3E8EC;
+    }
+
+    /* header info */
+
+    .table-view {
+        position: relative;
+        margin-top: 38px;
+    }
+
+    .table-view.print-view {
+        margin-left: 30px;
+    }
+
+    .table-view.print-view .results-table td,
+    .table-view.print-view .results-table th {
+        font-size: 12px
+    }
+
+    .table-view.print-view p.vertical-chart-top-title {
+        font-size: 20px;
+        font-weight: 700
+    }
+
+    .table-view.print-view p.vertical-chart-left-title {
+        font-size: 20px;
+        font-weight: 700;
+        position: absolute;
+        top: 44%;
+        left: -4%;
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg)
+    }
+
+    @media (max-width:568px) {
+        .table-view {
+            margin-top: 10px
+        }
+    }
+
+    @media (max-width:1024px) {
+        .table-view.print-view p.vertical-chart-top-title {
+            font-size: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .table-view.print-view p.vertical-chart-left-title {
+            font-size: 20px;
+            font-weight: 700;
+            left: -6.5%;
+            z-index: 1000;
+        }
+    }
+
+    div.table-wrapper {
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    table {
+        background: #FFF;
+        border: 0 solid #DDD;
+        margin-bottom: 1.25rem;
+        table-layout: auto;
+        display: table;
+        border-collapse: separate;
+    }
+
+    .results-table {
+        width: 100%;
+        margin: 0 auto 46px;
+        border-spacing: 0
+    }
+
+    .results-table td,
+    .results-table th {
+        font-family: Lato, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: center;
+        padding: 9px 20px
+    }
+
+    @media (max-width:568px) {
+        .results-table td,
+        .results-table th {
+            font-size: 12px;
+            padding: 9px 10px
+        }
+    }
+
+    .results-table tr th {
+        border-bottom: 2px solid #E3E8EC;
+        color: #1D2125
+    }
+
+    .results-table tr td {
+        border-bottom: 1px solid #E3E8EC;
+        color: #586066
+    }
+
+    .results-table tr:not(:first-of-type):hover {
+        background-color: #F6F9FA
+    }
+
+    .results-table .emphasized-values td {
+        font-weight: 900
+    }
+
+    /*Chart CSS*/
+    .line-chart .line {
+        fill: url(#area-gradient);
+        stroke-width: 0;
+        shape-rendering: crispEdges
+    }
+
+    .line-chart .tick text {
+        font-size: 15px;
+        font-size: .9375rem
+    }
+
+    .line-chart .point text {
+        font-size: 13px;
+        font-size: .8125rem
+    }
+
+    .line-chart .point circle {
+        fill: #2B3136
+    }
+
+    .vertical-bar-chart path.domain {
+        fill: transparent
+    }
+
+    .vertical-bar-chart text {
+        font-size: 15px;
+        font-size: .9375rem
+    }
+      /*End Chart CSS*/
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
+</head>
+<body>
+  <main class="page-print page-calculators">
+    <div class="row">
+      <div class="small-12 columns remove-float-on-print">
+
+        <div class="no-page-break">
+          {{#if whiteLabel}}
+            <header class="header-logo-only white-label-print container-white-label-print-nav">
+              <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                  <li class="name">
+                    <a href="http://{{DOMAIN}}" class="company-logo">
+                      <img src="{{whiteLabel.logo}}">
+                    </a>
+                    <div class="company-info left">
+                      <a class="company" href="http://{{DOMAIN}}">{{whiteLabel.name}}</a>
+                      <a class="motto" href="http://{{whiteLabel.url}}" target="_blank">{{whiteLabel.site}}</a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <a href="http://{{whiteLabel.main}}">
+                <p class="tagline">Powered by <span class="nestegg">Nest Egg Guru</span></p>
+              </a>
+            </header>
+          {{else}}
+            <header class="header-logo-only">
+              <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                  <li class="name">
+                    <a href="/">
+                      <img src="{{logo}}" style="display:none" />
+                      <img src="{{logo}}" alt="Nest Egg Guru Logo">
+                      <span class="company">Nest Egg Guru</span>
+                      <span class="motto uppercase">Enlightened Retirement Planning</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+          {{/if}}
+        </div>
+
+        {{#if whiteLabel}}
+            {{#if infomationReports}}
+              <section class="container-white-label-header">
+                <!-- <h1 class="text-center print-h1">The Enclosed Retirement Planning Analysis <br>is provided compliments of:</h1> -->
+                <h2 class="text-center print-h1">This report has been provided Courtesy of :</h2>
+                <div class="row">
+                  <div class="medium-6 medium-centered columns text-center">
+                    <div class="contact-info">
+                      <h1 class="print-h1">{{userData.firstName}} {{userData.lastName}}</h1>
+                      {{#if infomationReports.companyName }}
+                        <p class="print-p-medium">{{userData.company.name}}</p>
+                      {{/if}}
+                      {{#if infomationReports.phoneNumber }}
+                        <p class="print-p-medium">{{userData.company.phone}}</p>
+                      {{/if}}
+                      {{#if infomationReports.companyEmail }}
+                        <p class="print-p-medium">{{userData.company.email}}</p>
+                      {{/if}}
+                      {{#if infomationReports.website }}
+                        <p class="print-p-medium">{{userData.company.url}}</p>
+                      {{/if}}
+                      <!-- {{#if infomationReports.advisorName }}
+                        <p class="print-p-medium"><b>Advisor Name:</b> {{userData.firstName}} {{userData.lastName}}</p>
+                      {{/if}} -->
+                      {{#if infomationReports.advisorEmail }}
+                        <p class="print-p-medium">{{userData.email}}</p>
+                      {{/if}}
+                    </div>
+                    {{#if infomationReports.companyAddress }}
+                    <div class="address-info" >
+                      <p class="print-p-medium">{{userData.company.address_1}}</p>
+                      <p class="print-p-medium">{{userData.company.address_2}}</p>
+                      <p class="print-p-medium">{{userData.company.address_city}}, {{userData.company.address_state}} {{userData.company.address_zip}}</p>
+                    </div>
+                    {{/if}}
+                  </div>
+                  <div class="medium-12 columns">
+                    <div class="print-p-wrap">
+                      <p class="print-p-medium">{{userData.company.copy}}</p>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="print-h1 text-center">CONTENTS</h1>
+                <div class="row">
+                  <div class="medium-6 medium-centered columns">
+                    <h1 class="print-h2 text-center">Your Inputs</h1>
+                    <ul class="no-bullet print-content-list">
+                      <li><p class="print-p-large">- Your Retirement Savings Data</p></li>
+                      <li><p class="print-p-large">- Your Portfolio Details</p></li>
+                      <li><p class="print-p-large">- Your Accumulation Strategy</p></li>
+                    </ul>
+                    <h1 class="print-h2 text-center">Your Results</h1>
+                    <ul class="no-bullet print-content-list">
+                      <li><p class="print-p-large">- Summary</p></li>
+                      <li><p class="print-p-large">- Complete Simulation Results Table</p></li>
+                      <li><p class="print-p-large">- Complete Simulation Results Chart</p></li>
+                    </ul>
+                    <h1 class="print-h2 text-center">Important Disclosures</h1>
+                  </div>
+                </div>
+              </section>
+            {{/if}}
+        {{/if}}
+
+        <div class="page-breaker"></div>
+
+        <section class="container-header">
+          <h1>Savings Calculator Inputs</h1>
+        </section>
+
+        <input type="hidden" id="results-data-path" value="{{accumtableString}}">
+        <input type="hidden" id="results-data-path-keytable" value="{{keytableString}}">
+
+        <h2>Enter Your Basic Retirement Savings Data</h2>
+        <section class="container-basic-data">
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Years until retirement:</h3>
+                  <p>How many more years do you plan to keep working?</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="years-savings" class="calculator-input-text">{{input.years}} years</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Enter your current retirement nest egg value:</h3>
+                  <p>Include the values of all accounts you consider to be part of your retirement nest egg (e.g., employer retirement plans, IRAs, personal investment accounts, etc.).</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="current-savings" class="calculator-input-text"><span class="big-number">${{input.current}}</span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Current annual salary/wages:</h3>
+                  <p>How much do you make today?</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="salary-savings" class="calculator-input-text"><span class="big-number">${{input.salary}}</span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Total expected annual retirement contribution:</h3>
+                  <p>Be sure to account for anticipated employer contributions in this estimate.</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  {{#compare input.contributionOption '2'}}
+                    <h3 id="dollarContribution-savings" class="calculator-input-text"><span class="big-number">${{input.dollarContribution}}</span></h3>
+                  {{else}}
+                    <h3 id="percentageContribution-savings" class="calculator-input-text">{{input.percentageContribution}}%</h3>
+                  {{/compare}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Rate at which you expect your contribution amount will increase each year:</h3>
+                  <p>For many workers, the contribution amount rises at the same rate at which their wages increase.  For instance, if you anticipate your wages to increase at 3% per year, you may wish to enter 3% as the amount by which you expect your contributions to increase too.</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="increase-savings" class="calculator-input-text">{{input.increase}}%</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-breaker"></div>
+
+        <h2>Enter Your Retirement Portfolio Details</h2>
+        <section class="container-portfolio-details free-border-bottom">
+          <div class="container-input-row">
+            <div class="row">
+              <div class="container-info columns">
+                <h3>Enter your current <strong>Broad Asset Allocation</strong> (must add up to 100%)</h3>
+              </div>
+              <div class="row columns">
+                <div class="medium-6 large-6">
+                  <div class="container-portfolio-input">
+                    <div class="row">
+                      <div class="medium-6 columns">
+                        <div class="portfolio-input-group">
+                          <div class="portfolio-input-item clearfix">
+                            <div class="portfolio-input left">
+                              <span>{{input.stocks}}%</span>
+                              <input type="hidden" id="stocks" value="{{input.stocks}}">
+                            </div>
+                            <span class="chart-legend primary-legend left"></span>
+                            <label for="stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-green.png"></span>Stocks</label>
+                          </div>
+                          <div class="portfolio-input-item clearfix">
+                            <div class="portfolio-input left">
+                              <span>{{input.bonds}}%</span>
+                              <input type="hidden" id="bonds" value="{{input.bonds}}">
+                            </div>
+                            <span class="chart-legend secondary-legend left"></span>
+                            <label for="bonds" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-blue.png"></span>Bonds</label>
+                          </div>
+                          <div class="portfolio-input-item clearfix">
+                            <div class="portfolio-input left">
+                              <span>{{input.cash}}%</span>
+                              <input type="hidden" id="cash" value="{{input.cash}}">
+                            </div>
+                            <span class="chart-legend ternary-legend left"></span>
+                            <label for="cash" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-orange.png"></span>Cash</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="medium-6 columns">
+                        <div class="pie-chart"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{#if premium}}
+            <div class="container-input-row">
+              <div class="row">
+                <div class="medium-5 large-6 columns">
+                  <div class="container-info">
+                    <h3>Enter your current <strong>Detailed Stock Allocation</strong> (must add up to 100%)</h3>
+                    <p>This input represents the composition of your broad stock allocation. If this response is left unchanged, Nest Egg Guru will assume a detailed stock allocation of 45% large cap stocks, 30% mid- and small cap stocks, and 25% foreign stocks.</p>
+                  </div>
+                </div>
+                <div class="medium-7 large-6 columns">
+                  <div class="container-portfolio-input">
+                    <div class="row">
+                      <div class="medium-6 columns">
+                        <div class="portfolio-input-group">
+                          <div class="portfolio-input-item clearfix">
+                            <div class="portfolio-input left">
+                              <span>{{input.lgEquities}}%</span>
+                              <input type="hidden" id="large-usa-stocks" value="{{input.lgEquities}}">
+                            </div>
+                            <span class="chart-legend primary-legend left"></span>
+                            <label for="large-usa-stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-green.png"></span>Large U.S. Stocks</label>
+                          </div>
+                          <div class="portfolio-input-item clearfix">
+                            <div class="portfolio-input left">
+                              <span>{{input.smEquities}}%</span>
+                              <input type="hidden" id="mid-small-usa-stocks" value="{{input.smEquities}}">
+                            </div>
+                            <span class="chart-legend secondary-legend left"></span>
+                            <label for="mid-small-usa-stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-blue.png"></span>Mid &amp; Small U.S. Stocks</label>
+                          </div>
+                          <div class="portfolio-input-item clearfix">
+                            <div class="portfolio-input left">
+                              <span>{{input.iEquities}}%</span>
+                              <input type="hidden" id="foreign-stocks" value="{{input.iEquities}}">
+                            </div>
+                            <span class="chart-legend ternary-legend left"></span>
+                            <label for="foreign-stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-orange.png"></span>Foreign Stocks</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="medium-6 columns">
+                        <div class="pie-chart2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/if}}
+
+          <div class="page-breaker"></div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Enter an expected constant fixed rate of return that you may reasonably expect to earn on the “bond” portion of your nest egg:</h3>
+                  <p>Although many retirement calculators still use historical bond index returns in their simulations, Nest Egg Guru believes it is more prudent to allow users to enter the rate of return they may realistically expect to earn in the current low rate environment. For bonds, it is suggested that users enter the current 10-year treasury rate or the yield on a 5-year certificate of deposit as a reasonable proxy.</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="cdRate" class="calculator-input-text">{{input.cdRate}}%</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Enter an expected constant fixed rate of return that you may reasonably expect to earn on the cash or stable value portion of your nest egg:</h3>
+                  <p>Although many retirement calculators still use historical short term bond index data as a proxy for cash, in the current low yield environment, Nest Egg Guru believes it is more prudent to allow users to enter the rate of return they may realistically expect to earn on their bank savings or money market accounts.</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="moneyRate" class="calculator-input-text">{{input.moneyRate}}%</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Enter your nest egg’s estimated annual investment expenses (expressed as a % of your total nest egg value):</h3>
+                  <p>Research has shown that investment expenses can have a significant impact on wealth accumulation and sustainability.  Failing to properly account for the impact of expenses may produce overly optimistic results. Be sure to account for all internal and external fees.</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-slider">
+                  <h3 id="investment" class="calculator-input-text">{{input.investment}}%</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {{#if premium}}
+          <h2>Retirement Accumulation Investment Strategy</h2>
+          <section class="container-strategy">
+            <div class="container-input-row">
+              <div class="row">
+                <div class="medium-6 columns">
+                  <div class="container-info">
+                    <h3>Choose a retirement accumulation investment strategy.</h3>
+                  </div>
+                </div>
+                <div class="medium-6 columns">
+                  <div class="container-strategy-options">
+                    {{#compare input.investmentStrategy '1'}}
+                    <h3>Maintain your current asset allocation until retirement.<h3>
+                      <p>This option represents one of the most common retirement savings strategies and is analogous to the approach used in the “risk-based” portfolio models (e.g., conservative, moderate, growth, aggressive, etc.)  offered in many employer retirement plans.</p>
+                    {{else}}
+                      <h3>Apply a declining glidepath strategy until retirement. Enter your target stock allocation at retirement. (This % MUST be lower than your current stock allocation.)</h3>
+                      <p>This option is roughly analogous to the approach used in the “target-date”  portfolio models that are offered in many employer retirement plans.  With this strategy, the stock allocation is reduced and the bond allocation is increased in linear fashion each year until the target allocation is reached in the year of retirement.</p>
+
+                      <h3 id="target-stocks">Target Stock Allocation at Retirement: <span>{{input.targetStocks}}%</span></h3>
+                    {{/compare}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        {{/if}}
+
+        <div class="page-breaker"></div>
+
+        <section class="container-header">
+          <h1>Savings Calculator Results</h1>
+        </section>
+
+        <h2>Retirement Savings Calculator Results Summary</h2>
+        <section class="container-results-summary-print">
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3 class="summary-text">Based upon an initial contribution rate of <strong><span class="initial"></span></strong> of wages and an expected contribution increase rate of <strong><span class="increase"></span>%</strong>, your total contributions to your retirement nest egg are projected to be:</h3>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-value">
+                  <p class="summary-value calculator-input-text">$<span class="TotalContributionsatRetirement"></span></p>
+                  <p class="value-info-text">This is the total projected amount you will contribute from wages from now until you retire.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3 class="summary-text">In the top 20% of the simulation results (80th percentile), your retirement nest egg in <strong><span class="NumberofYearsuntilRetirement"></span> years</strong> grew to:</h3>
+                  <aside class="notes">
+                    <p>While it is nice to envision such growth, the best simulation results represent extremely favorable, and, likely, unrealistic investment environments. Nest Egg Guru users are instead encouraged to focus on how their portfolios may perform under less rosy investment conditions (i.e., plan for the worst, hope for the best).</p>
+                  </aside>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-value">
+                  <p class="summary-value calculator-input-text">$<span class="80thPercentileBalance"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3 class="summary-text">In the median (50th percentile) result, the value of your retirement nest egg in <strong><span class="NumberofYearsuntilRetirement"></span> years</strong> grew to:</h3>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-value">
+                  <p class="summary-value calculator-input-text">$<span class="MedianBalance"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3 class="summary-text">In the worst of the 5,000 simulations, the value of your retirement nest egg after <strong><span class="NumberofYearsuntilRetirement"></span> years</strong> was only:</h3>
+                  <aside class="notes">
+                    <p>It is important to understand that this result may represent investment performance that is worse than any period over the 45 year period from which the sample data were derived. However, it is useful in establishing a baseline for planning for your future in the event that investment conditions in the years ahead turn out to be unusually difficult.</p>
+                  </aside>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-value">
+                  <p class="summary-value calculator-input-text">$<span class="LowestBalance"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-breaker"></div>
+
+        <h2 class="medium-margin">Complete Simulation Results - Projected Nest Egg Values at Retirement</h2>
+        <section class="container-simulation-results">
+          <div class="intro-text medium-margin">
+            <p>Because Nest Egg Guru understands that people absorb and interpret information in varying ways, the complete simulation results are presented in two different graphical formats and in table form.   The dollar amounts represent the nest egg values at each of the illustrated simulation percentiles.</p>
+          </div>
+          <div class="simulation-views">
+            <div class="simulation-content">
+              <div class="table-view print-view" id="table-view">
+                <table class="responsive results-table">
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Nest Egg Value</th>
+                  </tr>
+                  <tr>
+                    <td>80%</td>
+                    <td>$<span class="80thPercentileBalance"></span></td>
+                  </tr>
+                  <tr>
+                    <td>60%</td>
+                    <td>$<span class="60thPercentileBalance"></span></td>
+                  </tr>
+                  <tr>
+                    <td>Median</td>
+                    <td>$<span class="MedianBalance"></span></td>
+                  </tr>
+                  <tr>
+                    <td>40%</td>
+                    <td>$<span class="40thPercentileBalance"></span></td>
+                  </tr>
+                  <tr>
+                    <td>20%</td>
+                    <td>$<span class="20thPercentileBalance"></span></td>
+                  </tr>
+                  <tr class="emphasized-values">
+                    <td>10%</td>
+                    <td>
+                      {{#if premium}}
+                        $<span class="10ValueatRisk"></span>
+                      {{else}}
+                        <span><a href="/user/register#savings">Premium</a></span> version only
+                      {{/if}}
+                    </td>
+                  </tr>
+                  <tr class="emphasized-values">
+                    <td>5%</td>
+                    <td>
+                      {{#if premium}}
+                        $<span class="5ValueatRisk"></span>
+                      {{else}}
+                        <span><a href="/user/register#savings">Premium</a></span> version only
+                      {{/if}}
+                    </td>
+                  </tr>
+                  <tr class="emphasized-values">
+                    <td>1%</td>
+                    <td>
+                      {{#if premium}}
+                        $<span class="1ValueatRisk"></span>
+                      {{else}}
+                        <span><a href="/user/register#savings">Premium</a></span> version only
+                      {{/if}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Worst</td>
+                    <td>$<span class="WorstCaseMinimumAccumulatedBalance"></span></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="page-breaker"></div>
+
+              <div class="bar-graph-view print-view" id="bar-graph-view">
+                <div class="horizontal-bar legend {{type}}"></div>
+                <div class="bar-chart graph"></div>
+              </div>
+
+              <div class="line-graph-view print-view" id="line-graph-view">
+                <div class="line-graph legend {{type}}"></div>
+                <div class="line-chart graph"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-breaker"></div>
+
+        <section class="container-bottom">
+          <div class="container-disclaimer">
+            <p><strong>IMPORTANT DISCLOSURES:</strong> The simulation results produced by Nest Egg Guru’s calculators are hypothetical in nature, do not reflect actual investment results, and provide no assurance of future returns.  Instead, these calculators are intended as educational tools to help users generally assess their retirement planning preparedness and to help them understand how changing the various inputs that are within their control may impact the results. While Nest Egg Guru believes the information presented may be instructive in helping users plan for retirement, it is important to understand that no calculator is a crystal ball and that the calculators are not intended to predict future returns.</p>
+
+            <p>Similarly, it is important to understand the limitations of this or any other retirement calculator application. First, while considerable thought has gone into designing portfolio models that realistically represent individual investor experiences, the degree to which the index models used in Nest Egg Guru differ from the actual users' portfolios may affect the applicability of the results. Second, the choice of indices and the time periods from which the monthly index return data were sampled may have a significant effect on the outcomes and might produce different results if different indices and/or time periods were chosen.  Third, because Nest Egg Guru's results are derived from random sampling of historical monthly returns data, there is an underlying assumption that future returns will at least be somewhat similar to what they have been in the recent past. Fourth, users should be aware that, as with all simulation-based calculators, results may vary from one simulation to the next. Lastly, while Nest Egg Guru believes the methodology chosen in this calculator has certain advantages, other calculators using different methodologies may produce different results.</p>
+
+            <p>The 5,000 simulation results presented herein were produced using a sampling methodology called “bootstrapping”.   The simulations were generated from monthly equity index return data from 1970-2013.  The S&amp;P 500 Index is employed as the proxy for large cap U.S. Stocks, international stocks are represented by the MSCI EAFE Index, and small and mid-cap stocks are represented by the Russell 2000 Index.  Nest Egg Guru also holds monthly index data for the Merrill Lynch U.S. Corporate Bond Index, 10-year treasuries, and one year treasuries.  However, as noted on the inputs page, the option to include these indices has been intentionally suppressed in the current low interest rate environment.</p>
+
+            <p>The Nest Egg Guru calculators are made available to you as educational tools for your independent use and are not intended as a substitute for professional retirement planning guidance or advice. While it is hoped that these tools help you identify important factors to consider in planning your retirement, for specific portfolio guidance, users are encouraged to consult with a trusted financial planning professional.</p>
+
+            <p>{{userData.company.disclosure_info}}</p>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      //Begin Pie chart Broad Asset Allocation
+
+	    function pieChart(data, target) {
+            var width  = 260;
+            var height = 260;
+            var radius = Math.min(width, height) / 2;
+
+            var color = d3.scale
+                    .ordinal()
+                    .range(['#5ECF80', '#4A90E2', '#FF9572']);
+
+            var pie = d3.layout
+                    .pie()
+                    .sort(null);
+
+            var arc = d3.svg
+                    .arc()
+                    .innerRadius(radius - 80)
+                    .outerRadius(radius - 50);
+
+            var svg = d3.select('.'+target)
+                    .append('svg')
+                    .attr('width', width)
+                    .attr('height', height)
+                    .attr('viewBox', '0 0 ' + width + ' ' + height)
+                    .attr('preserveAspectRatio', 'xMidYMid')
+                    .append('g')
+                    .attr('transform', 'translate('+ width / 2 +','+ height / 3 +')');
+
+            var path = svg.selectAll('path')
+                    .data(pie(data))
+                    .enter()
+                    .append('path')
+                    .attr('fill', function(d, i) {
+                        return color(i);
+                    })
+                    .attr('d', arc);
+        }// pieChart
+
+        function getPieValues(array) {
+            return _.map(array, function(i) {
+                return +$('#' + i).val();
+            });
+        }
+
+        var pie_1 = ['stocks', 'bonds', 'cash'];
+        var pie_2 = ['large-usa-stocks', 'mid-small-usa-stocks', 'foreign-stocks'];
+
+        pieChart(getPieValues(pie_1), 'pie-chart');
+        pieChart(getPieValues(pie_2), 'pie-chart2');
+      //End Pie chart Broad Asset Allocation
+
+      //Begin Result data summary
+
+      function numberWithCommas(x) {
+        if (x !== undefined) {
+          return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+      }
+
+      function binding(data){
+        $('.clear-table').html('');
+        _.forIn(data, function(val, k) {
+          $('.'+k).html(numberWithCommas(_.isArray(val) ? val[0] : val));
+
+          _.forEach(val, function(v, i) {
+            $('.'+i).html(v);
+            $('.'+k+''+i).html('');
+            $('.'+k+''+i).html(numberWithCommas(v));
+          });
+
+        });
+      }
+
+      var free      = ['Worst', '20%', '40%', 'Median', '60%', '80%'];
+      var premium   = ['Worst', '1%', '5%', '10%', '20%', '40%', 'Median', '60%', '80%'];
+
+      var freeColor = ['#ff9572', '#d29e70', '#baa46e', '#8dad6d', '#77b16d', '#60b76b'];
+      var premColor = ['#ff9572', '#e89a71', '#d29e70', '#baa46e', '#baa46e', '#8dad6d', '#77b16d', '#60b76b', '#48bc6a'];
+
+      function lineChart(data, w, h, ls, p) {
+        var isPremium  = data.length > 6;
+        var percents   = isPremium? _.clone(premium) : _.clone(free);
+        var colors     = isPremium? _.clone(premColor) : _.clone(freeColor);
+
+        var width         = w || 900;
+        var height        = h || 450;
+        var legendSpacing = ls || 85;
+        var padding       = p || 0;
+
+        var legendColors = d3.scale
+            .ordinal()
+            .range(_.clone(colors).reverse());
+        var xScale = d3.scale
+            .linear()
+            .domain([0, percents.length])
+            .range([0, width]);
+
+        var yScale = d3.scale
+            .linear()
+            .domain([0, _.max(_.clone(data)) * 1.1])
+            .range([height, 0]);
+
+        var xAxis = d3.svg
+            .axis()
+            .scale(xScale)
+            .orient('bottom')
+            .outerTickSize(0)
+            .innerTickSize(-height)
+            .tickPadding(15)
+            .ticks(percents.length)
+            .tickFormat(function(d, i) {
+              return percents[i];
+            });
+
+        var yAxis = d3.svg
+            .axis()
+            .scale(yScale)
+            .orient('left')
+            .outerTickSize(0)
+            .innerTickSize(-width)
+            .tickPadding(15)
+            .ticks(data.length)
+            .tickFormat(function(d, i) {
+              return '$' + numberWithCommas(d);
+            });
+
+        var line = d3.svg
+            .area()
+            .x(function(d, i) {
+              return xScale(i);
+            })
+            .y0(height)
+            .y1(function(d) {
+              return yScale(d);
+            });
+
+        var svg = d3.select('.line-chart')
+            .append('svg')
+            .attr({
+              width: width + 100 + padding,
+              height: height + 100
+            })
+            .append('g')
+            .attr('transform', 'translate(20,0)');
+
+        var border = svg.append('rect')
+            .attr({
+              width: width + padding,
+              height: height
+            })
+            .style({
+              'fill': 'transparent',
+              'stroke': 'black'
+            })
+            .attr('transform', 'translate(80, 20)');
+
+        var y_axis = svg.append('g')
+            .attr('transform', 'translate(80, 20)')
+            .attr('class', 'yaxis')
+            .call(yAxis);
+
+        var x_axis = svg.append('g')
+            .attr('transform', 'translate(120,'+ (height+20) +')')
+            .attr('class', 'xaxis')
+            .call(xAxis);
+
+        var gradient = svg.append('linearGradient')
+            .attr('id', 'area-gradient')
+            .attr('gradientUnits', 'userSpaceOnUse')
+            .attr('x1', 0)
+            .attr('y1', yScale(0))
+            .attr('x2', xScale(percents.length))
+            .attr('y2', 0)
+            .selectAll('stop')
+            .data([
+              { offset: '0%', color: '#ff9572' },
+              { offset: '1%', color: '#e89a71' },
+              { offset: '10%', color: '#d29e70' },
+              { offset: '20%', color: '#baa46e' },
+              { offset: '30%', color: '#baa46e' },
+              { offset: '40%', color: '#8dad6d' },
+              { offset: '50%', color: '#77b16d' },
+              { offset: '60%', color: '#60b76b' },
+              { offset: '80%', color: '#48bc6a' }
+            ])
+            .enter()
+            .append('stop')
+            .attr('offset', function(d) {
+              return d.offset;
+            })
+            .attr('stop-color', function(d) {
+              return d.color;
+            });
+
+        var chart = svg.append('path')
+            .attr('transform', 'translate(120, 20)')
+            .datum(data.reverse())
+            .attr('class', 'line')
+            .attr('d', line);
+
+        var points = svg.selectAll('.point')
+            .data(data)
+            .enter()
+            .append('g')
+            .classed('point', true)
+            .attr('transform', function(d, i) {
+              return 'translate('+ (xScale(i) + 120 ) +','+ yScale(d) +' )';
+            });
+
+        var circles = points.append('circle')
+            .attr('r', '3')
+            .attr('cy', '20');
+
+        var transitext = points.append('text')
+            .text(function(d) {
+              return '$' + numberWithCommas(d);
+            })
+            .attr('text-anchor', 'middle');
+
+        var legend = d3.select('.line-graph')
+            .append('svg')
+            .attr({
+              width: width + 100,
+              height: 50
+            })
+            .selectAll('.legend')
+            .data(_.clone(percents).reverse())
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', function(d, i) {
+              return 'translate('+ -(i * legendSpacing) +', 0)';
+            });
+
+        legend.append('circle')
+            .attr('r', '8')
+            .attr('cy', '10')
+            .attr('cx', width + 15)
+            .style('fill', legendColors);
+
+        legend.append('text')
+            .attr('x', width)
+            .attr('y', 9)
+            .attr('dy', '.35em')
+            .style('text-anchor', 'end')
+            .style('font-size', 12)
+            .text(function(d) {
+              return d;
+            });
+      }// lineChart
+
+      function horizontalBarChart(data, w, h, ls) {
+        var isPremium  = data.length > 6;
+        var tickHeight = isPremium? 20 : 40;
+        var barHeight  = isPremium? 15 : 25;
+        var percents   = isPremium? _.clone(premium).reverse() : _.clone(free).reverse();
+        var colors     = isPremium? _.clone(premColor) : _.clone(freeColor);
+
+        var width         = w || 950;
+        var height        = h || 450;
+        var legendSpacing = ls || 85;
+
+        var xScale = d3.scale
+            .linear()
+            .domain([0, _.max(_.clone(data)) * 1.1])
+            .range([0, width]);
+
+        var yScale = d3.scale
+            .linear()
+            .domain([0, percents.length])
+            .range([0, height]);
+
+        var colorScale = d3.scale
+            .quantize()
+            .domain([0, percents.length])
+            .range(colors.reverse());
+
+        var legendColors = d3.scale
+            .ordinal()
+            .range(_.clone(colors));
+
+        var svg = d3.select('.bar-chart')
+            .append('svg')
+            .attr({
+              width: width + 100,
+              height: height + 100
+            });
+
+        var border = svg.append('rect')
+            .attr({
+              width: width,
+              height: height
+            })
+            .style({
+              fill: 'transparent',
+              stroke: 'black'
+            })
+            .attr('transform', 'translate(80, 0)');
+
+        var xAxis = d3.svg
+            .axis()
+            .orient('bottom')
+            .scale(xScale)
+            .outerTickSize(0)
+            .innerTickSize(-height)
+            .tickPadding(10)
+            .ticks(11)
+            .tickFormat(function(d, i) {
+              return '$' + numberWithCommas(d);
+            });
+
+        var yAxis = d3.svg
+            .axis()
+            .orient('left')
+            .scale(yScale)
+            .outerTickSize(0)
+            .innerTickSize(-width)
+            .tickFormat(function(d, i) {
+              return percents[i];
+            })
+            .tickPadding(15)
+            .tickValues(d3.range(percents.length));
+
+        var y_axis = svg.append('g')
+            .attr('transform', 'translate(80, 0)')
+            .attr('id', 'yaxis')
+            .call(yAxis)
+            .selectAll('text')
+            .attr('y', tickHeight);
+
+        var x_axis = svg.append('g')
+            .attr('transform', 'translate(80, '+height+')')
+            .attr('id', 'xaxis')
+            .call(xAxis)
+            .selectAll('text')
+            .attr('transform', 'rotate(-40) translate(-60, -10)');
+
+        var chart = svg.append('g')
+            .attr('transform', 'translate(80, '+ barHeight +')')
+            .attr('class', 'bar')
+            .selectAll('rect')
+            .data(data.reverse())
+            .enter()
+            .append('rect')
+            .attr('height', barHeight)
+            .attr({
+              x: 0,
+              y: function(d, i) {
+                return yScale(i);
+              }
+            })
+            .style('fill', function(d, i) {
+              return colorScale(i);
+            })
+            .attr('width', function(d) {
+              return xScale(d);
+            });
+
+        var transitext = d3.select('.bar')
+            .selectAll('text')
+            .data(data)
+            .enter()
+            .append('text')
+            .attr({
+              x: function(d) {
+                return xScale(d) + 10;
+              },
+              y: function(d, i) {
+                return yScale(i) + (barHeight - 5);
+              }
+            })
+            .text(function(d) {
+              return '$' + numberWithCommas(d);
+            })
+            .style({
+              'fill': '6D777D',
+              'font-size': '13px'
+            });
+
+        var legend = d3.select('.horizontal-bar')
+            .append('svg')
+            .attr({
+              width: width + 100,
+              height: 50
+            })
+            .selectAll('.legend')
+            .data(_.clone(percents))
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', function(d, i) {
+              return 'translate('+ -(i * legendSpacing) +', 0)';
+            });
+
+        legend.append('circle')
+            .attr('r', '8')
+            .attr('cy', '10')
+            .attr('cx', width + 15)
+            .style('fill', legendColors);
+
+        legend.append('text')
+            .attr('x', width)
+            .attr('y', 9)
+            .attr('dy', '.35em')
+            .style('text-anchor', 'end')
+            .style('font-size', 12)
+            .text(function(d) {
+              return d;
+            });
+      }// horizontalBarChart
+
+      function verticalBarChart(data, w, h, ls, yearsInput) {
+        var getNames   = _.pluck(_.pluck(data, 'values')[0], 'name');
+        var isPremium  = getNames.length > 6;
+
+        var colorRange = isPremium? _.clone(premColor) : _.clone(freeColor);
+        var names      = isPremium? getNames : getNames;
+        var labels     = isPremium? _.clone(premium) : _.clone(free);
+
+        var width         = w || 900;
+        var height        = h || 450;
+        var legendSpacing = ls || 85;
+        var tickSpacing;
+
+        switch(yearsInput) {
+          case 1: tickSpacing = 450;
+            break;
+          case 2: tickSpacing = 225;
+            break;
+          case 3: tickSpacing = 150;
+            break;
+          case 4: tickSpacing = 115;
+            break;
+          case 5: tickSpacing = 93;
+            break;
+          case 6: tickSpacing = 80;
+            break;
+          case 7: tickSpacing = 70;
+            break;
+          case 8: tickSpacing = 60;
+            break;
+          case 9: tickSpacing = 55;
+            break;
+          default: tickSpacing = 50;
+            break;
+        }
+
+        var colors = d3.scale
+            .ordinal()
+            .range(colorRange);
+
+        var legendColors = d3.scale
+            .ordinal()
+            .range(_.clone(colorRange).reverse());
+
+        var xScale = d3.scale
+            .ordinal()
+            .domain(data.map(function(d) {
+              return d.year;
+            }))
+            .rangeRoundBands([0, width], .1);
+
+        var xScale2 = d3.scale
+            .ordinal()
+            .domain(names)
+            .rangeRoundBands([0, xScale.rangeBand()]);
+
+        var yScale = d3.scale
+            .linear()
+            .range([height, 0])
+            .domain([0, d3.max(data, function(d) {
+              return d3.max(d.values, function(obj) {
+                return obj.value;
+              });
+            })]);
+
+        var xAxis = d3.svg
+            .axis()
+            .scale(xScale)
+            .orient('bottom')
+            .outerTickSize(0)
+            .innerTickSize(-height)
+            .tickPadding(30)
+            .ticks(names.length)
+            .tickFormat(function(d, i) {
+              return d;
+            });
+
+        var yAxis = d3.svg
+            .axis()
+            .scale(yScale)
+            .orient('left')
+            .innerTickSize(-width)
+            .tickPadding(10)
+            .tickFormat(function(d) {
+              return '$'+numberWithCommas(d);
+            });
+
+        var svg = d3.select('.vertical-bar-chart')
+            .append('svg')
+            .attr({
+              width: width + 100,
+              height: height + 120
+            })
+            .append('g');
+
+        var border = svg.append('rect')
+            .attr({
+              width: width,
+              height: height
+            })
+            .style({
+              'fill': 'transparent',
+              'stroke': 'black'
+            })
+            .attr('transform', 'translate(100, 0)');
+
+        var x_axis = svg.append('g')
+            .attr('transform', 'translate(100,' + height + ')')
+            .attr('class', 'xaxis')
+            .call(xAxis)
+            .selectAll('line')
+            .attr('transform', 'translate('+ tickSpacing +', 0)');
+
+        var y_axis = svg.append('g')
+            .attr('transform', 'translate(100, 0)')
+            .attr('class', 'yaxis')
+            .call(yAxis)
+            .append('text')
+            .attr('y', 6);
+
+        var years = svg.selectAll('.year')
+            .data(data)
+            .enter()
+            .append('g')
+            .attr('class', 'year')
+            .attr('transform', function(d) {
+              return 'translate(' + (xScale(d.year) + 107) + ',0)';
+            });
+
+        var chart = years.selectAll('rect')
+            .data(function(d) {
+              return d.values;
+            })
+            .enter()
+            .append('rect')
+            .attr('width', xScale2.rangeBand() - 3)
+            .attr('x', function(d) {
+              return xScale2(d.name);
+            })
+            .attr('y', function(d) {
+              return yScale(d.value);
+            })
+            .attr('height', function(d) {
+              return height - yScale(d.value);
+            })
+            .style('fill', function(d) {
+              return colors(d.name);
+            });
+
+        var legend = d3.select('.vertical-bar')
+            .append('svg')
+            .attr({
+              width: width + 100,
+              height: 30
+            })
+            .selectAll('.legend')
+            .data(_.clone(labels).reverse())
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', function(d, i) {
+              return 'translate('+ -(i * legendSpacing) +', 0)';
+            });
+
+        legend.append('circle')
+            .attr('r', '8')
+            .attr('cy', '10')
+            .attr('cx', width + 15)
+            .style('fill', legendColors);
+
+        legend.append('text')
+            .attr('x', width)
+            .attr('y', 9)
+            .attr('dy', '.35em')
+            .style('text-anchor', 'end')
+            .style('font-size', 12)
+            .text(function(d) {
+              return d;
+            });
+      } // verticalBarChart
+
+      function toggleLinks(data) {
+        var links = ['5years', '10years', '15years', '20years', '25years', '30years', '35years', '40years', '45years', '50years'];
+
+        _.forEach(links, function (val, i) {
+          $('.' + val + '-toggle').toggle(_.has(data[i], val));
+        });
+      }//Toggle Link
+
+      function determineResultsSummaryDisplay(years) {
+        var links = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+        var eightiethBalance = $('#80thPercentileBalance');
+        var lowestBalance    = $('#LowestBalance');
+
+        links.forEach(function(year, i) {
+          if (_.isEqual(year, Number(years))) {
+            eightiethBalance.addClass('80thPercentileBalance'+i);
+            lowestBalance.addClass('LowestBalance'+i);
+          }
+        });
+      }//Determine Results Summary Display
+
+      if ($('#results-data-path').val()) {
+        $('.page-print .graph').html('');
+
+        var dataAccumtable = JSON.parse($('#results-data-path').val());
+        var dataKeytable = JSON.parse($('#results-data-path-keytable').val());
+
+        var data = _.valuesIn(JSON.parse($('#results-data-path').val()));
+
+        // Spending only
+        determineResultsSummaryDisplay(dataKeytable['NumberofYearsinRetirementHorizon']);
+
+        binding(dataAccumtable);
+        binding(dataKeytable);
+
+        if (data) {
+          lineChart(data, 560, 280, 65, 20);
+
+          //Horizontal Chart
+          horizontalBarChart(data, 600, 300, 65);
+        } else {
+          toggleLinks(data.tableHead);
+
+          //Vertical Chart
+          verticalBarChart(data, 580, 290, 65, data.tableHead.length);
+        }
+      }
+      //End Result data summary
+    });
+
+  </script>
+
+</body>
+</html>

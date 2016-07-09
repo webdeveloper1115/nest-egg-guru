@@ -1,0 +1,39 @@
+{{#if infomationReports}}
+<section class="container-white-label-header">
+  <h2 class="text-center print-h1">This report has been provided Courtesy of :</h2>
+  <div class="row">
+    <div class="medium-6 medium-centered columns text-center">
+      <div class="contact-info">
+        <h1 class="print-h1">{{userData.firstName}} {{userData.lastName}}</h1>
+        {{#if infomationReports.companyName }}
+          <p class="print-p-medium">{{userData.company.name}}</p>
+        {{/if}}
+        {{#if infomationReports.phoneNumber }}
+          <p class="print-p-medium">{{userData.company.phone}}</p>
+        {{/if}}
+        {{#if infomationReports.companyEmail }}
+          <p class="print-p-medium">{{userData.company.email}}</p>
+        {{/if}}
+        {{#if infomationReports.website }}
+          <p class="print-p-medium">{{userData.company.url}}</p>
+        {{/if}}
+        {{#if infomationReports.advisorEmail }}
+          <p class="print-p-medium">{{userData.email}}</p>
+        {{/if}}
+      </div>
+      {{#if infomationReports.companyAddress }}
+      <div class="address-info" >
+        <p class="print-p-medium">{{userData.company.address_1}}</p>
+        <p class="print-p-medium">{{userData.company.address_2}}</p>
+        <p class="print-p-medium">{{userData.company.address_city}}, {{userData.company.address_state}} {{userData.company.address_zip}}</p>
+      </div>
+      {{/if}}
+    </div>
+    <div class="medium-12 columns">
+      <div class="print-p-wrap">
+        <p class="print-p-medium">{{userData.company.copy}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{/if}}

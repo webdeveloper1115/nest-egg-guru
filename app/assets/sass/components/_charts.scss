@@ -1,0 +1,149 @@
+.tick line {
+  stroke: $grid-lines;
+}
+
+text {
+  font-size: 10px !important;
+  stroke: $text-color;
+  font-family: $base-font;
+  font-weight: $light-weight;
+}
+.bar-chart {
+  .tick text {
+    @include font-size(15px);
+    @include max-breakpoint(mobile) {
+      @include font-size(13px);
+    }
+  }
+}
+
+.line-chart {
+  .line {
+    fill: url('#area-gradient');
+    stroke-width: 0;
+    shape-rendering: crispEdges;
+  }
+  .tick text {
+    @include font-size(15px);
+    @include max-breakpoint(mobile) {
+      @include font-size(13px);
+    }
+  }
+  .point {
+    text {
+      @include font-size(13px);
+    }
+    circle {
+      fill: $point-fill;
+    }
+  }
+}
+
+.vertical-bar-chart {
+  path.domain {
+    fill: transparent;
+  }
+  text {
+    @include font-size(15px);
+    @include max-breakpoint(mobile) {
+      @include font-size(13px);
+    }
+  }
+}
+
+.table-view,
+.bar-graph-view,
+.line-graph-view {
+  position: relative;
+  .vertical-chart-top-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .vertical-chart-left-title {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 44%;
+    left: -100px;
+    transform: rotate(270deg);
+  }
+
+  margin-top: 38px;
+  @include max-breakpoint(tablet) {
+    .vertical-chart-top-title {
+      font-size: 16px;
+    }
+
+    .vertical-chart-left-title {
+      font-size: 16px !important;
+    }
+  }
+
+  @include max-breakpoint(mobile) {
+    margin-top: 10px;
+  }
+}
+
+.table-view.print-view {
+  margin-left: 30px;
+  .results-table {
+    th, td {
+      font-size: 12px;
+    }
+  }
+}
+
+.bar-graph-view,
+.line-graph-view {
+  text-align: center;
+  @include max-breakpoint(tablet) {
+    overflow-x: scroll;
+    width: 100%;
+  }
+  &.print-view {
+    .legend {
+      right: -30px;
+      &.free {
+        right: 50px;
+      }
+      &.premium {
+        right: -30px;
+      }
+    }
+    .vertical-bar-chart text {
+      font-size: 12px;
+    }
+    .bar-chart .tick text {
+      font-size: 12px;
+    }
+    .line-chart {
+      .point,
+      .tick {
+        text {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.legend {
+  position: relative;
+  right: 150px;
+  &.premium {
+    right: 50px;
+  }
+}
+
+.percent-sign.pie {
+  left: 37px;
+  top: 31px;
+}
+
+.portfolio-input.left.numeric.pie-input {
+  width: 55px;
+  padding: 0;
+  padding-right: 19px;
+  text-align: right;
+}

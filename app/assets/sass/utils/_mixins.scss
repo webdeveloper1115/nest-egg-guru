@@ -1,0 +1,62 @@
+// Mixins
+// --------------------------------
+
+// Animation & Keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes $name { @content; }
+  @-moz-keyframes $name { @content; }
+  @-o-keyframes $name { @content; }
+  @keyframes $name { @content; }
+}
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// Set a rem font size with pixel fallback
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin calculator-input($font-size: 20px,
+                        $line-height: 24px) {
+  display: inline-block;
+  color: $primary-color;
+  background-color: transparent;
+  border-color: $primary-color;
+  box-shadow: none;
+  font-family: $base-font;
+  font-weight: 300;
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: 0;
+  margin: 0;
+  @include max-breakpoint(mobile) {
+    font-size: 18px;
+  }
+}
+
+@mixin portfolio-input($width: 53px,
+                       $font-weight: 300,
+                       $font-size: 18px,
+                       $line-height: 22px) {
+  background-color: $white;
+  border: 1px solid $portfolio-border;
+  width: $width;
+  height: 40px;
+  font-family: $base-font;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  color: $portfolio-label;
+  line-height: $line-height;
+  box-shadow: none;
+  margin: 0;
+}

@@ -1,0 +1,89 @@
+.rangeslider,
+.rangeslider__fill {
+  border: none;
+  outline: none;
+  box-shadow: inset 0px 0px 0px 1px $slider-border;
+  height: 10px;
+  border-radius: 5px;
+  .range-slider-active-segment {
+    height: 10px;
+  }
+}
+
+.rangeslider { 
+  margin: 1.25rem 0;
+  position: relative;
+}
+
+.rangeslider__fill {
+  background: $primary-color;
+  position: absolute;
+  top: 0;
+}
+
+.rangeslider__handle {
+  height: 17px;
+  width: 12px;
+  background-color: $white;
+  border: 1px solid $slider-border;
+  border-bottom: 0;
+  top: -5px;
+  position: absolute;
+  &:hover {
+    background-color: $white;
+  }
+  &:before {
+    content: '.';
+    color: transparent;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 5px solid $slider-border;
+    box-shadow: inset 20px 20px 20px 20px $slider-border;
+    position: absolute;
+    bottom: -5px;
+    left: -1px;
+  }
+  &:after {
+    content: '.';
+    color: transparent;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 4px solid $white;
+    box-shadow: inset 20px 20px 20px 20px $slider-border;
+    position: absolute;
+    bottom: -3.5px;
+    left: 0px;
+  }
+  &:active {
+    background-size: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.12));
+  }
+}
+
+.container-slider {
+  .slider-labels {
+    margin-top: 10px;
+    span {
+      font-family: $base-font;
+      font-size: 11px;
+      color: $slider-label;
+      line-height: 13px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.container-basic-data {
+  p.slider-option {
+    font-family: $special-font;
+    font-size: 14px;
+    color: $slider-border;
+    letter-spacing: 1.16px;
+    line-height: 53px;
+    text-align: center;
+  }
+}

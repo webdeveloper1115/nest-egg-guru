@@ -1,0 +1,42 @@
+.page-financial-professionals {
+	width: 100%;
+	background-color: #F6F9FA;
+	padding: 50px 0;
+	.smtext {
+		margin-bottom: 50px;
+	}
+	@include max-breakpoint(screen-sm) {
+		.plan-header {
+			margin-top: 20px;
+		}
+		.screenshots {
+			height: 300px;
+			margin: 0 auto;
+			text-align: center;
+			display: block;
+		}
+	}
+	h1 {
+		text-align: center;
+	}
+  .cta-btns {
+    display: block;
+    text-align: center;
+    &:first-child {
+      margin-bottom: 15px;
+    }
+  }
+  .call-to-action-link {
+    cursor: pointer;
+    padding-bottom: 15%;
+  }
+}
+
+.basic-list {
+	margin: 0 0 30px 15px;
+	padding: 0;
+	li {
+		list-style: disc;
+		margin-bottom: 20px;
+	}
+}

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="large-12 columns">
+    <label>Choose the information you would like to appear on the reports you provide to your clients</label>
+   	<ul class="no-bullet">
+   		<li><input id="check_advisor_name" name="advisorName" type="checkbox" {{#if advisorName }}checked{{/if}} value="advisorName"><label for="check_advisor_name">Advisor name</label></li>
+   		<li><input id="check_company_name" name="companyName" type="checkbox" {{#if companyName }}checked{{/if}} value="companyName"><label for="check_company_name">Company name</label></li>
+   		<li><input id="check_website" name="website" type="checkbox" {{#if website }}checked{{/if}} value="website"><label for="check_website">Website</label></li>
+   		<li><input id="check_personal_email" name="advisorEmail" type="checkbox" {{#if advisorEmail }}checked{{/if}} value="advisorEmail"><label for="check_personal_email">Advisor email</label></li>
+   		<li><input id="check_company_email" name="companyEmail" type="checkbox" {{#if companyEmail }}checked{{/if}} value="companyEmail"><label for="check_company_email">Company email</label></li>
+   		<li><input id="check_phone_number" name="phoneNumber" type="checkbox" {{#if phoneNumber }}checked{{/if}} value="phoneNumber"><label for="check_phone_number">Phone number</label></li>
+   		<li><input id="check_company_address" name="companyAddress" type="checkbox" {{#if companyAddress }}checked{{/if}} value="companyAddress"><label for="check_company_address">Company Address</label></li>
+   	</ul>
+  </div>
+</div>
+
+<div class="row collapse">
+  {{#if active}}
+    <label for="company-subdomain">Your white label page name <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-bottom info-icon-image" data-tooltip data-options="show_on:medium" title="You cannot change your company subdomain unless you create a new user account."></label>
+    <div class="medium-8 small-7 columns">
+      <input type="text" id="subdomain" class="general-input subdomain no-spaces" id="company-subdomain" name="subdomain" placeholder="Example: xyzadvisorygroup" value="{{subdomain}}" readonly disabled required />
+      <small id="subdomain-error" class="error company-err invisible">Alphanumeric only.</small>
+    </div>
+    <div class="medium-4 small-5 columns">
+      <span class="postfix general-input subdomain-postfix">.NestEggGuru.com</span>
+    </div>
+  {{else}}
+    <label for="company-subdomain">Choose your white label page name</label>
+    <div class="medium-8 small-7 columns">
+      <input type="text" id="subdomain" class="general-input subdomain no-spaces" id="company-subdomain" name="subdomain" placeholder="Example: xyzadvisorygroup" value="{{subdomain}}" required />
+      <small id="subdomain-error" class="error company-err invisible">Alphanumeric only.</small>
+    </div>
+    <div class="medium-4 small-5 columns">
+      <span class="postfix general-input subdomain-postfix">.NestEggGuru.com</span>
+    </div>
+  {{/if}}
+</div>
+<aside class="notes">
+  <p>Your white label page name is the web address you may provide to clients to use Nest Egg Guru. You may also incorporate this link to create a client portal to your Nest Egg Guru calculators from your website.</p>
+</aside>
+<br>
+<div class="row">
+  <div class="large-12 columns">
+    <input type="checkbox" id="lead_gen_tool" name="lead_gen_tool" {{#if lead_gen_tool }}checked{{/if}}>
+    <label for="lead_gen_tool">Include Lead Gen Tool?
+      <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-bottom info-icon-image" data-tooltip data-options="show_on:medium" title="Add a link to your site that allows you to capture the names and email addresses of prospective clients who visit your site and elect to test their retirement strategies in Nest Egg Guru.">
+      {{!-- <span> — $50/Y</span> --}}
+    </label>
+  </div>
+</div>

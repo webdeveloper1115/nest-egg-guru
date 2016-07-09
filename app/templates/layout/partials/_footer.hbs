@@ -1,0 +1,42 @@
+<footer class="clearfix">
+  {{#if whiteLabel.disclosure_info}}
+    <div class="powered-by-nestegg">
+      <div class="container-footer">
+          <p class="tagline">{{whiteLabel.disclosure_info}}</p>
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="container-footer">
+    <div class="footer-nav">
+      <ul class="footer-nav-links">
+        {{!-- <li><a id="backPreviousPage">&larr; Back</a></li> --}}
+        <li><a href="javascript:;" id="reportIssue">Report Issue</a></li>
+        {{#unless whiteLabel}}
+          <li><a href="/about">About</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          {{#if DEVELOPMENT}}
+            <li><a href="http://blog.localhost:2368">Blog</a></li>
+          {{else}}
+            <li><a href="https://blog.{{DOMAIN}}">Blog</a></li>
+          {{/if}}
+        {{/unless}}
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/site">Sitemap</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="https://www.dropbox.com/sh/7o0ttp4z107sg3m/AAAR70SatI6rEwjlq7OfGk-9a">Media Kit</a></li>
+        <li><a class="back-to-top">&uarr; Back To Top</a></li>
+      </ul>
+    </div>
+    <div class="container-social-media hide-for-print">
+      <a class="icon-twitter" href="https://twitter.com/nesteggguru" target="_blank"></a>
+      <a class="icon-facebook" href="https://www.facebook.com/pages/Nest-Egg-Guru/614591835233558" target="_blank"></a>
+      <a class="icon-youtube-play" href="https://www.youtube.com/channel/UCO7zbRIafGb10fco7Afgn7Q" target="_blank"></a>
+      <span class="site-copyright">
+        &copy;<script type="text/javascript">
+          document.write(new Date().getFullYear());
+        </script>. All Rights Reserved.
+      </span>
+    </div>
+  </div>
+</footer>

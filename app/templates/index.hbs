@@ -1,0 +1,285 @@
+<main class="page-home">
+    {{#if whiteLabel}}
+        <section class="hero">
+            <div class="row">
+                <div class="large-6 large-uncentered medium-10 medium-centered small-12 columns">
+                    <h1>Retirement Calculators</h1>
+                    <p class="intro">Nest Egg Guru is unlike any financial planning app you may have tried before. In addition to the calculators' sleek, intuitive design, the savings and spending apps each feature unique functionality that offers a refreshingly different perspective on retirement planning.</p>
+                    <div class="row">
+                        <div class="medium-6 small-12 columns">
+                            <div class="product-box premium-plan">
+                                <span class="product-icon icon-icon-piggybank"></span>
+                                <div class="product-header">Retirement Savings Calculator</div>
+                            </div>
+                            <div class="pricing">{{#if savingsPurchased}}<span class="icon-check granted"></span> {{/if}}</div>
+                            <div class="product-description product-end">
+                                {{#if savingsPurchased}}
+                                    <p>Your <strong>Savings Calculator One Day Pass</strong> is now active!</p>
+                                    <p>Your pass will expire at <strong>{{savingsPurchased}}</strong>.</p>
+                                    <div class="cta"><a href="/savings/premium" class="primary-btn">Get Started</a></div>
+                                {{else}}
+                                    <p>See how changing variables that are within your control (e.g., retirement age, contribution amount, investment allocation, investment expenses, etc.) may affect the value of your nest egg across a diverse range of potential investment outcomes.</p>
+                                    <div class="cta">
+                                        <a href="/savings/premium" class="primary-btn">Get Started</a>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="medium-6 small-12 columns">
+                            <div class="product-box premium-plan">
+                                <span class="product-icon icon-icon-wallet"></span>
+                                <div class="product-header">Retirement Spending Calculator</div>
+                            </div>
+                            <div class="pricing">{{#if spendingPurchased}}<span class="icon-check granted"></span> {{/if}}</div>
+                            <div class="product-description product-end">
+                                {{#if spendingPurchased}}
+                                    <p>Your <strong>Spending Calculator One Day Pass</strong> is now active!</p>
+                                    <p>Your pass will expire at <strong>{{spendingPurchased}}</strong>.</p>
+                                    <div class="cta"><a href="/spending/premium" class="primary-btn">Get Started</a></div>
+                                {{else}}
+                                    <p>Use this app to test how different factors impact how long your nest egg may last in retirement. Use the remaining balance data in the simulation results to help quantify the trade-off between income sustainability and the value that may be left for one's heirs.</p>
+                                    <div class="cta">
+                                        <a href="/spending/premium" class="primary-btn">Get Started</a>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="large-6 large-uncentered medium-10 medium-centered small-12 columns">
+                    <img class="screenshots" src="/img/screenshots-premium.png" alt="Premium Calculators">
+                </div>
+            </div>
+        </section>
+    {{else}}
+
+        <div class="jumbotron">
+            <div id="black"></div>
+            <div class="row">
+
+                <div class="medium-12 columns">
+                  <h1 style="margin-bottom: 0">Intuitive, realistic, inexpensive retirement stress testing software for Financial Professionals<h1>
+                  <!-- <a href="http://www.nesteggguru.io/free-trial-1" class="primary-btn">14 days free trial</a>
+                  <p>No credit required. No software to download.</p>
+                  <span class="btn-homepage"><br></span>
+                  <a href="/features" class="primary-btn">Find out more</a> -->
+                  <div class="row">
+                    <div class="medium-4 columns">
+                      <a href="/user/register?type=financial-professionals&step=info" class="primary-btn">14 days free trial</a>
+                      <p style="font-size: 10px; color: white; text-transform: none; margin-top: 4px; margin-bottom: 10px">No credit required. No software to download.</p>
+                    </div>
+                    <div class="medium-4 columns" style="margin-bottom: 20px">
+                        <a href="/contact" class="primary-btn">Schedule a Demo</a>
+                    </div>
+                    <div class="medium-4 columns">
+                        <a href="/features" class="primary-btn">Find out more</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="financial-pro-container">
+        <div class="row">
+          <div class="large-7 large-uncentered medium-10 medium-centered small-12 columns">
+          <div class="financial-pro">
+            <div class="row">
+              <div class="medium-6 columns">
+                <div class="row">
+                  <div class="small-12 medium-12 text-center columns">
+                    </br></br>
+                    <svg class="icon product-icon"><use xlink:href="#lnr-smile"></use></svg>
+                    <h2>Intuitive Experience</h2>
+                    </br></br>
+                    <svg class="icon product-icon"><use xlink:href="#lnr-chart-bars"></use></svg>
+                    <h2>White Labeled Client Portal</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="medium-6 columns">
+                <div class="row">
+                    <div class="small-12 medium-12 text-center columns">
+                      </br></br>
+                      <svg class="icon product-icon"><use xlink:href="#lnr-heart-pulse"></use></svg>
+                      <h2>Realistic Stress Testing</h2>
+                      </br></br>
+
+                      <svg class="icon product-icon"><use xlink:href="#lnr-checkmark-circle"></use></svg>
+                      <h2>Low Cost</h2>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns">
+                <div class="row">
+                  <div class="small-12 medium-12 text-center columns">
+                    </br>
+                      <div class="small-12 medium-10" style="text-align: right"><img class="new-badge" src="/img/new-badge-48.png"></div>
+                    <svg class="icon product-icon"><use xlink:href="#lnr-rocket"></use></svg>
+                    <h2>Lead Generation Tool</h2>
+                    </br></br>
+                  </div>
+                </div>
+              </div>
+              <div class="medium-6 columns">
+                <div class="row">
+                    <div class="small-12 medium-12 text-center columns">
+                      </br></br>
+                      <svg class="icon product-icon"><use xlink:href="#lnr-laptop-phone"></use></svg>
+                      <h2>Advanced Functionality</h2>
+                      </br></br>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="large-5 large-uncentered medium-10 medium-centered small-12 columns">
+            <img class="screenshots" src="/img/screenshots-branded.png" alt="Branded Premium Calculators">
+          </div>
+        </div>
+      </section>
+      <section class="cta">
+          <div class="row white">
+              <div class="medium-7 medium-centered small-12 columns">
+                  <h1>Fortune Telling vs. Retirement Planning</h1>
+                  <div class="flex-video">
+                    <iframe src="https://www.youtube.com/embed/TCJm8FHhJC8?rel=0" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                  <h1>Looking for software that offers realistic retirement guidance at an affordable price?</h1>
+                  </br>
+              </div>
+
+              <div class="row">
+                <div class="medium-4 columns">
+                  <a href="/user/register?type=financial-professionals&step=info" class="cta-btns">
+                    <button>14 days free trial</button>
+                    <p style="font-size: 10px; text-transform: none; margin-bottom: 10px">No credit required. No software to download.</p>
+                  </a>
+                </div>
+                <div class="medium-4 columns" style="margin-bottom: 20px">
+                    <a href="/contact" class="cta-btns"><button>Schedule a demo</button></a>
+                </div>
+                <div class="medium-4 columns">
+                    <a href="/features" class="cta-btns"><button>Find out more</button></a>
+                </div>
+              </div>
+              <!-- <a href="/contact" class="cta-btns"><button>Schedule a demo</button></a> -->
+          </div>
+      </section>
+
+      <section class="as_seen_on">
+        <div>
+            <h3>Partners</h3>
+        </div>
+        <div class="row partner">
+          <div class="medium-4 columns">
+            <a href="http://www.financialadvisorswebsites.com/" target="_blank">
+              <img src="img/as_seen_on/financialadvisorswebsites.png" alt="Advisor Products" width="250" height="140">
+            </a>
+          </div>
+      		<div class="medium-4 columns">
+            <a href="https://www.advisorproducts.com/" target="_blank">
+              <img src="img/as_seen_on/advisor_products.png" alt="Advisor Products" width="250" height="140">
+            </a>
+          </div>
+      		<div class="medium-4 columns">
+            <a href="https://www.onefpa.org/MyFPA/member-discounts/Pages/FinTech.aspx" target="_blank">
+              <img src="img/as_seen_on/fpa.jpeg" alt="Financial Planning Association" width="140" height="140">
+            </a>
+          </div>
+        </div>
+
+      	<div class="row partner">
+          <div class="medium-4 columns">
+            <a href="http://jw-cole.com/" target="_blank">
+              <img src="img/as_seen_on/jwcole.jpeg" alt="J.W.Cole Financial" width="140" height="140">
+            </a>
+          </div>
+      		<div class="medium-4 columns">
+            <a href="https://www.advisors4advisors.com/" target="_blank">
+              <img src="img/as_seen_on/advisors.png" alt="Advisors4advisors" width="250" height="140">
+            </a>
+          </div>
+      		<div class="medium-4 columns">
+            <a href="https://advisorbid.com/" target="_blank">
+              <img src="img/as_seen_on/advisor_bid.png" alt="Advisor Bid" width="250" height="140">
+            </a>
+          </div>
+        </div>
+
+        <div class="row partner">
+          <div class="medium-4 columns">
+            <a href="https://twentyoverten.com/" target="_blank">
+              <img src="img/as_seen_on/twentyoverten.png" alt="Twenty Over Ten" width="250" height="140">
+            </a>
+          </div>
+          <div class="medium-4 columns">
+            <a href="http://www.miagd.com/" target="_blank">
+              <img src="img/as_seen_on/miagd.jpeg" alt="Miagd" width="250" height="140">
+            </a>
+          </div>
+          <div class="medium-4 columns">
+            <a href="https://fmgsuite.com/" target="_blank">
+              <img src="img/as_seen_on/fmgsuite.png" alt="Fmgsuite" width="250" height="140">
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta padding-5">
+          <div>
+              <h3>As Seen On</h3>
+          </div>
+          <div class="row features">
+              <div class="medium-4 columns">
+                <img class="screenshots" src="/img/as_seen_on/logo1.png" alt="NerdWallet">
+              </div>
+              <div class="medium-4 columns">
+                <img class="screenshots" src="/img/as_seen_on/logo2.png" alt="NASDAQ">
+              </div>
+              <div class="medium-4 columns">
+                <img class="screenshots" src="/img/as_seen_on/logo3.png" alt="Blue Startups">
+              </div>
+          </div>
+          <div class="row features">
+              <div class="medium-4 columns">
+                <img class="screenshots" src="/img/as_seen_on/logo4.jpg" alt="Christian Science Monitor">
+              </div>
+              <div class="medium-4 columns">
+                <img class="screenshots" src="/img/as_seen_on/logo5.png" alt="Investopia">
+              </div>
+              <div class="medium-4 columns">
+                <img class="screenshots" src="/img/as_seen_on/logo6.png" alt="Yahoo Finance">
+              </div>
+          </div>
+
+          <div class="row white">
+              <div class="medium-10 medium-centered small-12 columns">
+                  <h1>Do your clients want intuitive design features and easy-to-understand reports?</h1>
+                  </br>
+
+              </div>
+
+              <div class="row">
+                <div class="medium-4 columns">
+                  <a href="/user/register?type=financial-professionals&step=info" class="cta-btns">
+                    <button>14 days free trial</button>
+                    <p style="font-size: 10px; text-transform: none; margin-bottom: 10px">No credit required. No software to download.</p>
+                  </a>
+                </div>
+                <div class="medium-4 columns" style="margin-bottom: 20px">
+                    <a href="/contact" class="cta-btns"><button>Schedule a demo</button></a>
+                </div>
+                <div class="medium-4 columns">
+                    <a href="/features" class="cta-btns"><button>Find out more</button></a>
+                </div>
+                <!-- <a href="/contact" class="cta-btns"><button>Book a demo</button></a> -->
+              </div>
+          </div>
+      </section>
+
+    {{/if}}
+
+</main>

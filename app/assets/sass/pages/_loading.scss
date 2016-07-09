@@ -1,0 +1,23 @@
+.page-loading {
+  margin-top: -25px;
+  margin-bottom: -50px;
+	min-height: 100vh;
+	padding: 50px 0;
+	background: #49BC6B;
+  text-align: center;
+	h1 {
+		font-size: rem-calc(30px);
+		color: #fff;
+		margin: 10% auto 30px auto;
+    margin-top: 200px;
+		@include max-breakpoint(screen-sm) {
+			font-size: 22px;
+		}
+	}
+	img {
+		margin-bottom: 10%;
+		@include max-breakpoint(screen-sm) {
+			width: 30%;
+		}
+	}
+}

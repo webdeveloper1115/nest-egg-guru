@@ -1,0 +1,24 @@
+<main class="page-register">
+
+  <div class="banner">
+    <h1>Confirm Payment</h1>
+    <p>Enter your payment information below.</p>
+  </div>
+
+  <div class="row">
+    {{!-- left column --}}
+    <div class="large-6 columns">
+      <div class="tabs-content">
+        {{#compare type "Subscription"}}
+          {{> register/_financial_professionals}}
+        {{else}}
+          {{> register/_24hr_pass}}
+        {{/compare}}
+      </div>
+    </div>
+
+    {{!-- right column --}}
+    {{> register/_products}}
+  </div>
+
+</main>

@@ -1,0 +1,2 @@
+sudo NODE_ENV=production forever start -a -o logs/out.log -e logs/err.log --minUptime 5000 --spinSleepTime 5000 --uid "nest-egg-guru" server.js
+sudo NODE_ENV=production forever start -a -o logs/blog-out.log -e logs/blog-err.log --minUptime 5000 --spinSleepTime 5000 --uid "nest-egg-guru-blog" ghost/nest-egg-guru-blog/index.js

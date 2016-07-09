@@ -1,0 +1,127 @@
+.shared-form {
+  margin: 40px 0;
+  clear: both;
+  .notes {
+    background: $notes-bg;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    p {
+      color: $notes-color;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+  #reset-password-container {
+    padding: 16px 0 24px 0;
+  }
+  #company-logo {
+    height: 0;
+    width: 0;
+  }
+  .company-logo {
+    width: 90px;
+    height: 90px;
+    border: 3px dashed #E3E8EC;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: $white;
+    margin-right: 20px;
+    padding: 5px;
+    float: left;
+    @include max-breakpoint(screen-xs) {
+      margin-bottom: 10px;
+    }
+  }
+  .company-logo-exists {
+    width: 90px;
+    height: 90px;
+    border: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: none;
+    margin-right: 20px;
+    padding: 5px;
+    float: left;
+    @include max-breakpoint(screen-xs) {
+      margin-bottom: 10px;
+    }
+  }
+  .button-group {
+    .primary-btn, .secondary-btn {
+      font-size: 12px;
+      padding: 5px 15px;
+    }
+    @include max-breakpoint(screen-xs) {
+      display: block;
+    }
+  }
+  textarea {
+    min-height: 100px;
+  }
+  label {
+    @include max-breakpoint(screen-md) {
+      font-size: 12px;
+    }
+  }
+  .subdomain {
+    border-radius: 3px 0px 0px 3px !important;
+    border-right: 0;
+  }
+  .subdomain-postfix {
+    border-radius: 0px 3px 3px 0px !important;
+    padding: 0 !important;
+    font-size: 14px;
+  }
+  .display-subdomain {
+    display: block;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 48px;
+  }
+}
+
+input.hidden {
+  display: none;
+}
+
+input.hidden-hack {
+  width: 0;
+  height: 0;
+  float: right;
+  margin: 0;
+  right: 0;
+  cursor: default;
+  background-color: transparent;
+  border: none;
+}
+
+#logo-preview {
+  overflow: hidden;
+}
+.preview-logo-confirm {
+  img {
+    height: inherit;
+  }
+}
+
+.disabled-results {
+  pointer-events: none;
+  cursor: default;
+}
+
+.email-sent {
+  color: $white;
+  background-color: $primary-color;
+  font-style: italic;
+  font-weight: 400;
+  display: block;
+  font-size: .75rem;
+  margin-top: -1px;
+  padding: .375rem .5625rem .5625rem;
+}

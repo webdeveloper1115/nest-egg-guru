@@ -1,0 +1,298 @@
+#!/bin/bash
+#
+# An init.d script for running a Node.js process as a service using Forever as
+# the process monitor. For more configuration options associated with Forever,
+# see: https://github.com/nodejitsu/forever
+#
+# This was written for Debian distributions such as Ubuntu, but should still
+# work on RedHat, Fedora, or other RPM-based distributions, since none of the
+# built-in service functions are used. So information is provided for both.
+#
+### BEGIN INIT INFO
+# Provides:             nestegg
+# Required-Start:       $syslog $remote_fs
+# Required-Stop:        $syslog $remote_fs
+# Should-Start:         $local_fs
+# Should-Stop:          $local_fs
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Nest Egg Guru website
+# Description:          This is the Nest Egg Guru website
+### END INIT INFO
+#
+### BEGIN CHKCONFIG INFO
+# chkconfig: 2345 55 25
+# description: My Application
+### END CHKCONFIG INFO
+#
+# Based on:
+# https://gist.github.com/3748766
+# https://github.com/hectorcorrea/hectorcorrea.com/blob/master/etc/forever-initd-hectorcorrea.sh
+# https://www.exratione.com/2011/07/running-a-nodejs-server-as-a-service-using-forever/
+#
+# The example environment variables below assume that Node.js is installed by
+# building from source with the standard settings.
+#
+# It should be easy enough to adapt to the paths to be appropriate to a package
+# installation, but note that the packages available in the default repositories
+# are far behind the times. Most users will be building from source to get a
+# suitably recent Node.js version.
+#
+# An application name to display in echo text.
+# NAME="My Application"
+# The full path to the directory containing the node and forever binaries.
+# NODE_BIN_DIR="/usr/local/node/bin"
+# Set the NODE_PATH to the Node.js main node_modules directory.
+# NODE_PATH="/usr/local/lib/node_modules"
+# The application startup Javascript file path.
+# APPLICATION_PATH="/home/user/my-application/start-my-application.js"
+# Process ID file path.
+# PIDFILE="/var/run/my-application.pid"
+# Log file path.
+# LOGFILE="/var/log/my-application.log"
+# Forever settings to prevent the application spinning if it fails on launch.
+# MIN_UPTIME="5000"
+# SPIN_SLEEP_TIME="2000"
+
+NAME="Nest Egg Guru"
+NODE_BIN_DIR="/usr/local/node/bin"
+NODE_PATH="/usr/local/lib/node_modules"
+APPLICATION_PATH="/var/www/nest-egg-guru/server.js"
+#PIDFILE="/var/run/nesteggguru.pid"
+PIDFILE1="/var/run/nesteggguru1.pid"
+PIDFILE2="/var/run/nesteggguru2.pid"
+PIDFILE3="/var/run/nesteggguru3.pid"
+PIDFILE4="/var/run/nesteggguru4.pid"
+#LOGFILE="/var/log/nesteggguru.log"
+LOGFILE1="/var/log/nesteggguru1.log"
+LOGFILE2="/var/log/nesteggguru2.log"
+LOGFILE3="/var/log/nesteggguru3.log"
+LOGFILE4="/var/log/nesteggguru4.log"
+BLOG_NAME="Nest Egg Blog"
+BLOG_APPLICATION_PATH="/var/www/nesteggguru.com/ghost/nest-egg-guru-blog/index.js"
+BLOG_PIDFILE="/var/run/nestegg_blog.pid"
+BLOG_LOGFILE="/var/log/nestegg_blog.log"
+MIN_UPTIME="5000"
+SPIN_SLEEP_TIME="2000"
+PORT1=8000
+PORT2=8001
+PORT3=8002
+PORT4=8003
+
+# Add node to the path for situations in which the environment is passed.
+PATH=$NODE_BIN_DIR:$PATH
+# Export all environment variables that must be visible for the Node.js
+# application process forked by Forever. It will not see any of the other
+# variables defined in this script.
+export NODE_PATH=$NODE_PATH
+export NODE_ENV="production"
+#export PORT=8000
+export STORMPATH_API_KEY_ID='6V9CZP5RB8UASAQ93FN5PMQUP'
+export STORMPATH_API_KEY_SECRET='6fF2w//wFAKEg8xpKUwf5hsx1WHzN/acKIxIH/aWQfc'
+export STORMPATH_APP_HREF='https://api.stormpath.com/v1/applications/5FHefOQZxsuFGBKzWC6Jky'
+export EXPRESS_SECRET=kingtakfeet
+export DB_NAME=nesteggcms
+export DB_USER=nesteggweb
+export DB_PSWD=N35t3666uRu
+#add production stripe keys
+export ADMIN_USER="Guru@NestEggGuru.com"
+export MADMIMI_API_KEY="6717452cc99c9a029f964fb1d0887217"
+export STRIPE_PUBLIC_KEY="pk_live_HaxJgyIcDAnBVTCWIil7wLUu"
+export STRIPE_SECRET_KEY="sk_live_1rIcZuIWlAV2TzBLNNTfxeU0"
+export AWS_BUCKET="nestegg-production"
+export AWS_ACCESS_KEY_ID="AKIAJ6IXEJ64XRSY6YSQ"
+export AWS_SECRET_ACCESS_KEY="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"
+export VERSION="1.0"
+export MAILGUN_PSWD="a7fc6b4a14273bbea68b01e2d851eccb"
+cd /var/www/nest-egg-guru
+
+start() {
+    echo "Starting $NAME"
+    # We're calling forever directly without using start-stop-daemon for the
+    # sake of simplicity when it comes to environment, and because this way
+    # the script will work whether it is executed directly or via the service
+    # utility.
+    #
+    # The minUptime and spinSleepTime settings stop Forever from thrashing if
+    # the application fails immediately on launch. This is generally necessary to
+    # avoid loading development servers to the point of failure every time
+    # someone makes an error in application initialization code, or bringing down
+    # production servers the same way if a database or other critical service
+    # suddenly becomes inaccessible.
+    #
+    # The pidfile contains the child process pid, not the forever process pid.
+    # We're only using it as a marker for whether or not the process is
+    # running.
+    #
+    # Note that redirecting the output to /dev/null (or anywhere) is necessary
+    # to make this script work if provisioning the service via Chef.
+    REDIS_SERVICE=redis-server
+    REDIS_STARTUP=/etc/init.d/redis_6379
+    if ps ax | grep -v grep | grep $REDIS_SERVICE > /dev/null
+    then
+        echo "Redis running"
+    else
+        $REDIS_STARTUP start > /dev/null
+        echo "Started $REDIS_STARTUP"
+    fi
+    PORT=$PORT1 forever \
+      --pidFile $PIDFILE1 \
+      -a \
+      -l $LOGFILE1 \
+      --uid "neg1" \
+      --minUptime $MIN_UPTIME \
+      --spinSleepTime $SPIN_SLEEP_TIME \
+      start $APPLICATION_PATH 2>&1 > /dev/null &
+    RETVAL=$?
+
+    PORT=$PORT2 forever \
+      --pidFile $PIDFILE2 \
+      -a \
+      -l $LOGFILE2 \
+      --uid "neg2" \
+      --minUptime $MIN_UPTIME \
+      --spinSleepTime $SPIN_SLEEP_TIME \
+      start $APPLICATION_PATH 2>&1 > /dev/null &
+    RETVAL=$?
+
+    PORT=$PORT3 forever \
+      --pidFile $PIDFILE3 \
+      -a \
+      -l $LOGFILE3 \
+      --uid "neg3" \
+      --minUptime $MIN_UPTIME \
+      --spinSleepTime $SPIN_SLEEP_TIME \
+      start $APPLICATION_PATH 2>&1 > /dev/null &
+    RETVAL=$?
+
+
+    PORT=$PORT4 forever \
+      --pidFile $PIDFILE4 \
+      -a \
+      -l $LOGFILE4 \
+      --uid "neg4" \
+      --minUptime $MIN_UPTIME \
+      --spinSleepTime $SPIN_SLEEP_TIME \
+      start $APPLICATION_PATH 2>&1 > /dev/null &
+    RETVAL=$?
+
+    echo "Starting $BLOG_NAME"
+    forever \
+      --pidFile $BLOG_PIDFILE \
+      -a \
+      -l $BLOG_LOGFILE \
+      --minUptime $MIN_UPTIME \
+      --spinSleepTime $SPIN_SLEEP_TIME \
+      start $BLOG_APPLICATION_PATH 2>&1 > /dev/null &
+    RETVAL=$?
+}
+
+stop() {
+    if [ -f $PIDFILE1 ]; then
+        echo "Shutting down $NAME"
+        # Tell Forever to stop the process.
+        forever stop $APPLICATION_PATH 2>&1 > /dev/null
+        # Get rid of the pidfile, since Forever won't do that.
+        rm -f $PIDFILE1
+        RETVAL=$?
+    else
+        echo "$NAME is not running."
+        RETVAL=0
+    fi
+
+    if [ -f $PIDFILE2 ]; then
+        echo "Shutting down $NAME"
+        # Tell Forever to stop the process.
+        forever stop $APPLICATION_PATH 2>&1 > /dev/null
+        # Get rid of the pidfile, since Forever won't do that.
+        rm -f $PIDFILE2
+        RETVAL=$?
+    else
+        echo "$NAME is not running."
+        RETVAL=0
+    fi
+
+    if [ -f $PIDFILE3 ]; then
+        echo "Shutting down $NAME"
+        # Tell Forever to stop the process.
+        forever stop $APPLICATION_PATH 2>&1 > /dev/null
+        # Get rid of the pidfile, since Forever won't do that.
+        rm -f $PIDFILE3
+        RETVAL=$?
+    else
+        echo "$NAME is not running."
+        RETVAL=0
+    fi
+
+    if [ -f $PIDFILE4 ]; then
+        echo "Shutting down $NAME"
+        # Tell Forever to stop the process.
+        forever stop $APPLICATION_PATH 2>&1 > /dev/null
+        # Get rid of the pidfile, since Forever won't do that.
+        rm -f $PIDFILE4
+        RETVAL=$?
+    else
+        echo "$NAME is not running."
+        RETVAL=0
+    fi
+
+    if [ -f $BLOG_PIDFILE ]; then
+        echo "Shutting down $BLOG_NAME"
+        # Tell Forever to stop the process.
+        forever stop $BLOG_APPLICATION_PATH 2>&1 > /dev/null
+        # Get rid of the pidfile, since Forever won't do that.
+        rm -f $BLOG_PIDFILE
+        RETVAL=$?
+    else
+        echo "$BLOG_NAME is not running."
+        RETVAL=0
+    fi
+}
+
+restart() {
+    stop
+    start
+}
+
+status() {
+    # On Ubuntu this isn't even necessary. To find out whether the service is
+    # running, use "service my-application status" which bypasses this script
+    # entirely provided you used the service utility to start the process.
+    #
+    # The commented line below is the obvious way of checking whether or not a
+    # process is currently running via Forever, but in recent Forever versions
+    # when the service is started during Chef provisioning a dead pipe is left
+    # behind somewhere and that causes an EPIPE exception to be thrown.
+    # forever list | grep -q "$APPLICATION_PATH"
+    #
+    # So instead we add an extra layer of indirection with this to bypass that
+    # issue.
+    echo `forever list` | grep -q "$APPLICATION_PATH"
+    if [ "$?" -eq "0" ]; then
+        echo "$NAME is running."
+        RETVAL=0
+    else
+        echo "$NAME is not running."
+        RETVAL=3
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
+exit $RETVAL

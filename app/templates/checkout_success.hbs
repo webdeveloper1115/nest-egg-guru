@@ -1,0 +1,170 @@
+<main class="page-access-granted">
+	<div class="banner">
+		<h1>Access Granted for {{capitalize user.fullName}}</h1>
+		{{#compare type "Subscription"}}
+			<p>Unless you have entered a coupon code <strong>${{amount}}</strong> will be charged to card ending with <strong>{{last4}}</strong>. Your order will appear as a payment labelled <strong>Nest Egg Guru</strong> on your bank or credit card statement within a few days of purchase.</p>
+		{{/compare}}
+
+		{{#compare type "Trial"}}
+			<p>Trial Subscription</p>
+		{{/compare}}
+	</div>
+
+	<div class="row">
+		<div class="medium-9 medium-centered columns">
+
+			{{#compare type "Subscription"}}
+				<div class="row">
+					<div class="medium-6 columns">
+						<div class="product-box whitelabel-plan">
+							<span class="product-icon icon-icon-graphs"></span>
+							<div class="product-header">{{startCase subscription}} Subscription</div>
+						</div>
+						<div class="pricing"><span class="icon-check granted"></span> Unlimited Access — ${{rmCents amount}}/{{#compare subscription 'financialProfessionalMonthly'}}mo{{else}}yr{{/compare}}</div>
+						<div class="product-description product-end">
+							<p>Your <strong>{{startCase subscription}} Subscription</strong> is now active!</p>
+							<p>Your pass will expire at <strong>{{toDate expires}}</strong>.</p>
+							<p>Lead Gen Tool: {{#if lead_gen_tool }}<b>On</b>{{else}}<b>Off</b>{{/if}}</p>
+							<div class="cta"><a href="http://{{subdomain}}.{{DOMAIN}}" class="primary-btn">Get Started</a></div>
+						</div>
+					</div>
+					<div class="medium-6 columns">
+
+						<h2 class="mid-margin-vertical">Your White Label Client Portal</h2>
+						<div class="cta"><a href="http://{{subdomain}}.{{DOMAIN}}" target="_blank">http://{{subdomain}}.{{DOMAIN}}</a></div>
+						<p>You may share this link with your clients and/or provide it to your website designer to build into your website as a client facing portal.</p>
+
+
+						<h2 class="mid-margin-vertical">Embed Code</h2>
+						<p>Copy this code and give it to your website designer to embed directly into your website for clients to use. You may work with your website designer to determine where on your website you would like your calculators to appear. Here is an example of how the embedded calculators may appear - <a href="http://{{subdomain}}.{{DOMAIN}}" target="_blank">SAMPLE</a></p>
+						<textarea class="embed-code" disabled>
+{{> shared/_calculator_iframe_embed }}
+						</textarea>
+					</div>
+				</div>
+			{{/compare}}
+
+			{{#compare type "Pass"}}
+				<div class="row">
+				  {{#compare purchase 'bothCalculators'}}
+				    <div class="medium-6 small-12 columns vertline">
+				      <div class="product-box premium-plan">
+				        <span class="product-icon icon-icon-piggybank"></span>
+				        <div class="product-header">Retirement Savings Calculator<span class="product-label">Premium</span></div>
+				      </div>
+				      <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+				      <div class="product-description product-end">
+				        <p>Your <strong>Savings Calculator One Day Pass</strong> is now active!</p>
+				        <p>Your pass will expire at <strong>{{toDate expires}}</strong>.</p>
+				        <div class="cta"><a href="/savings/premium" class="primary-btn">Get Started</a></div>
+				      </div>
+				    </div>
+
+				    <div class="medium-6 small-12 columns">
+				      <div class="product-box premium-plan">
+				        <span class="product-icon icon-icon-wallet"></span>
+				        <div class="product-header">Retirement Spending Calculator<span class="product-label">Premium</span></div>
+				      </div>
+				      <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+				      <div class="product-description product-end">
+				        <p>Your <strong>Spending Calculator One Day Pass</strong> is now active!</p>
+				        <p>Your pass will expire at <strong>{{toDate expires}}</strong>.</p>
+				        <div class="cta"><a href="/spending/premium" class="primary-btn">Get Started</a></div>
+				      </div>
+				    </div>
+				  {{else}}
+				    {{#compare purchase 'savingsCalculator'}}
+              <div class="medium-6 small-12 columns {{#if user.customData.spendingCalculator}}vertline{{/if}}">
+				        <div class="product-box premium-plan">
+				          <span class="product-icon icon-icon-piggybank"></span>
+				          <div class="product-header">Retirement Savings Calculator<span class="product-label">Premium</span></div>
+				        </div>
+				        <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+				        <div class="product-description product-end">
+				          <p>Your <strong>Savings Calculator One Day Pass</strong> is now active!</p>
+				          <p>Your pass will expire at <strong>{{toDate user.customData.savingsCalculator}}</strong>.</p>
+				          <div class="cta"><a href="/savings/premium" class="primary-btn">Get Started</a></div>
+				        </div>
+				      </div>
+
+              {{#if user.customData.spendingCalculator}}
+                <div class="medium-6 small-12 columns">
+                  <div class="product-box premium-plan">
+                    <span class="product-icon icon-icon-wallet"></span>
+                    <div class="product-header">Retirement Spending Calculator<span class="product-label">Premium</span></div>
+                  </div>
+                  <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+                  <div class="product-description product-end">
+                    <p>Your <strong>Spending Calculator One Day Pass</strong> is now active!</p>
+                    <p>Your pass will expire at <strong>{{toDate user.customData.spendingCalculator}}</strong>.</p>
+                    <div class="cta"><a href="/spending/premium" class="primary-btn">Get Started</a></div>
+                  </div>
+                </div>
+              {{/if}}
+
+				    {{else}}
+              {{#if user.customData.savingsCalculator}}
+                <div class="medium-6 small-12 columns {{#if user.customData.savingsCalculator}}vertline{{/if}}">
+                  <div class="product-box premium-plan">
+                    <span class="product-icon icon-icon-piggybank"></span>
+                    <div class="product-header">Retirement Savings Calculator<span class="product-label">Premium</span></div>
+                  </div>
+                  <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+                  <div class="product-description product-end">
+                    <p>Your <strong>Savings Calculator One Day Pass</strong> is now active!</p>
+                    <p>Your pass will expire at <strong>{{toDate user.customData.savingsCalculator}}</strong>.</p>
+                    <div class="cta"><a href="/savings/premium" class="primary-btn">Get Started</a></div>
+                  </div>
+                </div>
+              {{/if}}
+				      <div class="medium-6 small-12 columns">
+				        <div class="product-box premium-plan">
+				          <span class="product-icon icon-icon-wallet"></span>
+				          <div class="product-header">Retirement Spending Calculator<span class="product-label">Premium</span></div>
+				        </div>
+				        <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+				        <div class="product-description product-end">
+				          <p>Your <strong>Spending Calculator One Day Pass</strong> is now active!</p>
+				          <p>Your pass will expire at <strong>{{toDate user.customData.spendingCalculator}}</strong>.</p>
+				          <div class="cta"><a href="/spending/premium" class="primary-btn">Get Started</a></div>
+				        </div>
+				      </div>
+				    {{/compare}}
+				  {{/compare}}
+				</div>
+			{{/compare}}
+
+			{{#compare type "Trial"}}
+				<div class="row">
+					<div class="medium-6 columns">
+						<div class="product-box whitelabel-plan">
+							<span class="product-icon icon-icon-graphs"></span>
+							<div class="product-header">Trial Subscription</div>
+						</div>
+						<div class="pricing"><span class="icon-check granted"></span> 14 Days Access</div>
+						<div class="product-description product-end">
+							<p>Your <strong>Trial Subscription</strong> is now active!</p>
+							<p>Your pass will expire at <strong>{{toDate expires}}</strong>.</p>
+							<p>Lead Gen Tool: {{#if lead_gen_tool }}<b>On</b>{{else}}<b>Off</b>{{/if}}</p>
+							<div class="cta"><a href="http://{{subdomain}}.{{DOMAIN}}" class="primary-btn">Get Started</a></div>
+						</div>
+					</div>
+					<div class="medium-6 columns">
+
+						<h2 class="mid-margin-vertical">Your White Label Client Portal</h2>
+						<div class="cta"><a href="http://{{subdomain}}.{{DOMAIN}}" target="_blank">http://{{subdomain}}.{{DOMAIN}}</a></div>
+						<p>You may share this link with your clients and/or provide it to your website designer to build into your website as a client facing portal.</p>
+
+
+						<h2 class="mid-margin-vertical">Embed Code</h2>
+						<p>Copy this code and give it to your website designer to embed directly into your website for clients to use. You may work with your website designer to determine where on your website you would like your calculators to appear. Here is an example of how the embedded calculators may appear - <a href="http://{{subdomain}}.{{DOMAIN}}" target="_blank">SAMPLE</a></p>
+						<textarea class="embed-code" disabled>
+	{{> shared/_calculator_iframe_embed }}
+						</textarea>
+					</div>
+				</div>
+			{{/compare}}
+
+		</div>
+	</div>
+</main>

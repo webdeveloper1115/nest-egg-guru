@@ -1,0 +1,201 @@
+<main class="page-myacct">
+	<div class="banner">
+		<h1>My Account</h1>
+		{{#if company.active}}
+			<p>Edit your name, company information, etc.</p>
+			<input type="hidden" id="isFinancialProfessionals" value="true">
+		{{else}}
+			<p>Edit your account information</p>
+		{{/if}}
+		<div class="user-success">{{successMessages}}</div>
+	</div>
+
+	<div class="row">
+		<div data-alert class="large-12 columns text-center">
+			USE THIS LINK TO BEGIN RUNNING YOUR WHITE LABEL SUBSCRIPTION TO NEST EGG GURU <a href="https://{{company.subdomain}}.nesteggguru.com" style="font-size: 18px;">https://{{company.subdomain}}.nesteggguru.com</a>
+		</div>
+	</div>
+
+	<!-- left column -->
+	<div class="row">
+		<form id="account-form" class="register-form shared-form clearfix" method="POST" action="/user" role="form" enctype="multipart/form-data" novalidate>
+			<div class="large-6 columns">
+				<h2 class="notopmargin">Account Information</h2>
+				<div class="user-errors">{{accountMessages}}</div>
+				{{#with user}}
+					{{> forms/_account_info}}
+				{{/with}}
+
+			  {{#with company}}
+			  	<h2>General Information</h2>
+			  	{{> forms/_general_info}}
+
+			  	<h2>Customize your Nest Egg Guru financial advisor page</h2>
+        		{{> forms/_custom_page}}
+			  {{/with}}
+			 </div>
+
+			<!-- right column -->
+			<div class="large-6 columns">
+				{{#with company}}
+					<h2 class="notopmargin">Company Information</h2>
+	    		{{> forms/_company_info}}
+	    	{{/with}}
+        {{#with company}}
+		    	<h2 class="{{#if company.active}}notopmargin{{/if}}">Embed Link</h2>
+		    	<p>Copy the code to embed this instance of Nest Egg Guru onto your website:</p>
+		    	<textarea disabled>
+{{> shared/_calculator_iframe_embed }}
+		    	</textarea>
+	    	{{/with}}
+
+				<h2 class="{{#if user}}notopmargin{{/if}}">Subscriptions</h2>
+				{{!-- {{> forms/_one_day_subscriptions}} --}}
+				{{#if company.subscription_subscribed}}
+				  <div class="row">
+				  	{{#if company.active}}
+					  	<div class="financialProfessionalMonthly-card cancel-subscription medium-6 small-12 columns">
+					  		<div class="product-box whitelabel-plan">
+					  			<input class="radio-btns" type="radio" name="subscription" {{#compare subscriptions.calculatorType "financialProfessionalMonthly"}}checked{{else}} data-reveal-id="firstModal" {{/compare}}>
+					  			<span class="product-icon icon-icon-graphs"></span>
+					  			<div class="product-header">Financial Professional Monthly Subscription</div>
+					  		</div>
+					  		<div class="pricing product-end">Unlimited Access — $30/mo</div>
+					  	</div>
+
+					  	<div class="financialProfessionalYearly-card cancel-subscription medium-6 small-12 columns">
+					  		<div class="product-box whitelabel-plan">
+					  			<input class="radio-btns" type="radio" name="subscription" {{#compare subscriptions.calculatorType "financialProfessionalYearly"}}checked {{else}} data-reveal-id="firstModal" {{/compare}}>
+					  			<span class="product-icon icon-icon-graphs"></span>
+					  			<div class="product-header">Financial Professional Yearly Subscription</div>
+					  		</div>
+					  		<div class="pricing product-end">Unlimited Access — $300/yr</div>
+					  	</div>
+				  	{{/if}}
+
+				  	<div class="financialProfessionalMonthly cancel-subscription medium-6 small-12 columns" hidden>
+				  		<div class="product-box whitelabel-plan">
+				  			<span class="product-icon icon-icon-graphs"></span>
+				  			<div class="product-header">Financial Professional Monthly Subscription</div>
+				  		</div>
+				  		<div class="pricing product-end">Unlimited Access — $30/mo</div>
+				  	</div>
+
+				  	<div class="financialProfessionalYearly cancel-subscription medium-6 small-12 columns" hidden>
+				  		<div class="product-box whitelabel-plan">
+				  			<span class="product-icon icon-icon-graphs"></span>
+				  			<div class="product-header">Financial Professional Yearly Subscription</div>
+				  		</div>
+				  		<div class="pricing product-end">Unlimited Access — $300/yr</div>
+				  	</div>
+					</div>
+
+					<div class="row">
+						<div class="small-12 columns toggle-btns">
+							<div class="toggle confirm-btn">
+								{{#if company.active}}Cancel Subscription{{else}}Reactivate Subscription{{/if}}
+							</div>
+							<div class="toggle confirm-btn cancel-toggle" hidden>Reactivate Subscription</div>
+							<div class="toggle confirm-btn reactivate-toggle" hidden>Cancel Subscription</div>
+							<div class="confirm-toggle confirm-btn" hidden>Are You Sure?</div>
+						</div>
+					</div>
+				{{else}}
+					<button type="button" name="button" data-reveal-id="releasePaymentModal">Payment</button>
+				{{/if}}
+			</div>
+
+		  <div class="rows clearfix">
+		  	<div class="small-12 columns">
+				  <hr>
+				  <button type="submit" class="edit-account primary-btn">Edit</button>
+				  <button type="submit" class="save-account hide primary-btn">Save</button>
+				</div>
+			</div>
+
+		</form>
+		<form id="submit-form" class="ajax-form" action="/user/subscription/{{#if company.active}}cancel{{else}}reactivate{{/if}}">
+			<input type="text" class="hidden-hack">
+			<input type="number" class="hidden" name="userId" value="{{user.id}}">
+			<input type="text" class="hidden" name="subdomain" value="{{company.subdomain}}">
+		</form>
+	</div>
+
+	<div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+	  <h2 id="modalTitle">Change Subscription</h2>
+	  <div class="row">
+	  	<div class="large-12 large-collapse columns">
+			  <p>You're about to change your plan to <strong>Financial Professional {{#compare subscriptions.calculatorType "financialProfessionalMonthly"}}Yearly{{else}}Monthly{{/compare}} Subscription</strong>. Your card ending in <strong class="card-number">{{last4}}</strong> will be charged <strong>{{#compare subscriptions.calculatorType "financialProfessionalMonthly"}}$300 Yearly{{else}}$30 Monthly{{/compare}}</strong>.</p>
+			</div>
+			<form class="ajax-form" data="ajax" action="/user/subscription/update" method="POST" role="form" data-abide="ajax">
+				<input type="text" class="hidden-hack">
+				<hr class="clearfix">
+				<input type="text" name="plan" value="{{#compare subscriptions.calculatorType "financialProfessionalMonthly"}}financialProfessionalYearly{{else}}financialProfessionalMonthly{{/compare}}" class="hidden">
+				<input type="text" class="hidden" name="userId" value="{{user.id}}">
+				<input type="text" class="hidden" name="currentSubscription" value="{{subscriptions.calculatorType}}">
+				<input type="text" class="hidden" name="active" value="{{company.active}}">
+				<input type="text" class="hidden" name="subdomain" value="{{company.subdomain}}">
+
+				<a href="#" class="secondary-btn close-modal" aria-label="Close">Cancel</a>&nbsp;
+			  <button id="payment-submit" type="submit" class="primary-btn">Confirm</button>
+			</form>
+	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
+
+	<div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="secondModalTitle" aria-hidden="true" role="dialog">
+	  <h2 id="secondModalTitle">Success!</h2>
+	  <p>Thank you for your purchase. <strong>{{#compare subscriptions.calculatorType "financialProfessionalMonthly"}}$300{{else}}$30{{/compare}}</strong> will be charged to the card ending with <strong class="last4"></strong>. Your order will appear as a payment labeled <strong>Nest Egg Guru</strong> on your bank or credit card statement within a few days of purchase.</p>
+	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
+	<div id="thirdModal" class="reveal-modal" data-reveal aria-labelledby="thirdModalTitle" aria-hidden="true" role="dialog">
+	  <h2 id="thirdModalTitle">Success!</h2>
+	  <p>Your subscription has been cancelled with the card ending in <strong class="last4"></strong>.</p>
+	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
+	<div id="fourthModal" class="reveal-modal" data-reveal aria-labelledby="fourthModalTitle" aria-hidden="true" role="dialog">
+	  <h2 id="fourthModalTitle">Success!</h2>
+	  <p>Your subscription has been reactivated with the card ending in <strong class="last4"></strong>.</p>
+	  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
+
+	<div id="releasePaymentModal" class="reveal-modal small" data-reveal aria-labelledby="releasePaymentModalTitle" aria-hidden="true" role="dialog">
+		<div class="row">
+			<div class="large-12 large-centered columns">
+				<h2 id="releasePaymentModalTitle">Payment Infomation</h2>
+				<form id="release-payment" action="/checkout/release-payment" method="post" novalidate>
+					<div class="clearfix bot-padding">
+						<div class="financialProfessionalMonthly-card large-6 columns">
+							<div class="product-box whitelabel-plan">
+								<input class="radio-btns editable subscription-purchase" type="radio" name="subscription" data="financialProfessionalMonthly">
+								<span class="product-icon icon-icon-graphs"></span>
+								<div class="product-header">Financial Professional Monthly Subscription</div>
+							</div>
+							<div class="pricing product-end">Unlimited Access — $30/mo</div>
+						</div>
+
+						<div class="financialProfessionalYearly-card large-6 columns">
+							<div class="product-box whitelabel-plan">
+								<input class="radio-btns editable subscription-purchase" type="radio" name="subscription" data="financialProfessionalYearly" checked>
+								<span class="product-icon icon-icon-graphs"></span>
+								<div class="product-header">Financial Professional Yearly Subscription</div>
+							</div>
+							<div class="pricing product-end">Unlimited Access — $300/yr</div>
+						</div>
+					</div>
+
+					{{> forms/_stripe_info}}
+
+					<input type="text" class="hidden" id="calculator-choice" name="purchase" value="financialProfessionalYearly">
+					<input type="text" class="hidden" name="userId" value="{{user.id}}">
+					<input type="text" class="hidden" name="userEmail" value="{{user.email}}">
+					<input type="text" class="hidden" name="currentSubscription" value="{{subscriptions.calculatorType}}">
+					<input type="text" class="hidden" name="companyId" value="{{company.id}}">
+					<input type="text" class="hidden" name="subdomain" value="{{company.subdomain}}">
+
+					<button id="release-payment-submit" type="submit" class="primary-btn">Submit</button>
+					<a href="#" class="secondary-btn close-modal" aria-label="Close">Cancel</a>&nbsp;
+				</form>
+			</div>
+		</div>
+	</div>
+</main>

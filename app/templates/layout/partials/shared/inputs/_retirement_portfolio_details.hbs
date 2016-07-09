@@ -1,0 +1,215 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Retirement Portfolio Details</h2>
+  </div>
+</div>
+<section class="container-portfolio-details">
+  <div class="container-input-row">
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="container-info">
+          <h3>Enter your current <strong>Broad Asset Allocation</strong> (must add up to 100%)</h3>
+        </div>
+      </div>
+      <div class="large-6 columns">
+        <div class="container-portfolio-input">
+          <div class="row">
+            <div class="medium-7 columns">
+              <div class="portfolio-input-group">
+                <span class="percent-sign pie">%</span>
+                <div class="portfolio-input-item clearfix">
+                  <input type="text" class="portfolio-input left numeric pie-input" id="stocks" name="stocks" value="{{defaultValues.BAA.stock}}" min="0" max="100">
+                  <div class="portfolio-number-arrows left">
+                    <button type="button" class="number-arrow-up arrow" up><span class="number-arrow-up-content"></span></button>
+                    <button type="button" class="number-arrow-down arrow"><span class="number-arrow-down-content"></span></button>
+                  </div>
+                  <span class="chart-legend primary-legend left"></span>
+                  <label for="stocks" class="portfolio-labels left">Stocks</label>
+                </div>
+
+                <span class="percent-sign pie">%</span>
+                <div class="portfolio-input-item clearfix">
+                  <input type="text" class="portfolio-input left numeric pie-input" id="bonds" name="bonds" value="{{defaultValues.BAA.bond}}" min="0" max="100">
+                  <div class="portfolio-number-arrows left">
+                    <button type="button" class="number-arrow-up arrow" up><span class="number-arrow-up-content"></span></button>
+                    <button type="button" class="number-arrow-down arrow"><span class="number-arrow-down-content"></span></button>
+                  </div>
+                  <span class="chart-legend secondary-legend left" up></span>
+                  <label for="bonds" class="portfolio-labels left">Bonds</label>
+                </div>
+
+                <span class="percent-sign pie">%</span>
+                <div class="portfolio-input-item clearfix">
+                  <input type="text" class="portfolio-input left numeric pie-input" id="cash" name="cash" value="{{defaultValues.BAA.cash}}" min="0" max="100">
+                  <div class="portfolio-number-arrows left">
+                    <button type="button" class="number-arrow-up arrow" up><span class="number-arrow-up-content"></span></button>
+                    <button type="button" class="number-arrow-down arrow"><span class="number-arrow-down-content"></span></button>
+                  </div>
+                  <span class="chart-legend ternary-legend left"></span>
+                  <label for="cash" class="portfolio-labels left">Cash</label>
+                </div>
+
+              </div>
+            </div>
+            <div class="medium-5 columns">
+              <div class="pie-chart"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="medium-12 columns">
+              <h5 id="pie-chart" class="pie-warning"><em>The sum must add up to 100%.</em></h5>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="container-info free-version">
+          <h3>Enter your current <strong>Detailed Stock Allocation</strong> (must add up to 100%)
+          <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                      title="This input represents the composition of your broad stock allocation. If this response is left unchanged, Nest Egg Guru will assume a detailed stock allocation of 45% large cap stocks, 30% mid- and small cap stocks, and 25% foreign stocks.">
+          </h3>
+        </div>
+      </div>
+      <div class="large-6 columns">
+        <div class="container-portfolio-input free-version">
+          <div class="row free-version-row">
+            <div class="medium-7 columns">
+              <div class="portfolio-input-group">
+
+                <span class="percent-sign pie">%</span>
+                <div class="portfolio-input-item clearfix">
+                  <input type="text" id="large-usa-stocks" class="portfolio-input left numeric pie-input" name="lgEquities" value="45" min="0" max="100">
+                  <div class="portfolio-number-arrows left">
+                    <button type="button" class="number-arrow-up arrow" up><span class="number-arrow-up-content"></span></button>
+                    <button type="button" class="number-arrow-down arrow"><span class="number-arrow-down-content"></span></button>
+                  </div>
+                  <span class="chart-legend primary-legend left"></span>
+                  <label for="large-usa-stocks" class="portfolio-labels left">Large U.S. Stocks</label>
+                </div>
+
+                <span class="percent-sign pie">%</span>
+                <div class="portfolio-input-item clearfix">
+                  <input type="text" class="portfolio-input left numeric pie-input" id="mid-small-usa-stocks" name="smEquities" value="30" min="0" max="100">
+                  <div class="portfolio-number-arrows left">
+                    <button type="button" class="number-arrow-up arrow" up><span class="number-arrow-up-content"></span></button>
+                    <button type="button" class="number-arrow-down arrow"><span class="number-arrow-down-content"></span></button>
+                  </div>
+                  <span class="chart-legend secondary-legend left"></span>
+                  <label for="mid-small-usa-stocks" class="portfolio-labels left">Mid &amp; Small U.S. Stocks</label>
+                </div>
+
+                <span class="percent-sign pie">%</span>
+                <div class="portfolio-input-item clearfix">
+                  <input type="text" class="portfolio-input left numeric pie-input" id="foreign-stocks" name="iEquities" value="25" min="0" max="100">
+                  <div class="portfolio-number-arrows left">
+                    <button type="button" class="number-arrow-up arrow" up><span class="number-arrow-up-content"></span></button>
+                    <button type="button" class="number-arrow-down arrow"><span class="number-arrow-down-content"></span></button>
+                  </div>
+                  <span class="chart-legend ternary-legend left"></span>
+                  <label for="foreign-stocks" class="portfolio-labels left">Foreign Stocks</label>
+                </div>
+              </div>
+            </div>
+            <div class="medium-5 columns">
+              <div class="pie-chart2"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="medium-12 columns">
+              <div class="row">
+                <div class="medium-12 columns">
+                  <h5 id="pie-chart2" class="pie-warning"><em>The sum must add up to 100%.</em></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{> shared/_upgrade_notice}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Enter an expected constant fixed rate of return that you may reasonably expect to earn on the “bond” portion of your nest egg:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                        title="Although many retirement calculators still use historical bond index returns in their simulations, Nest Egg Guru believes it is more prudent to allow users to enter the rate of return they may realistically expect to earn in the current low rate environment. For bonds, it is suggested that users enter the current 10-year treasury rate or the yield on a 5-year certificate of deposit as a reasonable proxy.">
+            <span class="right">
+              <input type="text" id="cdRate" class="calculator-input input-medium numeric percent" name="cdRate" value="{{defaultValues.cdRate}}" min="0" step=".25" max="10"><span class="percent-sign">%</span>.
+            </span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+        <input type="range" id="cdRate-slider" class="range-slider" value="{{defaultValues.cdRate}}" min="0" step=".25" max="10" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">0%</span>
+            <span class="right">10%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Enter an expected constant fixed rate of return that you may reasonably expect to earn on the cash or stable value portion of your nest egg:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                  title="Although many retirement calculators still use historical short term bond index data as a proxy for cash, in the current low yield environment, Nest Egg Guru believes it is more prudent to allow users to enter the rate of return they may realistically expect to earn on their bank savings or money market accounts.">
+            <span class="right">
+              <input type="text" id="moneyRate" class="calculator-input input-medium numeric percent" name="moneyRate" value="{{defaultValues.moneyRate}}" min="0" step=".25" max="10"><span class="percent-sign">%</span>.
+            </span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="moneyRate-slider" class="range-slider" min="0" step=".25" max="10" value="{{defaultValues.moneyRate}}" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">0%</span>
+            <span class="right">10%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Enter your nest egg’s estimated annual investment expenses (expressed as a % of your total nest egg value):
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                title="Research has shown that investment expenses can have a significant impact on wealth accumulation and sustainability.  Failing to properly account for the impact of expenses may produce overly optimistic results. Be sure to account for all internal and external fees.">
+            <span class="right">
+              <input type="text" id="investment" class="calculator-input input-medium numeric percent" name="investment" value="{{defaultValues.investmentRate}}" min="0" step=".25" max="4"><span class="percent-sign">%</span>.
+            </span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="investment-slider" class="range-slider" min="0" step=".25" max="4" value="{{defaultValues.investmentRate}}" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">0%</span>
+            <span class="right">4%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

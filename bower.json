@@ -1,0 +1,26 @@
+{
+  "name": "nest-egg-guru",
+  "version": "0.8.0",
+  "authors": [
+    "reptar <daddyderekahn@gmail.com>"
+  ],
+  "description": "Retirement Calculators",
+  "license": "MIT",
+  "homepage": "nesteggguru.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "d3": "~3.5.5",
+    "foundation": "~5.5.2",
+    "lodash": "~3.9.3",
+    "rangeslider.js": "~1.2.1",
+    "jquery": "2.1.4",
+    "jquery.cookie": "1.4.1",
+    "jquery-validation": "1.15.0",
+    "jquery.inputmask": "~3.3.0",
+    "html2canvas": "0.4.1"
+  }
+}

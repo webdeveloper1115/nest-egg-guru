@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <p>Dear {{name}},</p>
+    <p></p>
+    {{#if monthly}}
+      <p>Your current subscription plan has been changed from annual to monthly.  $30.00 will be charged to your credit card  on {{nextPaymentDate}} and will be charged on the {{day}} of each subsequent month until cancelled.</p>
+    {{else}}
+      <p>Your current subscription plan has been changed from $30.00/month to $300.00/year.  The annual subscription amount will be charged to your credit card on {{nextPaymentDate}}.  You will be prompted to renew one month before the end of the one-year subscription term.</p>
+    {{/if}}
+    <p></p>
+    <p>Your Financial Professional instance is now active and can be viewed at:</p>
+    <p></p>
+    <p><a href="http://{{companySubdomain}}.{{domain}}">{{companySubdomain}}.nesteggguru.com</a></p>
+    <p></p>
+    <p>Login to your admin dashboard:</p>
+    <p><a href="http://{{domain}}/user">My Account</a></p>
+    <p></p>
+    <p><b>Thank You</b><br>Nest Egg Guru<br><a href="mailto:guru@nesteggguru.com">Guru@NestEggGuru.com</a></p>
+    <p></p>
+    <small><em>Monthly subscriptions may be cancelled with 30 days prior notice.  Monthly subscriptions that have already been charged cannot be refunded.  Annual subscribers should be aware that the subscription is non-refundable after 30 days.  Cancellation prior to 30 days will result in a refund less a $30 charge for one month’s usage.</em></small>
+  </body>
+</html>

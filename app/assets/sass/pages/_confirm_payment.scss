@@ -1,0 +1,23 @@
+.page-confirm-payment {
+	background-color: #F6F9FA;
+	.banner {
+		width: 100%;
+		padding: 50px 0 0 0;
+		text-align: center;
+		p {
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	.company-logo {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}

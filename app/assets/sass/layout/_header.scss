@@ -1,0 +1,275 @@
+header {
+  .container-header {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    @include max-breakpoint(tablet) {
+      max-width: none;
+      padding: 0;
+    }
+  }
+  span {
+    font-family: $base-font;
+  }
+  .nest-egg-company {
+    font-size: 20px;
+    line-height: 24px;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+    color: $secondary-color;
+    @include max-breakpoint(mobile) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .nest-egg-company-logo {
+    position: relative;
+    max-height: 65px;
+    overflow: hidden;
+    img {
+        width: 59.31px;
+        margin-bottom: 7px;
+        @include max-breakpoint(mobile) {
+          width: 47.45px;
+        }
+      }
+  }
+  .company {
+    font-size: 20px;
+    line-height: 24px;
+    position: relative;
+    color: $secondary-color;
+    @include max-breakpoint(mobile) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .beta {
+    font-size: 8px;
+    position: relative;
+    left: 16px;
+    bottom: 14px;
+    color: $white;
+    letter-spacing: 1px;
+    padding: 3px 6px;
+    border-radius: 13%;
+    background-color: $secondary-color;
+  }
+  .motto {
+    height: 1px;
+    font-size: 11px;
+    position: relative;
+    left: 74px;
+    bottom: 70px;
+    display: block;
+    color: $text-color;
+    letter-spacing: 1px;
+    line-height: 14px;
+    font-family: $special-font;
+    @include max-breakpoint(mobile) {
+      font-size: 9px;
+      letter-spacing: 0.81px;
+      line-height: 11px;
+      left: 61px;
+      bottom: 82px;
+    }
+  }
+  img {
+    @include max-breakpoint(mobile) {
+      width: 47.45px;
+    }
+  }
+  @include max-breakpoint(tablet) {
+    .top-bar-section ul {
+      li {
+        background: #FFF3ED;
+        text-align: right;
+        &:hover {
+          a:hover {
+            background-color: $secondary-color;
+            color: $white;
+          }
+        }
+        a {
+          color: #F3815B;
+        }
+      }
+    }
+    .title-area {
+      padding-left: 10px;
+    }
+  }
+
+  .top-bar-section {
+    width: 100%;
+    li:not(.has-form) a:not(.button) {
+      font-family: $base-font;
+      font-size: 14px;
+      line-height: 14px;
+      @include min-breakpoint(desktop) {
+        padding: 0;
+        padding-left: 24px;
+        &.first-item {
+          padding-left: 0;
+        }
+      }
+      @include max-breakpoint(desktop) {
+        padding-right: 15px;
+      }
+      &.user-controls {
+        font-family: $special-font;
+        font-size: 11px;
+        letter-spacing: 1px;
+        line-height: 14px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .user-pane {
+    margin-top: 25px;
+  }
+  .bottom-top-bar {
+    @include min-breakpoint(desktop) {
+      position: absolute;
+      bottom: 22px;
+      right: 0;
+    }
+  }
+}
+
+.header-logo-only {
+  border-bottom: 2px solid $h2-border;
+  .company {
+    color: $header-color;
+  }
+  a img {
+    height: $logo-size;
+    width: $logo-size;
+  }
+  .company {
+    font-family: $base-font;
+    color: $whitelabel-color;
+  }
+  .top-bar {
+    height: $print-topbar-height;
+  }
+}
+
+header.white-label {
+  .powered-by-nestegg {
+    height: 40px;
+    background-color: $subdomain-header-bg;
+  }
+  .tagline {
+    margin: 0;
+    line-height: 35px;
+    @include font-size(14px);
+    color: $free-disabled-text;
+    @include max-breakpoint(tablet) {
+      margin-left: 25px;
+    }
+  }
+  .nestegg {
+    color: $primary-color;
+  }
+  .company {
+    font-family: $base-font;
+    color: $whitelabel-color;
+  }
+  .company-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 15px;
+    max-height: 65px;
+    height: 100%;
+    overflow: hidden;
+  }
+  .logo {
+    img {
+      max-height: 45px;
+    }
+  }
+  ul.title-area {
+    width: 100%;
+  }
+  .company-info {
+    padding-left: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .company {
+    @include font-size(28px);
+    letter-spacing: 1px;
+    font-weight: $light-weight;
+    max-height: 25px;
+  }
+  .company-link {
+    @include font-size(14px);
+    letter-spacing: 0;
+    z-index: 99999999;
+    font-weight: $middle-weight;
+    color: $whitelabel-color;
+  }
+}
+
+header.white-label-print {
+  .powered-by-nestegg {
+    height: 40px;
+    background-color: $subdomain-header-bg;
+  }
+  .tagline {
+    margin: 0;
+    line-height: 35px;
+    @include font-size(14px);
+    color: $free-disabled-text;
+    @include max-breakpoint(tablet) {
+      margin-left: 25px;
+    }
+  }
+  .nestegg {
+    color: $primary-color;
+  }
+  .company {
+    font-family: $base-font;
+    color: $whitelabel-color;
+  }
+  .company-logo {
+    float: left;
+    padding-top: 15px;
+    height: $print-topbar-height;
+    overflow: hidden;
+  }
+  .logo {
+    img {
+      max-height: 45px;
+    }
+  }
+  ul.title-area {
+    width: 100%;
+  }
+  .company-info {
+    padding-left: 10px;
+    padding-top: 25px;
+    height: $print-topbar-height;
+    .motto {
+      position: static;
+    }
+  }
+  .company {
+    @include font-size(28px);
+    letter-spacing: 1px;
+    font-weight: $light-weight;
+    max-height: 25px;
+  }
+  .company-link {
+    @include font-size(14px);
+    letter-spacing: 0;
+    z-index: 99999999;
+    font-weight: $middle-weight;
+    color: $whitelabel-color;
+  }
+}

@@ -1,0 +1,80 @@
+// Typography
+// --------------------------------
+// Google Fonts import statement is in the settings Sass file
+
+// Fonts
+// -------------------------
+$base-font: ('Lato', sans-serif);
+$special-font: ('Montserrat', sans-serif);
+
+// Font-Weight
+// -------------------------
+$light-weight: 300;
+$middle-weight: 400;
+$heavy-weight: 900;
+
+// Font Path
+// $FontPath: "../../../font" !default;
+
+
+h1, h3 {
+  font-family: $base-font;
+  font-weight: $light-weight;
+  color: $header-color;
+}
+h1 {
+  font-size: rem-calc(20px);
+  font-size: 24px;
+  line-height: 1.5;
+}
+h2 {
+  font-size: rem-calc(14px) !important;
+  margin: 50px 0 30px;
+  border-bottom: 2px solid $h2-border;
+  padding-bottom: 10px;
+  line-height: 1.2;
+  color: $primary-color;
+  letter-spacing: 1px;
+  font-family: $special-font;
+  font-weight: $middle-weight;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: rem-calc(20px);
+}
+
+p, a, button {
+  font-family: $base-font;
+}
+
+p {
+  line-height: 1.5;
+  color: $text-color;
+}
+
+.smtext {
+  letter-spacing: 1px;
+  font-family: $special-font;
+  text-transform: uppercase;
+  font-size: rem-calc(12px);
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.banner {
+  strong {
+    color: #1D2125;
+  }
+}
+
+hr {
+  border: 1px solid #E3E8EC !important;
+  margin-bottom: 50px;
+}
+
+.lnr-medium-size {
+  width: 2.5em;
+  height: 2.5em;
+}

@@ -1,0 +1,175 @@
+<h2>Basic Retirement Savings Data</h2>
+<section class="container-basic-data">
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Years until retirement: <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                  title="How many more years do you plan to keep working?">
+          <input type="text" id="years-savings" class="calculator-input input-small numeric right" name="years" value="{{defaultValues.years}}" min="2" max="50" maxlength="2"></h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="years-savings-slider" class="range-slider" min="2" max="50" value="{{defaultValues.years}}" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">2 YRS</span>
+            <span class="right">50 YRS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>
+          Enter your current retirement nest egg value:
+          <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                               title="Include the values of all accounts you consider to be part of your retirement nest egg (e.g., employer retirement plans, IRAs, personal investment accounts, etc.).">
+          <span class="right">
+            <span class="dollar-sign">$</span><input type="text" id="current-savings" class="calculator-input input-huge numeric cost dollar-amount right" name="current" value="{{defaultValues.curSaving}}" min="0" max="100000000" maxlength="10">.
+          </span>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Current annual salary/wages:
+          <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                      title="How much do you make today ?">
+          <span class="right">
+            <span class="dollar-sign">$</span><input type="text" id="salary-savings" class="calculator-input input-large numeric cost right" name="salary" value="{{defaultValues.curSalary}}" min="10000" max="300000" maxlength="8">.
+          </span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="salary-savings-slider" class="range-slider" min="10000" step="1000" max="300000" value="{{defaultValues.curSalary}}" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">$10,000</span>
+            <span class="right">$300,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{#if premium}}
+    <div class="container-input-row">
+      <div class="row">
+        <div class="medium-6 columns">
+          <div class="container-info">
+            <h3>Total expected annual retirement contribution:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                  title="Be sure to account for anticipated employer contributions in this estimate.">
+            </h3>
+            <div class="container-strategy-options salary-or-wages">
+              <ul>
+
+                <li class="option-item contribution">
+                  <input id="contributionOption1" type="radio" class="strategy-options" name="contributionOption" value="1" checked="checked">
+                  <label for="contributionOption1" class="strategy-labels">
+                    <input type="text" id="percentageContribution-savings" class="calculator-input input-medium numeric" name="percentageContribution" value="{{defaultValues.expContrib}}" min="0" max="100"><span class="percent-sign">%</span><h3>of annual salary/wages or</h3>
+                  </label>
+                  <div class="radio-btn-check"></div>
+                </li>
+
+                <li class="option-item contribution">
+                  <input id="contributionOption2" type="radio" class="strategy-options" name="contributionOption" value="2">
+                  <label for="contributionOption2" class="strategy-labels">
+                    <span class="dollar-sign">$</span><input type="text" id="dollarContribution-savings" class="calculator-input input-large numeric cost" name="dollarContribution" value="0" min="0" max="5000000"><h3>(expected contribution amount in dollars).</h3>
+                  </label>
+                  <div class="radio-btn-check"></div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="medium-6 columns">
+
+          <div class="container-slider contributionOption1">
+            <input type="range" id="percentageContribution-savings-slider" class="range-slider" value="10" min="0" max="100" data-rangeslider>
+            <div class="slider-labels clearfix">
+              <span class="left">0%</span>
+              <span class="right">100%</span>
+            </div>
+          </div>
+
+          <div class="container-slider contributionOption2" style="display: none;">
+            <input type="range" id="dollarContribution-savings-slider" class="range-slider" value="0" min="0" step="1000" max="5000000" data-rangeslider>
+            <div class="slider-labels clearfix">
+              <span class="left">$0</span>
+              <span class="right">$5,000,000</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  {{else}}
+    <div class="container-input-row">
+      <div class="row">
+        <div class="medium-6 columns">
+          <div class="container-info">
+            <h3>Total expected annual retirement contribution:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                  title="Be sure to account for anticipated employer contributions in this estimate.">
+            <span class="right">
+              <input type="text" id="percentageContribution-savings" class="calculator-input input-medium numeric percent" name="percentageContribution" value="{{defaultValues.expContrib}}" min="0" max="100" maxlength="4">
+              <span class="percent-sign">%</span>
+            </span>
+            </h3>
+            <h3>of annual salary/wages.</h3>
+          </div>
+        </div>
+        <div class="medium-6 columns">
+          <div class="container-slider">
+            <input type="range" id="percentageContribution-savings-slider" class="range-slider" value="{{defaultValues.expContrib}}" min="0" max="100" data-rangeslider>
+            <div class="slider-labels clearfix">
+              <span class="left">0%</span>
+              <span class="right">100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
+   <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Rate at which you expect your contribution amount will increase each year:
+          <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                          title="For many workers, the contribution amount rises at the same rate at which their wages increase.  For instance, if you anticipate your wages to increase at {{defaultValues.contribRate}}% per year, you may wish to enter {{defaultValues.contribRate}}% as the amount by which you expect your contributions to increase too.">
+          <span class="right">
+            <input type="text" id="increase-savings" class="calculator-input input-medium percent" name="increase" value="{{defaultValues.contribRate}}" min="0" step=".25" max="10"><span class="percent-sign">%</span>.
+          </span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="increase-savings-slider" class="range-slider" min="0" max="10" step=".25" value="{{defaultValues.contribRate}}" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">0%</span>
+            <span class="right">10%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

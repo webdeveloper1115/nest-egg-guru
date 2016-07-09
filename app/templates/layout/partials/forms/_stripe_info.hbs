@@ -1,0 +1,87 @@
+<!-- <div class="row" id="coupon-code-row">
+  <div class="medium-10 large-9 columns">
+    <label>Promo Code
+      <input type="text" id="coupon-code" class="general-input no-spaces" data-stripe="coupon" name="cardCoupon" value="{{cardCoupon}}">
+    </label>
+  </div>
+  <div class="medium-2 large-3 columns" id="apply-coupon">
+    <p id="apply-coupon-tip"><small>You must click apply prior to entering your payment information.</small></p>
+    <button type="button" id="coupon-code-button" class="primary-btn">Apply</button>
+  </div>
+</div> -->
+
+<div class="row" id="coupon-code-row">
+  <div class="medium-4 large-6 columns">
+    <label>Promo Code</label>
+  </div>
+  <div class="medium-8 large-6 columns">
+    <p id="apply-coupon-tip"><small>You must click apply prior to entering your payment information.</small></p>
+  </div>
+  <div class="medium-6 large-9 columns">
+    <input type="text" id="coupon-code" class="general-input no-spaces" data-stripe="coupon" name="cardCoupon" value="{{cardCoupon}}">
+  </div>
+  <div class="medium-6 large-3 columns" style="padding-top: 5px;">
+    <button type="button" id="coupon-code-button" class="primary-btn">Apply</button>
+  </div>
+</div>
+
+<!-- <p>Please enter your payment information below. You will be able to review your payment information on the next page before you finalize your order.</p> -->
+ <div class="payment-errors">{{error}}</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Credit Card Number
+      <input type="text" id="credit-card-number" class="general-input no-spaces" data-stripe="number" name="cardNumber" value="{{cardNumber}}" required />
+      <input type="text" id="credit-card-4" name="last4" style="visibility: hidden; display: none;">
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-4 columns">
+    <label>Verification Code
+      <input type="text" id="cvc" class="general-input no-spaces" name="cvc" data-stripe="cvc" value="{{cvc}}" required />
+    </label>
+  </div>
+
+  <div class="medium-4 columns">
+    <label>Month
+
+      <div class="styled-select">
+        <select name="cardMonth" class="calculator-select" data-stripe="exp-month" value="{{cardMonth}}" required>
+          <option selected></option>
+          <option value="01" {{#compare cardMonth '01'}}selected{{/compare}}>January</option>
+          <option value="02" {{#compare cardMonth '02'}}selected{{/compare}}>February</option>
+          <option value="03" {{#compare cardMonth '03'}}selected{{/compare}}>March</option>
+          <option value="04" {{#compare cardMonth '04'}}selected{{/compare}}>April</option>
+          <option value="05" {{#compare cardMonth '05'}}selected{{/compare}}>May</option>
+          <option value="06" {{#compare cardMonth '06'}}selected{{/compare}}>June</option>
+          <option value="07" {{#compare cardMonth '07'}}selected{{/compare}}>July</option>
+          <option value="08" {{#compare cardMonth '08'}}selected{{/compare}}>August</option>
+          <option value="09" {{#compare cardMonth '09'}}selected{{/compare}}>September</option>
+          <option value="10" {{#compare cardMonth '10'}}selected{{/compare}}>October</option>
+          <option value="11" {{#compare cardMonth '11'}}selected{{/compare}}>November</option>
+          <option value="12" {{#compare cardMonth '12'}}selected{{/compare}}>December</option>
+        </select>
+      </div>
+
+    </label>
+  </div>
+
+  <div class="medium-4 columns">
+    <label>Year
+
+      <div class="styled-select">
+        <select name="cardYear" class="calculator-select" data-stripe="exp-year" value="{{cardYear}}" required>
+          {{#each expYears}}
+            <option value="{{year}}" {{#if selected }}selected{{/if}}>{{year}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+    </label>
+  </div>
+</div>
+<br>
+<aside class="notes">
+  <p>Nest Egg Guru uses Stripe as a third party credit card processor; a certified PCI Service Provider Level 1. This is the most stringent level of certification available. We store no credit card information on the Nest Egg Guru web servers in an effort to provide our customers with the highest level of security.</p>
+</aside>

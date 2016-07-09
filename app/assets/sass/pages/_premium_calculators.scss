@@ -1,0 +1,503 @@
+.page-calculators {
+  width: 100%;
+  margin: 0 auto;
+  h2 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    text-transform: uppercase;
+    @include max-breakpoint(mobile) {
+      font-size: 12px !important;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+  }
+  h3 {
+    font-family: $base-font;
+    font-weight: 300;
+    font-size: 20px;
+    color: $header-color;
+    line-height: 24px;
+    @include max-breakpoint(mobile) {
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+  }
+  p {
+    font-size: 14px;
+    color: $text-color;
+    line-height: 1.5;
+    @include max-breakpoint(mobile) {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+  .calculator-input {
+    @include calculator-input;
+    border-style: solid;
+    border-width: 0 0 2px;
+    padding: 0 2px;
+    height: 27px;
+    &.input-small {
+      width: 30px;
+    }
+    &.input-medium {
+      width: 57px;
+      text-align: right;
+      padding-right: 17px;
+    }
+    &.input-large {
+      width: 92px;
+    }
+    &.input-huge {
+      width: 125px;
+    }
+    &:focus {
+      color: $primary-color;
+      background-color: transparent;
+      border-style: solid;
+      border-width: 0 0 2px;
+      border-color: $primary-color;
+    }
+    // TODO: May want to remove these placeholder styles later
+    // Note: Do not comma-separate these styles
+    &::-webkit-input-placeholder { /* WebKit browsers */
+      color: $primary-color;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $primary-color;
+      opacity: 1;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $primary-color;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $primary-color;
+    }
+  }
+  .container-input-row {
+    margin: 0;
+    margin-top: 47px;
+    .target-stock-container {
+      margin-left: 30px;
+      .container-slider {
+        margin-left: 0;
+      }
+    }
+    @include max-breakpoint(tablet) {
+      margin-top: 54px;
+      &:first-of-type {
+        margin-top: 47px;
+      }
+    }
+  }
+  .container-info {
+    h3 {
+      margin: 0;
+      margin-bottom: 6px;
+    }
+    p {
+      margin: 0;
+    }
+    .salary-or-wages + p {
+      margin-top: 36px;
+    }
+  }
+  .container-bottom {
+    margin-top: 50px;
+    margin-bottom: 36px;
+    @include max-breakpoint(mobile) {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 26px;
+    }
+  }
+  .primary-btn, .secondary-btn {
+    @include max-breakpoint(mobile) {
+      font-size: 12px !important;
+    }
+  }
+
+  //Added by bss
+  .icon-info{
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.container-slider,
+.container-withdrawal-adjustment,
+.container-portfolio-input,
+.container-strategy-options {
+  @include max-breakpoint(tablet) {
+  }
+}
+
+.container-basic-data {
+  .slider-option {
+    margin: 0;
+  }
+}
+
+.container-portfolio-details {
+  .container-portfolio-input {
+    @include max-breakpoint(tablet) {
+      margin-top: 20px;
+    }
+  }
+  .portfolio-input {
+    // Remove the number spinner (up/down arrows)
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin: 0;
+    }
+    @include portfolio-input;
+    border-radius: 3px 0 0 3px;
+    &:focus {
+      background-color: $white;
+      font-family: $base-font;
+      font-weight: 300;
+      font-size: 18px;
+      color: $portfolio-label;
+      line-height: 22px;
+    }
+    // TODO: May want to remove these placeholder styles later
+    // Note: Do not comma-separate these styles
+    &::-webkit-input-placeholder { /* WebKit browsers */
+      color: $portfolio-label;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $portfolio-label;
+      opacity: 1;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $portfolio-label;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $portfolio-label;
+    }
+  }
+  .portfolio-input-group {
+    @include max-breakpoint(tablet) {
+      margin-bottom: 10px;
+    }
+    .portfolio-input-item {
+      margin-bottom: 20px;
+      padding: 0;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+  button {
+    margin: 0;
+    padding: 0;
+    background-color: $white;
+    color: $portfolio-btn-label;
+    border: none;
+    outline: none;
+    &:focus {
+      background-color: $secondary-btn-bg;
+    }
+  }
+  .portfolio-number-arrows {
+    .number-arrow-up, .number-arrow-down {
+      display: block;
+      width: 22px;
+      height: 20px;
+      border-right: 1px solid $portfolio-border;
+      border-bottom: 1px solid $portfolio-border;
+    }
+    .number-arrow-up {
+      border-top: 1px solid $portfolio-border;
+      border-radius: 0 3px 0 0;
+    }
+    .number-arrow-down {
+      border-radius: 0 0 3px 0;
+    }
+    .number-arrow-up-content {
+      display: block;
+      line-height: 18px;
+      font-size: 12px;
+      &:before {
+        content: "\25B4";
+      }
+    }
+    .number-arrow-down-content {
+      display: block;
+      line-height: 18px;
+      font-size: 10px;
+      &:before {
+        content: "\25BE";
+      }
+    }
+  }
+  .chart-legend {
+    margin: 15px 10px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+  }
+  .primary-legend {
+    background-color: $portfolio-legend-green;
+  }
+  .secondary-legend {
+    background-color: $portfolio-legend-blue;
+  }
+  .ternary-legend {
+    background-color: $portfolio-legend-salmon;
+  }
+  .portfolio-labels {
+    margin: 10px 0;
+    font-family: $base-font;
+    font-size: 14px;
+    color: $portfolio-label;
+    line-height: 17px;
+  }
+}
+
+// Select Dropdown Styles
+.calculator-select {
+  &.select-small {
+    width: 118px;
+  }
+}
+
+.container-withdrawal-adjustment {
+  @include max-breakpoint(tablet) {
+    padding-top: 20px;
+  }
+  p {
+    padding-top: 10px;
+  }
+}
+
+.styled-select {
+  height: 40px;
+  background: $white url('../img/select_down_arrow.svg') no-repeat right;
+  border: 1px solid $select-border;
+  border-radius: 3px;
+  &.small {
+    margin: 0 5px;
+  }
+  select {
+    background: transparent;
+    height: 40px;
+    padding: 10px;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-family: $base-font;
+    font-size: 14px;
+    color: $header-color;
+    outline: none;
+  }
+}
+
+// Radio Button Styles
+.container-strategy {
+  padding-bottom: 47px;
+  border-bottom: 2px solid $h2-border;
+}
+
+.container-strategy-options {
+  @include max-breakpoint(tablet) {
+    margin-top: 20px;
+  }
+  &.salary-or-wages {
+    height: 70px;
+    margin: 0;
+    h3 {
+      display: inline;
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .option-item {
+    position: relative;
+    margin-bottom: 28px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &:hover {
+      .radio-btn-check:before {
+        content: '';
+        border-radius: 50%;
+        height: 6px;
+        width: 6px;
+        display: block;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        background-color: $radio-border;
+      }
+    }
+    &.contribution {
+      display: block;
+      margin: 0;
+    }
+    &.free-disabled:hover {
+      .radio-btn-check:before {
+        content: none;
+      }
+    }
+  }
+  .strategy-options {
+    position: absolute;
+    visibility: hidden;
+    &:checked ~ .radio-btn-check:before {
+      background-color: $primary-color;
+    }
+    &.free-disabled:checked ~ .radio-btn-check:before {
+      background-color: $radio-border;
+    }
+  }
+  .strategy-labels {
+    font-family: $base-font;
+    font-size: 14px;
+    color: $header-color;
+    line-height: 17px;
+    padding: 0;
+    padding-left: 30px;
+    margin: 0;
+    margin-bottom: 14px;
+    @include max-breakpoint(mobile) {
+      font-size: 13px;
+    }
+  }
+  p {
+    margin: 0;
+    margin-left: 30px;
+    position: relative;
+  }
+  .radio-btn-check {
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    background-color: $white;
+    border: 1px solid $radio-border;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    &:before {
+      content: '';
+      border-radius: 50%;
+      height: 6px;
+      width: 6px;
+      display: block;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+    }
+  }
+}
+
+// TODO: Replace this with Handlebars logic later
+.page-calculators-premium {
+  .container-portfolio-input.free-version {
+    .premium-version-notice {
+      display: none;
+    }
+  }
+}
+.page-calculators-free {
+  .container-portfolio-input.free-version {
+    .free-version-row {
+      display: none;
+    }
+  }
+}
+
+.page-calculators-free {
+  .free-version {
+    h3, label {
+      color: $free-disabled-header;
+    }
+    p {
+      color: $free-disabled-text;
+    }
+  }
+  .premium-version-notice {
+    background-color: $premium-notice-bg;
+    text-align: center;
+    padding: 18px 50px;
+    @include max-breakpoint(mobile) {
+      padding: 10px 20px;
+    }
+    h3, p {
+      margin: 0;
+    }
+    h3 {
+      margin-bottom: 8px;
+      color: $header-color;
+    }
+    p {
+      color: $text-color;
+    }
+  }
+  .container-strategy {
+    .premium-version-notice {
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+  }
+}
+input.calculator-input.cost {
+  padding-left: 10px;
+}
+input.calculator-input.percent {
+  padding-right: 10px;
+}
+span.percent-sign {
+  position: relative;
+  right: 15px;
+  color: $primary-color;
+}
+span.dollar-sign {
+  position: relative;
+  left: 10px;
+  color: $primary-color;
+}
+.pie-chart {
+  width: 100%;
+}
+
+.progress {
+  height:20px;
+}
+.meter {
+  position:relative;
+}
+.meter .percent {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  font-family:tahoma,arial,helvetica;
+  font-size:12px !important;
+  color:white !important;
+}
+.meter.blue {
+  background:cornflowerblue;
+}
+.meter.miss {
+  background:#F6F6F6;
+}
+.calculator-section-title{
+  margin-bottom: 0;
+  border: none;
+}
+
+.bold-400{
+  font-weight: 400;
+}

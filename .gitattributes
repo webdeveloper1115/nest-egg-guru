@@ -1,0 +1,3 @@
+.env filter=git-crypt diff=git-crypt
+deploy/files/production/nesteggguru.init filter=git-crypt diff=git-crypt
+deploy/files/staging/nesteggguru.init filter=git-crypt diff=git-crypt

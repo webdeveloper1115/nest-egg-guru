@@ -1,0 +1,57 @@
+.page-about { 
+	.banner {
+		width: 100%;
+		background-color: #F6F9FA;
+		padding: 50px 0;
+	  text-align: center;
+	}
+	.intro {
+		margin-top: 50px;
+		margin-bottom: 80px;
+		clear: both;
+	}
+	.team {
+		margin-bottom: 50px;
+		@include max-breakpoint(tablet) {
+			h2, .title {
+				text-align: center;
+			}
+		}
+	}
+	.avatar {
+		-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    @include max-breakpoint(tablet) {
+    	margin: 30px auto;
+    	display: block;
+    	text-align: center;
+    }
+	}
+	.h2-alt {
+		font-family: $base-font;
+		font-size: rem-calc(24px) !important;
+		color: $primary-color;
+		font-weight: 300;
+		text-transform: none;
+		padding-bottom: none;
+		border-bottom: none;
+		margin: 0;
+	}
+	h2 {
+		margin-top: 0;
+	}
+}
+
+.about-form {
+	margin: 40px 0;
+	clear: both;
+	.textarea {
+		min-height: 150px;
+		margin-bottom: 40px;
+	}
+}
+
+.nobottommargin {
+	margin-bottom: 0;
+}

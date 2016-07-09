@@ -1,0 +1,15 @@
+node_modules/
+.sass-cache/
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+npm-debug.log
+redis-server.log
+*.rdb
+lib/nest-egg-calculator
+ghost/nest-egg-guru-blog
+.env
+.vscode
+logs/
+deploy.sh
+staging-deploy.sh

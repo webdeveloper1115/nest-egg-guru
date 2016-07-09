@@ -1,0 +1,225 @@
+.page-home {
+  padding: 0;
+  .hero {
+  	width: 100%;
+  	background-color: #DDF3FF;
+	  h1 {
+	  	font-size: rem-calc(36px);
+	  	margin-top: 50px;
+	  }
+	  .intro {
+	  	font-size: 18px;
+	  }
+    .screenshots {
+      height: 510px;
+    }
+    &.financial-pro-container {
+      .intro {
+        line-height: 30px;
+        margin-top: 70px;
+        @include max-breakpoint(tablet) {
+          font-size: 18px;
+        }
+      }
+      .call-to-action-link {
+        margin: 0;
+        padding: 0;
+        .plan-header {
+          font-size: rem-calc(16px);
+        }
+        .smtext {
+          font-size: rem-calc(11px);
+        }
+        @media (max-width: 640px) {
+          padding-left: 24px;
+        }
+      }
+    }
+		@include max-breakpoint(tablet) {
+			h1 {
+				font-size: 26px;
+			}
+			.intro {
+				font-size: 16px;
+			}
+			.screenshots {
+				height: 400px;
+				margin: 0 auto;
+				text-align: center;
+				display: block;
+			}
+		}
+  }
+  .cta-btns {
+    display: block;
+    &:first-child {
+      margin-bottom: 15px;
+    }
+  }
+  .call-to-action-link {
+    cursor: pointer;
+  }
+  .financial-pro {
+  	width: 100%;
+  	padding: 30px 0;
+  	@include max-breakpoint(screen-sm) {
+  		img {
+  			margin: 0 auto 30px auto;
+  			text-align: center;
+  			display: block;
+  			width: 200px;
+  		}
+  	}
+  	h2 {
+		  font-size: rem-calc(20px) !important;
+		  font-family: $base-font;
+		  font-weight: $light-weight;
+		  color: $header-color;
+		  border-bottom: none;
+		  padding-bottom: 0;
+		  letter-spacing: 0;
+		  margin: 0 0 20px 0;
+		  text-transform: none;
+  	}
+    .plan-intro {
+      font-size: rem-calc(14px);
+    }
+  	@include max-breakpoint(screen-md) {
+  		h2 {
+  			font-size: 20px !important;
+  		}
+  		.plan-intro {
+  			font-size: 14px;
+  		}
+  	}
+  	.primary-btn {
+  		margin-top: 10px;
+  		display: inline-block;
+  	}
+  }
+
+  iframe{
+    max-width: 100%;
+  }
+
+  .partner-logo{
+    display: table;
+    height: 100%;
+  }
+
+    .partner-logo a{
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+  .partner{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .padding-5{
+    padding-top: 5%;
+  }
+}
+
+
+///////
+
+.jumbotron {
+  width: 100%;
+  padding-top: 5%;
+  min-height: 500px;
+  background: url('https://i.imgur.com/2WQXOcQ.gif') center center;
+  background-size: cover;
+  opacity: 1;
+  display: table;
+  width: 100%;
+  position: relative;
+  border-radius: 0px;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  -webkit-clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 85%);
+  clip-path: url(#poly);
+  overflow: hidden;
+  h1 {
+    font-size: 49px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+  @include max-breakpoint(screen-md) {
+    h1 {
+      padding-top: 10%;
+      font-weight: 400;
+      font-size: 18px;
+    }
+    .primary-btn {
+      font-size: 10px;
+    }
+  }
+
+}
+
+#black {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+  background: rgba(26,29,37,0.8);
+}
+
+.white{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  h1{
+    text-align: center;
+  }
+}
+
+.cta {
+  width: 100%;
+  background-color: #DDF3FF;
+  text-align: center;
+}
+
+.as_seen_on {
+  width: 100%;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  .screenshots {
+    margin: 2.5%;
+  }
+}
+
+//New badge
+.page-home .financial-pro img.new-badge{
+  width: 45px;
+  height: 20px;
+}
+@media (max-width: 40em){
+  .page-home .financial-pro img.new-badge {
+    display: inline-block !important;
+  }
+}
+
+.btn-homepage{
+  display: none;
+}
+
+@media (max-width: 373px) {
+  .btn-homepage{
+    display: block;
+  }
+}

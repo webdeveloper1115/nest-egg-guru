@@ -1,0 +1,16 @@
+---
+- name: restart nginx
+  service: name=nginx state=restarted
+  become: yes
+  become_user: nestegg
+
+- name: reload nginx
+  service: name=nginx state=reloaded
+  become: yes
+  become_user: nestegg
+
+- name: restart nestegg
+  command: service "{{ project_name }}" restart
+  # service: name="{{ project_name }}" state=restarted
+  become: yes
+  become_user: root

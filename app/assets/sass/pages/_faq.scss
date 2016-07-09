@@ -1,0 +1,19 @@
+.page-faq {
+	.banner {
+		width: 100%;
+		background-color: #F6F9FA;
+		padding: 50px 0;
+	  text-align: center;
+	}
+	.container {
+		margin: 0 auto 70px auto;
+	}
+	.question {
+		font-family: $special-font;
+		font-size: rem-calc(14px);
+		color: $primary-color;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		margin: 70px 0 10px 0;
+	}
+}

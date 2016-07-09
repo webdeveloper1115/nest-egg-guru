@@ -1,0 +1,56 @@
+<div class="large-6 columns">
+  <h2>Products</h2>
+  <div class="user-errors" id="product-errors">{{productMessages}}</div>
+
+  {{#compare type "Subscription"}}
+    <div class="row">
+      <div class="medium-6 small-12 columns">
+        <div class="product-box whitelabel-plan">
+          <input type="radio" name="subscriptionChoice" class="subscription-purchase" id="monthlyChecked" value="monthlyChecked" data="financialProfessionalMonthly" {{#compare purchase "financialProfessionalMonthly"}}checked{{/compare}}>
+          <span class="product-icon icon-icon-graphs"></span>
+          <div class="product-header">Financial Professional Monthly Subscription</div>
+        </div>
+        <div class="pricing product-end">Unlimited Access — $30/mo</div>
+      </div>
+      <div class="medium-6 small-12 columns">
+        <div class="product-box whitelabel-plan">
+          {{#if purchase }}
+          <input type="radio" name="subscriptionChoice" data="financialProfessionalYearly" class="subscription-purchase" id="annualChecked" {{#compare purchase "financialProfessionalYearly"}}checked{{/compare}}>
+          {{else}}
+          <input type="radio" name="subscriptionChoice" data="financialProfessionalYearly" class="subscription-purchase" id="annualChecked" checked>
+          {{/if}}
+          <span class="product-icon icon-icon-graphs"></span>
+          <div class="product-header">Financial Professional Yearly Subscription</div>
+        </div>
+        <div class="pricing product-end">Unlimited Access — $300/yr</div>
+      </div>
+    </div>
+
+  {{else}}
+    <div class="row">
+      {{#unless savingsPurchased}}
+        <div class="medium-6 small-12 columns">
+          <div class="product-box premium-plan">
+            <input class="calculator-purchase" data="savingsCalculator" type="checkbox" id="savingsChecked">
+            <span class="product-icon icon-icon-piggybank"></span>
+            <div class="product-header">Retirement Savings Calculator<span class="product-label">Premium</span></div>
+          </div>
+          <div class="pricing product-end">One Day Pass — $1.99</div>
+        </div>
+      {{/unless}}
+
+      {{#unless spendingPurchased}}
+        <div class="medium-6 small-12 columns">
+          <div class="product-box premium-plan">
+            <input type="checkbox" data="spendingCalculator" class="calculator-purchase" id="spendingChecked">
+            <span class="product-icon icon-icon-wallet"></span>
+            <div class="product-header">Retirement Spending Calculator<span class="product-label">Premium</span></div>
+          </div>
+          <div class="pricing product-end">One Day Pass — $1.99</div>
+        </div>
+      {{/unless}}
+    </div>
+    <p>While the free calculators offer unique functionality that enables users to get a firm grasp on their retirement savings and spending preparedness, the premium versions offer important additional insight that is well worth $1.99.</p>
+  {{/compare}}
+
+</div>

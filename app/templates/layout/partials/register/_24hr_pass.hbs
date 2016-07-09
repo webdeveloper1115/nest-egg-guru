@@ -1,0 +1,8 @@
+<div class="content {{ user.active }}" id="panel2">
+  <form method="POST" id="payment-form" action="/checkout" enctype="multipart/form-data">
+    <h2 class="panel-title">Payment Information</h2>
+    {{> forms/_stripe_info}}
+    <input type="text" id="calculator-choice" name="purchase" autocomplete="false" class="invisible">
+    <button type="submit" class="primary-btn" id="payment-submit">Next</button>
+  </form>
+</div>

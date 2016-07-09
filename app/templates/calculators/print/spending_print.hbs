@@ -1,0 +1,337 @@
+<main class="page-print page-calculators">
+  <div class="row">
+    <div class="small-12 columns remove-float-on-print">
+
+      <div class="no-page-break">
+        {{#if whiteLabel}}
+          {{> _header_whitelabel_logo_only_print}}
+        {{else}}
+          {{> _header_logo_only}}
+        {{/if}}
+        <div class="text-right no-print">
+          <a href="#" class="print-btn" id="print-page">
+            <span class="icon-print"></span>
+            <span class="print-page-text">Print</span>
+          </a>
+        </div>
+      </div>
+
+      {{!-- {{> shared/_whitelabel_print_header}} --}}
+      {{> _contact_session_print }}
+
+      {{> shared/_calculator_spendings_print_contents }}
+
+      <div class="page-breaker"></div>
+
+      {{!-- <div class="print-only">
+        {{#if whiteLabel}}
+          {{> _header_whitelabel_logo_only_print}}
+        {{/if}}
+      </div> --}}
+
+      <section class="container-header no-break-inside">
+        <h1>Spending Calculator Inputs</h1>
+      </section>
+      <input type="hidden" id="results-data-path" value="{{dataPath}}">
+
+      <h2 class="medium-margin">Enter Your Basic Retirement Spending Data</h2>
+      <section class="container-basic-data">
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3>I need my retirement savings to last:</h3>
+                <p>Estimate the number of years you need your nest egg to last (nearest 5 year multiple).</p>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-slider">
+                <h3 id="years-spending" class="calculator-input-text">{{input.years}} years</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3>Enter your current retirement nest egg value:</h3>
+                <p>Include the value of all accounts available for spending down to maintain your standard of living in retirement. Note: Investors who own deferred annuity contracts may wish to exclude these assets from consideration if they intend to eventually convert these assets to a lifetime income stream.</p>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-slider">
+                <h3 id="current-spending" class="calculator-input-text"><span class="big-number">${{input.current}}</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-input-row no-break-after">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3>Enter your desired initial annual withdrawal amount:</h3>
+                <p>This is the gross amount of money you expect to need to withdraw from your nest egg to supplement your other sources of retirement income in order to maintain your standard of living.</p>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-slider">
+                <h3 id="expenses-spending" class="calculator-input-text"><span class="big-number">${{input.expenses}}</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3>Enter your desired annual cost of living adjustment:</h3>
+                <p>While many retirement calculators automatically incorporate inflation adjustments based upon historical CPI data, Nest Egg Guru believes it is more realistic to allow users to control their annual withdrawal amounts. This format also enables users to test how changes in the cost of living adjustments may impact sustainability.</p>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-slider">
+                <h3 id="cashSelect-spending" class="calculator-input-text">{{input.living}}%</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{#if premium}}
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-8 columns">
+                <div class="container-info">
+                  <h3>Select whether you would like Nest Egg Guru to incorporate up to two future changes (can be either increases or decreases) to your inflation-adjusted withdrawal amount.</h3>
+                  <p>The purpose of this input is to enable users to incorporate anticipated future income changes into the analysis. For instance, if one retires at age 65 with a certain initial withdrawal rate, but later anticipates that this nest egg withdrawal need may be reduced due to his/her receiving social security income, this input would enable the user to incorporate the change. If no future changes are anticipated, users may skip this input.</p>
+                </div>
+              </div>
+              <div class="medium-4 columns">
+                <div class="container-withdrawal-adjustment">
+                  {{#compare input.withdrawalOption '1'}}
+                    <h3 id="withdrawal-adjustment-occurrences">No planned future adjustments to withdrawal ammount.</h3>
+                  {{else}}
+                    {{#compare input.withdrawalOption '2'}}
+                      <h3 id="withdrawal-adjustment-occurrences">Allow for one future adjustment to my withdrawal amount.</h3>
+                      <p>In <span>{{input.firstWithdrawalStart}}</span> years, {{#compare input.firstWithdrawalStartDelta 'true'}}increase{{else}}decrease{{/compare}} my withdrawals by this amount <span class="big-number">${{input.firstWithdrawalAmount}}</span> per year.</p>
+                    {{else}}
+                      <h3 id="withdrawal-adjustment-occurrences">Allow for two future adjustments to my withdrawal amount.</h3>
+                      <p>In <span>{{input.firstWithdrawalStart}}</span> years, {{#compare input.firstWithdrawalStartDelta 'true'}}increase{{else}}decrease{{/compare}} my withdrawals by this amount <span class="big-number">${{input.firstWithdrawalAmount}}</span> per year, and will end in <span>{{input.firstWithdrawalEnd}}</span> years.</p>
+
+                      <p>In <span>{{input.secondWithdrawalStart}}</span> years, {{#compare input.secondWithdrawalStartDelta 'true'}}increase{{else}}decrease{{/compare}} my withdrawals by this amount <span class="big-number">${{input.secondWithdrawalAmount}}</span> per year.</p>
+                    {{/compare}}
+                  {{/compare}}
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      </section>
+
+      {{> shared/inputs/_retirement_portfolio_details_print}}
+
+      {{#if premium}}
+        <h2>Enter Your Retirement Withdrawal Strategy</h2>
+        <section class="container-strategy">
+          <div class="container-input-row">
+            <div class="row">
+              <div class="medium-6 columns">
+                <div class="container-info">
+                  <h3>Choose your withdrawal strategy.</h3>
+                  <p>The manner in which you spend down your retirement nest egg may have a significant impact on how long it may last. Select the withdrawal strategy that most closely resembles your current or anticipated approach and then test how different strategies may affect your results.</p>
+                </div>
+              </div>
+              <div class="medium-6 columns">
+                <div class="container-strategy-options">
+                  {{#compare input.withdrawalStrategy '1'}}
+                    <h3>Maintain a current allocation with annual rebalancing throughout retirement<h3>
+                    <p>While most retirement planning calculators automatically assume that investors maintain a constant allocation with rebalancing in their spending analysis, recent research suggests that this may NOT be an optimal solution. Users are strongly encouraged to test all four withdrawal strategy choices.</p>
+                  {{else}}
+                    {{#compare input.withdrawalStrategy '2'}}
+                      <h3>Stocks First Glidepath – Spend down the stocks first, then bonds, then cash</h3>
+                      <p>With a “stocks first” withdrawal strategy, your nest egg may be expected to become more conservative over time, as the stock portion of the portfolio is liquidated before the bond or cash allocations are reduced.</p>
+                    {{else}}
+
+                      {{#compare input.withdrawalStrategy '3'}}
+                        <h3>Bonds/Cash First Glidepath – Spend down the bonds first, then cash, then stocks</h3>
+                        <p>With a “bonds/cash first” withdrawal strategy, your nest egg may be expected to become more heavily weighted in stocks over time.</p>
+                      {{else}}
+                        <h3>Guardrail Strategy – Do not spend down stocks following negative return years</h3>
+                        <p>Research has shown that certain decision-based withdrawal strategies may enhance nest egg sustainability. The “guardrail” strategy illustrated in Nest Egg Guru entails shifting the gains each year (if any) from stocks and bonds to cash and then spending down the cash portion of the portfolio first, followed by bonds, and, lastly, stocks. Using this strategy, no withdrawals are made from equities following flat or down years.</p>
+                      {{/compare}}
+
+                    {{/compare}}
+                  {{/compare}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      {{/if}}
+
+      {{!-- <div class="print-only">
+        {{#if whiteLabel}}
+          {{> _header_whitelabel_logo_only_print}}
+        {{else}}
+          {{> _header_logo_only}}
+        {{/if}}
+      </div> --}}
+
+      <div class="page-breaker"></div>
+
+      <section class="container-header min-padding">
+        <h1>Spending Calculator Results</h1>
+      </section>
+
+      <h2 class="min-margin">Retirement Spending Calculator Results Summary</h2>
+      <section class="container-results-summary-print min-margin">
+        <div class="results-summary-intro no-space">
+          <p>Based upon the personal data you entered and the withdrawal elections you made, Nest Egg Guru ran 5,000 simulations using randomly sampled historical monthly index return data in percentages that match your specified retirement allocation.  The results from these simulations are summarized as follows:</p>
+        </div>
+
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3 class="summary-text">Out of 5,000 withdrawal simulations, your <strong><span class="NumberofYearsinRetirementHorizon"></span> year</strong> withdrawal goal was successful this % of the time:</h3>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-value">
+                <p class="summary-value calculator-input-text"><span class="ProbabilityofSuccessinHorizonPeriod"></span>%</p>
+                <p class="value-info-text">This is the percentage of simulations in which your Nest Egg lasted longer than you did.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3 class="summary-text">At the top 20% result (80th percentile) of the 5,000 simulations, your remaining portfolio balance at the end of <strong><span class="NumberofYearsinRetirementHorizon"></span> years</strong> was:</h3>
+                <aside class="notes">
+                  <p>The top 20% results represent an extremely favorable (and, perhaps, unlikely) investment environment.  While included for illustration purposes, users are encouraged to focus on the bottom half (worst 50%) of simulation results.</p>
+                </aside>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-value">
+                <p class="summary-value calculator-input-text"><span id="80thPercentileBalance"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3 class="summary-text">Out of 5,000 simulations, your retirement nest egg was depleted before <strong><span class="NumberofYearsinRetirementHorizon"></span> years</strong> this percent of the time:</h3>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-value">
+                <p class="summary-value calculator-input-text"><span class="PercentageofTimeSavingsFailed"></span>%</p>
+                <p class="value-info-text">This percentage represents the failure rate of the 5,000 simulations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-input-row">
+          <div class="row">
+            <div class="medium-8 columns">
+              <div class="container-info">
+                <h3 class="summary-text">At the worst result out of the 5,000 simulations, your remaining portfolio balance at the end of <strong><span class="NumberofYearsinRetirementHorizon"></span> years</strong> was:</h3>
+                <aside class="notes">
+                  <p>While this simulation result may represent investment conditions that are worse than anything in the historical record, it may be useful for establishing a baseline for evaluating one’s preparedness in the event that future investment returns are far worse than the historical norm.</p>
+                </aside>
+              </div>
+            </div>
+            <div class="medium-4 columns">
+              <div class="container-value">
+                <p class="summary-value calculator-input-text"><span id="LowestBalance"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {{!-- <div class="print-only">
+        {{#if whiteLabel}}
+          {{> _header_whitelabel_logo_only_print}}
+        {{else}}
+          {{> _header_logo_only}}
+        {{/if}}
+      </div> --}}
+
+      <div class="page-breaker"></div>
+
+      <h2 class="min-margin no-space">Complete Retirement Nest Egg Sustainability Simulation Results</h2>
+      <section class="container-simulation-results">
+        <div class="intro-text no-space">
+          <p>The complete range of simulated remaining balances is presented below in five year increments for your <strong>30 year</strong> estimated retirement horizon.  These detailed results are intended to help you quantify your risk of running out of money in retirement.</p>
+
+          <p>All users are encouraged to experiment with the calculator to see how changing the various inputs may impact the results.</p>
+        </div>
+        <div class="simulation-views">
+          <div class="simulation-content">
+            <div class="container-scroll-message scroll-message-spending-table show-for-medium-down hide-for-print">
+              <div class="scroll-message">
+                <p>Please scroll left and right to view all data.</p>
+              </div>
+              <div class="scroll-image">
+                <img src="/img/double_arrow.png" alt="Please scroll left and right to view all data.">
+              </div>
+            </div>
+            <div class="table-view print-view" id="table-view">
+              <p class="text-center vertical-chart-top-title no-space">Remaining Balance...</p>
+              <p class="text-center vertical-chart-left-title">Simulation Percentile</p>
+              {{> spending/results/_results_table}}
+            </div>
+            <div class="container-scroll-message scroll-message-spending-graph show-for-medium-down hide-for-print">
+              <div class="scroll-message">
+                <p>Please scroll left and right to view all data.</p>
+              </div>
+              <div class="scroll-image">
+                <img src="/img/double_arrow.png" alt="Please scroll left and right to view all data.">
+              </div>
+            </div>
+
+            {{!-- <div class="print-only">
+              {{#if whiteLabel}}
+                {{> _header_whitelabel_logo_only_print}}
+              {{else}}
+                {{> _header_logo_only}}
+              {{/if}}
+            </div> --}}
+
+            <div class="page-breaker"></div>
+
+            <div class="bar-graph-view print-view" id="bar-graph-view">
+              <div class="vertical-bar legend {{type}}"></div>
+              <div class="vertical-bar-chart graph"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {{!-- <div class="print-only">
+        {{#if whiteLabel}}
+          {{> _header_whitelabel_logo_only_print}}
+        {{else}}
+          {{> _header_logo_only}}
+        {{/if}}
+      </div> --}}
+
+      <section class="container-bottom">
+        {{> shared/_disclaimer}}
+      </section>
+
+    </div>
+  </div>
+</main>

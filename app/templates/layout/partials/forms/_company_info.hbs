@@ -1,0 +1,43 @@
+<div id="logo-errors" class="user-errors"></div>
+{{#if active }}
+  <div id="logo-preview" class="company-logo-exists">
+    <img src="{{logo}}">
+    <input type="hidden" name="hasLogo" value="{{logo}}" id="has-company-logo">
+  </div>
+{{else}}
+  {{#if img}}
+    {{!-- <div id="img-stream" data="{{{img}}}" class="hide"></div>
+    <img id="logo-img-prev" src=""> --}}
+    <div id="logo-preview" class="company-logo">
+      <div id="img-stream" data="{{{img}}}" class="hide"></div>
+      <img id="logo-img-prev" src="">
+    </div>
+  {{else}}
+    <div id="logo-preview" class="company-logo"></div>
+  {{/if}}
+{{/if}}
+<p>Change your company logo. Max size 2MB.</p>
+<div class="button-group">
+  <button id="delete-logo" type="button" class="secondary-btn small-btn">Delete</button>&nbsp;
+  <button id="upload-logo" type="button" class="primary-btn small-btn">Upload</button>
+  <input id="company-logo" type="file" name="logo" accept="image/*" hidden>
+  <input id="keep-logo" type="hidden" name="keepLogo" value="true">
+</div>
+<div class="row topmargin">
+  <div class="large-12 columns">
+    <label>Write down a few words about yourself or your company (optional)
+      <textarea id="textarea" class="general-input" maxlength="425" placeholder="Jack Smith provides highly personalized financial planning and investment management guidance to business owners and their families. Jack has a degree in finance from Ivy College and an MBA from Anywhere University. He has been a financial advisor since 1994, and his perspectives are regularly cited in the national financial news media" name="copy">{{copy}}</textarea>
+      <div id="textarea_feedback" class="f-right"></div>
+    </label>
+  </div>
+</div>
+<br>
+<p>This information will appear on the cover page when users print their results. Your name and contact information will appear on every page.</p>
+<br>
+<div class="row">
+  <div class="medium-12 columns">
+    <label>Enter your firm’s required disclosure info here. This information will automatically appear on the results report
+      <input type="text" class="general-input no-spaces" id="disclosure_info" name="disclosure_info" value="{{disclosure_info}}" />
+    </label>
+  </div>
+</div>

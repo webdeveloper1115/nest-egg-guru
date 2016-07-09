@@ -1,0 +1,13 @@
+<main class="calculator-banner">
+  <h1 class="bold-400">{{calculator}} {{#if whiteLabel}}{{else}}<span class="{{type}} product-label">{{type}}</span>{{/if}}</h1>
+
+  <ul class="tabs" data-tab role="tablist">
+    <li class="tab-title active" role="presentational">
+      <a id="calculator-inputs-tab" href="#calculator-inputs-panel" class="uppercase" role="tab" tabindex="0" aria-selected="true" controls="calculator-inputs-panel">Calculator</a>
+    </li>
+
+    <li class="tab-title disabled-results" role="presentational">
+      <a id="calculator-results-tab" href="#calculator-results-panel" class="uppercase" role="tab" tabindex="0"aria-selected="false" controls="calculator-results-panel">Results</a>
+    </li>
+  </ul>
+</main>

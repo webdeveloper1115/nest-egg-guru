@@ -1,0 +1,13 @@
+---
+project_name: nest-egg-guru
+project_user: nestegg
+project_root: /home/nestegg/apps/nest-egg-guru
+project_repo: git@bitbucket.org:nesteggguru/nest-egg-guru.git
+system_packages:
+  - build-esential
+  - git
+  - nginx
+  - nodejs
+  - npm
+initfiles:
+  - start-nestegg

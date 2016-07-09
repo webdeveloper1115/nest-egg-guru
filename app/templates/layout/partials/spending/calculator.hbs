@@ -1,0 +1,20 @@
+<div id="calculator-content" class="row">
+	<div class="small-12 columns">
+		<main class="page-calculators{{pageVersion}}">
+		  <form class="calculator-form" action="{{postRoute}}" role="form" data-abide="ajax" onkeypress="return event.keyCode != 13;">
+		  	<div>
+		  	  <h4> Nest Egg Guru’s Spending Calculator inputs require less than 1 minute to enter and are divided into three sections -  your spending data, your portfolio details, and your choice of the withdrawal strategy you wish to illustrate.   You may enter your data manually or use the slider bars, where applicable. </h4>
+
+			    {{> spending/inputs/_basic_spending_data}}
+
+			    {{> shared/inputs/_retirement_portfolio_details}}
+
+			    {{> spending/inputs/_withdrawal_strategy}}
+		    </div>
+
+
+		    {{> shared/inputs/_hidden_inputs}}
+		  </form>
+		</main>
+	</div>
+</div>

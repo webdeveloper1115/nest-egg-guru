@@ -1,0 +1,15 @@
+<main class="page-login">
+	<div class="banner">
+		<h1>Sign In</h1>
+		<p>Don’t have an account yet? <a href="/user/register?type=financial-professionals&step=info">Register</a> for one.</p>
+
+	</div>
+  <div class="row">
+    <div class="large-4 large-centered medium-6 medium-centered columns">
+      <form class="login-form clearfix" method="POST" action="/user/login" role="form">
+        <div class="user-errors text-center">{{error}}</div>
+        {{> forms/_login_info}}
+      </form>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,188 @@
+.page-print {
+  // fonts
+  .print-h1 {
+    font-weight: bold;
+    font-size: 38px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .print-h2 {
+    font-size: 24px !important;
+    font-weight: bold;
+  }
+
+  .print-p-medium {
+    font-size: 16px !important;
+  }
+
+  .print-p-large {
+    font-size: 20px !important;
+  }
+
+  .print-p-wrap {
+    margin-top: 50px;
+  }
+
+  .print-content-list {
+    padding-left: 100px;
+    li {
+      p {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 16px;
+    color: $header-color;
+    letter-spacing: 1.33px;
+    line-height: 19px;
+  }
+  p {
+    line-height: 24px;
+    @include max-breakpoint(mobile) {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+  .container-header {
+    text-align: center;
+    padding: 50px 0;
+    h1 {
+      font-weight: 300;
+      font-size: 30px;
+      line-height: 36px;
+      @include max-breakpoint(mobile) {
+        font-size: 24px;
+      }
+    }
+  }
+  .container-slider,
+  .container-value,
+  .container-strategy-options,
+  .container-withdrawal-adjustment {
+    text-align: right;
+    @include max-breakpoint(tablet) {
+      margin-left: 0;
+    }
+  }
+  .calculator-input-text {
+    @include calculator-input(24px, 29px);
+  }
+  .container-portfolio-details {
+    .portfolio-input {
+      @include portfolio-input(75px, 400, 20px, 36px);
+      border-radius: 3px;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+  .container-strategy-options,
+  .container-withdrawal-adjustment {
+    text-align: right;
+    h3 {
+      color: $primary-color;
+    }
+    p {
+      margin-left: 0;
+    }
+  }
+  .container-strategy-options {
+    h3#target-stocks {
+      margin-top: 50px;
+      color: $portfolio-label;
+      span {
+        color: $primary-color;
+        margin-left: 20px;
+      }
+    }
+  }
+  .container-withdrawal-adjustment {
+    p {
+      font-family: $base-font;
+      font-weight: 300;
+      font-size: 20px;
+      color: $header-color;
+      line-height: 24px;
+      @include max-breakpoint(mobile) {
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+    }
+    span {
+      color: $primary-color;
+    }
+  }
+  .container-results-summary-print {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .results-summary-intro {
+      margin-bottom: 50px;
+    }
+    .notes {
+      border: 1px solid $slider-border;
+      padding: 20px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+  .container-simulation-results {
+    border-bottom: 0;
+    margin-bottom: 80px;
+    @include max-breakpoint(mobile) {
+      margin-bottom: 50px;
+    }
+  }
+  .container-bottom {
+    text-align: left;
+    margin-bottom: 70px;
+    @include max-breakpoint(mobile) {
+      margin-bottom: 50px;
+    }
+    .container-disclaimer {
+      margin-top: 0;
+      @include max-breakpoint(mobile) {
+        margin-top: 0;
+      }
+      p {
+        font-size: 12px;
+        color: $text-color;
+        line-height: 24px;
+        letter-spacing: 0;
+        @include max-breakpoint(mobile) {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+  .container-white-label-nav {
+    position: relative;
+    .tagline {
+      position: absolute;
+      top: 42px;
+      right: 25px;
+    }
+  }
+  .container-white-label-header {
+    padding-bottom: 50px;
+    border-bottom: 2px solid $h2-border;
+    h2 {
+      margin: 50px 0 20px;
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    p {
+      margin: 0;
+    }
+    .address-info {
+      margin-top: 20px;
+    }
+  }
+  .container-portfolio-details.free-border-bottom {
+    padding-bottom: 50px;
+    border-bottom: 2px solid $h2-border;
+  }
+}

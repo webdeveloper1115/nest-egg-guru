@@ -1,0 +1,67 @@
+<div class="row">
+  {{#if company}}
+    {{#if savingsPurchased}}
+      <div class="medium-6 small-12 columns vertline">
+        <div class="product-box premium-plan">
+          <span class="product-icon icon-icon-piggybank"></span>
+          <div class="product-header">Retirement Savings Calculator<span class="product-label">Premium</span></div>
+        </div>
+        <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+        <div class="product-description product-end">
+          <p>Your <strong>Savings Calculator One Day Pass</strong> is now active!</p>
+          <p>Your pass will expire at <strong>{{savingsPurchased}}</strong>.</p>
+          <div class="cta"><a href="/savings/premium" class="primary-btn">Get Started</a></div>
+        </div>
+      </div>
+    {{/if}}
+    {{#if spendingPurchased}}
+      <div class="medium-6 small-12 columns">
+        <div class="product-box premium-plan">
+          <span class="product-icon icon-icon-wallet"></span>
+          <div class="product-header">Retirement Spending Calculator<span class="product-label">Premium</span></div>
+        </div>
+        <div class="pricing"><span class="icon-check granted"></span>One Day Pass — $1.99</div>
+        <div class="product-description product-end">
+          <p>Your <strong>Spending Calculator One Day Pass</strong> is now active!</p>
+          <p>Your pass will expire at <strong>{{spendingPurchased}}</strong>.</p>
+          <div class="cta"><a href="/spending/premium" class="primary-btn">Get Started</a></div>
+        </div>
+      </div>
+    {{/if}}
+  {{else}}
+    <div class="medium-6 small-12 columns vertline">
+      <div class="product-box premium-plan">
+        <span class="product-icon icon-icon-piggybank"></span>
+        <div class="product-header">Retirement Savings Calculator<span class="product-label">Premium</span></div>
+      </div>
+      <div class="pricing">{{#if savingsPurchased}}<span class="icon-check granted"></span> {{/if}}One Day Pass — $1.99</div>
+      <div class="product-description product-end">
+        {{#if savingsPurchased}}
+          <p>Your <strong>Savings Calculator One Day Pass</strong> is now active!</p>
+          <p>Your pass will expire at <strong>{{savingsPurchased}}</strong>.</p>
+          <div class="cta"><a href="/savings/premium" class="primary-btn">Get Started</a></div>
+        {{else}}
+          <p>Purchase the <strong>Savings Calculator</strong> to get a firm grasp on your savings preparedness.</p>
+          <div class="cta"><a href="/user/register#savings" class="primary-btn">Purchase</a></div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="medium-6 small-12 columns">
+      <div class="product-box premium-plan">
+        <span class="product-icon icon-icon-wallet"></span>
+        <div class="product-header">Retirement Spending Calculator<span class="product-label">Premium</span></div>
+      </div>
+      <div class="pricing">{{#if spendingPurchased}}<span class="icon-check granted"></span> {{/if}}One Day Pass — $1.99</div>
+      <div class="product-description product-end">
+        {{#if spendingPurchased}}
+          <p>Your <strong>Spending Calculator One Day Pass</strong> is now active!</p>
+          <p>Your pass will expire at <strong>{{spendingPurchased}}</strong>.</p>
+          <div class="cta"><a href="/spending/premium" class="primary-btn">Get Started</a></div>
+        {{else}}
+          <p>Purchase the <strong>Spending Calculator</strong> to get a firm grasp on your spending preparedness.</p>
+          <div class="cta"><a href="/user/register#spending" class="primary-btn">Purchase</a></div>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+</div>

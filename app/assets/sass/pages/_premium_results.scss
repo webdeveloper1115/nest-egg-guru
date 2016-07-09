@@ -1,0 +1,200 @@
+.page-results {
+  width: 100%;
+  margin: 0 auto;
+  h2 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    @include max-breakpoint(mobile) {
+      font-size: 12px !important;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+  }
+  p {
+    font-size: 16px;
+    color: $text-color;
+    line-height: 1.5;
+    @include max-breakpoint(mobile) {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+  .value-info-text {
+    font-size: 14px;
+    @include max-breakpoint(mobile) {
+      font-size: 12px;
+    }
+  }
+  .container-bottom {
+    margin-top: 58px;
+    margin-bottom: 41px;
+    .secondary-btn {
+      margin-right: 10px;
+    }
+    .container-controls-left {
+      @include max-breakpoint(mobile) {
+        text-align: center;
+      }
+    }
+    .container-controls-right {
+      text-align: right;
+      @include max-breakpoint(mobile) {
+        text-align: center;
+      }
+      .print-btn {
+        @include max-breakpoint(mobile) {
+          display: inline-block;
+          margin-top: 40px;
+        }
+        .icon-print {
+          color: $secondary-btn-color;
+        }
+        .print-page-text {
+          font-size: 14px;
+          line-height: 0;
+        }
+      }
+    }
+    .container-disclaimer {
+      margin-top: 57px;
+      @include max-breakpoint(mobile) {
+        margin-top: 50px;
+      }
+      p {
+        font-size: 12px;
+        color: $text-color;
+        line-height: 18px;
+        letter-spacing: 0;
+        @include max-breakpoint(mobile) {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+  .primary-btn, .secondary-btn {
+    @include max-breakpoint(mobile) {
+      font-size: 12px !important;
+    }
+  }
+}
+
+.container-intro {
+  margin-top: 50px;
+}
+
+.container-results-summary {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  p.summary-text {
+    font-size: 20px;
+    color: $header-color;
+    line-height: 24px;
+    font-weight: $light-weight;
+    text-align: right;
+    @include max-breakpoint(screen-sm) {
+      font-size: 18px;
+      letter-spacing: 0;
+      text-align: center;
+    }
+  }
+  .container-value {
+    @include max-breakpoint(screen-sm) {
+      text-align: center;
+    }
+  }
+  p.summary-value {
+    font-weight: $light-weight;
+    font-size: 40px;
+    line-height: 36px;
+    word-wrap: break-word;
+    @include max-breakpoint(mobile) {
+      font-size: 24px;
+    }
+  }
+  .results-summary-intro {
+    margin-bottom: 50px;
+  }
+  .results-summary-left {
+    padding: 20px 0;
+    border-right: 2px solid $h2-border;
+    @include max-breakpoint(tablet) {
+      padding: 0;
+      border-right: 0;
+    }
+    .row {
+      margin-bottom: 30px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    p.summary-text, .container-value, .notes {
+      margin-right: 50px;
+      @include max-breakpoint(tablet) {
+        margin-right: 0;
+      }
+    }
+    p.summary-value {
+      color: $primary-color;
+    }
+  }
+  .results-summary-right {
+    padding: 20px 0;
+    @include max-breakpoint(tablet) {
+      padding: 0;
+      margin-top: 50px;
+    }
+    .row {
+      margin-bottom: 30px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    p.summary-text, .container-value, .notes {
+      margin-left: 50px;
+      @include max-breakpoint(tablet) {
+        margin-left: 0;
+      }
+    }
+    p.summary-value {
+      color: $secondary-color;
+    }
+  }
+  .notes {
+    background: $notes-bg;
+    padding: 0  20px 20px;
+    &:before {
+      content: '.';
+      color: transparent;
+      display: block;
+      width: 0;
+      position: relative;
+      right: 20px;
+      border-left: 0 solid $white;
+      border-right: 27px solid transparent;
+      border-top: 27px solid $white;
+      background-color: $page-fold;
+      height: 0;
+      bottom: 0;
+    }
+    p {
+      color: $notes-color;
+      margin: 0 0 0 10px;
+      padding: 0;
+      font-size: 14px;
+      @include max-breakpoint(mobile) {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.container-simulation-results {
+  border-bottom: 2px solid $h2-border;
+  .intro-text {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}

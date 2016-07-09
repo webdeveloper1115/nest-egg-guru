@@ -1,0 +1,36 @@
+<div class="content {{#compare step "company" }}active{{/compare}}" id="panel2">
+  <form method="POST" id="payment-form" action="/checkout" enctype="multipart/form-data" novalidate>
+    <input type="text" id="calculator-choice" name="purchase" class="invisible" value="financialProfessionalMonthly" autocomplete="false">
+    <div class="tabs-content">
+      <div class="content active" id="panel2-1">
+        {{> forms/_account_info_hidden}}
+
+        <h2 class="panel-title">&nbsp;</h2>
+        {{> forms/_general_info}}
+
+        <h2>Customize your Nest Egg Guru financial advisor page</h2>
+        {{> forms/_custom_page}}
+
+        <h2>Company Information</h2>
+        {{> forms/_company_info}}
+
+        {{!--
+        <h2 class="panel-title">Payment Information</h2>
+        {{> forms/_stripe_info}} 
+         --}}
+
+
+        <hr>
+
+        <button type="button" id="back-button" class="secondary-btn">Back</button>
+        <button type="submit" class="primary-btn" id="payment-submit">Next</button>
+      </div>
+    </div>
+  </form>
+
+  <div id="required-field-modal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h1 id="modalTitle">Please fill in required fields.</h1>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+</div>

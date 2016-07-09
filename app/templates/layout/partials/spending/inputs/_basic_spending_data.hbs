@@ -1,0 +1,149 @@
+<h2>Basic Retirement Spending Data</h2>
+<section class="container-basic-data">
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>I need my retirement savings to last
+            <input type="text" id="years-spending" class="calculator-input input-small right" name="years" value="{{defaultValues.years}}" min="5" max="50" maxlength="2">
+          </h3>
+
+          <h3>years. <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                       title="Estimate the number of years you need your nest egg to last (nearest 5 year multiple)."></h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input id="years-spending-slider" type="range" class="range-slider" step="5" value="{{defaultValues.years}}" min="5" max="50" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">5 YRS</span>
+            <span class="right">50 YRS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Enter your current retirement nest egg value:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                                   title="Include the value of all accounts available for spending down to maintain your standard of living in retirement. Note:  Investors who own deferred annuity contracts may wish to exclude these assets from consideration if they intend to eventually convert these assets to a lifetime income stream.">
+            <span class="right"><span class="dollar-sign">$</span><input type="text" id="current-spending" class="calculator-input input-huge cost" name="current" value="{{defaultValues.curSpending}}" min="0" max="100000000">.</span>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Enter your desired initial annual withdrawal amount:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                                               title="This is the gross amount of money you expect to need to withdraw from your nest egg to supplement your other sources of retirement income in order to maintain your standard of living.">
+            <span class="right"><span class="dollar-sign">$</span><input type="text" id="expenses-spending" class="calculator-input input-large cost" name="expenses" value="{{defaultValues.expSpending}}" min="1000" max="500000">.<span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+        <input type="range" id="expenses-spending-slider" class="range-slider" value="{{defaultValues.expSpending}}" min="1000" step="1000" max="500000" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">$1,000</span>
+            <span class="right">$500,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Enter your desired annual cost of living adjustment:
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                                                           title="While many retirement calculators automatically incorporate inflation adjustments based upon historical CPI data, Nest Egg Guru believes it is more realistic to allow users to control their annual withdrawal amounts. This format also enables users to test how changes in the cost of living adjustments may impact sustainability.">
+            <span class="right"><input type="text" id="cashSelect-spending" name="living" class="calculator-input input-medium percent" value="{{defaultValues.living}}" step=".25" min="0" max="10"><span class="percent-sign">%</span>.</span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="cashSelect-spending-slider" class="range-slider" min="0" step=".25" max="10" value="{{defaultValues.living}}" data-rangeslider>
+          <div class="slider-labels clearfix">
+            <span class="left">0%</span>
+            <span class="right">10%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{#if premium}}
+    <div class="container-input-row">
+      <div class="row">
+        <div class="medium-6 columns">
+          <div class="container-info">
+            <h3>
+              Select whether you would like Nest Egg Guru to incorporate up to two future changes (can be either increases or decreases) to your inflation-adjusted withdrawal amount.
+              <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                                                                         title="The purpose of this input is to enable users to incorporate anticipated future income changes into the analysis. For instance, if one retires at age 65 with a certain initial withdrawal rate, but later anticipates that this nest egg withdrawal need may be reduced due to his/her receiving social security income, this input would enable the user to incorporate the change. If no future changes are anticipated, users may skip this input.">
+            </h3>
+          </div>
+        </div>
+        <div class="medium-6 columns">
+          <div class="container-withdrawal-adjustment container-strategy-options">
+            <ul>
+              <li class="option-item">
+                <input type="radio" class="strategy-options" id="withdrawal-option1" name="withdrawalOption" value="1" checked="checked">
+                <label for="withdrawal-option1" class="strategy-labels">No planned future adjustments to withdrawal amount.</label>
+                <div class="radio-btn-check" id="withdrawal-option1-check"></div>
+              </li>
+
+              <li class="option-item">
+                <input type="radio" class="strategy-options" id="withdrawal-option2" name="withdrawalOption" value="2">
+                <label for="withdrawal-option2" class="strategy-labels">Allow for one future adjustment to my withdrawal amount.</label>
+                <div class="radio-btn-check" id="withdrawal-option2-check" name="withdrawal-option2-check"></div>
+
+              </li>
+
+              <li class="option-item">
+                <input type="radio" class="strategy-options" id="withdrawal-option3" name="withdrawalOption" value="3">
+                <label for="withdrawal-option3" class="strategy-labels">Allow for two future adjustments to my withdrawal amount.</label>
+                <div class="radio-btn-check" id="withdrawal-option3-check" name="withdrawal-option3-check"></div>
+              </li>
+            </ul>
+
+            <div class="1-withdrawal withdrawal-opt">
+              <p>In
+                <input type="text" id="firstWithdrawalStart" class="calculator-input input-small" name="firstWithdrawalStart" min="0" max="50" value="10" maxlength="2"> years,
+                <span class="styled-select small">
+                  <select name="firstWithdrawalStartDelta" class="calculator-select select-small">
+                    <option value="true" selected>Increase</option>
+                    <option value="false">Decrease</option>
+                  </select>
+                </span>
+                my withdrawals by this amount <br><span class="dollar-sign">$</span><input type="text" id="firstWithdrawalAmount" class="calculator-input input-huge cost" name="firstWithdrawalAmount" value="0" min="0" max="100000000"> per year<span class="2-withdrawal withdrawal-opt hidden" style="display: none;">, and will end in <input type="text" id="firstWithdrawalEnd" class="calculator-input input-small" name="firstWithdrawalEnd" value="20" min="0" max="50" maxlength="2"> years</span>.</p>
+            </div>
+
+            <div class="2-withdrawal withdrawal-opt" style="display:none">
+              <p>In <input type="text" id="secondWithdrawalStart" class="calculator-input input-small" name="secondWithdrawalStart" value="20" min="0" max="50" maxlength="2"> years,
+                <span class="styled-select small">
+                  <select name="secondWithdrawalStartDelta" class="calculator-select select-small">
+                    <option value="true">Increase</option>
+                    <option value="false">Decrease</option>
+                  </select>
+                </span>
+              increase/decrease my withdrawals <br> by this amount <span class="dollar-sign">$</span><input type="text" id="secondWithdrawalAmount" class="calculator-input input-huge cost" name="secondWithdrawalAmount" min="0" max="100000000" value="0"> per year.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</section>

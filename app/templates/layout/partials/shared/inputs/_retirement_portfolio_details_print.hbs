@@ -1,0 +1,174 @@
+{{!-- <div class="print-only">
+  {{#if whiteLabel}}
+    {{> _header_whitelabel_logo_only_print}}
+  {{else}}
+    {{> _header_logo_only}}
+  {{/if}}
+</div> --}}
+<div class="page-breaker"></div>
+
+<h2>Enter Your Retirement Portfolio Details</h2>
+<section class="container-portfolio-details{{freeBorderBottom}}">
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-5 large-6 columns">
+        <div class="container-info">
+          <h3>Enter your current <strong>Broad Asset Allocation</strong> (must add up to 100%)</h3>
+        </div>
+      </div>
+      <div class="medium-7 large-6 columns">
+        <div class="container-portfolio-input">
+          <div class="row">
+            <div class="medium-6 columns">
+              <div class="portfolio-input-group">
+                <div class="portfolio-input-item clearfix">
+                  <div class="portfolio-input left">
+                    <span>{{input.stocks}}%</span>
+                    <input type="hidden" id="stocks" value="{{input.stocks}}">
+                  </div>
+                  <span class="chart-legend primary-legend left"></span>
+                  <label for="stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-green.png"></span>Stocks</label>
+                </div>
+                <div class="portfolio-input-item clearfix">
+                  <div class="portfolio-input left">
+                    <span>{{input.bonds}}%</span>
+                    <input type="hidden" id="bonds" value="{{input.bonds}}">
+                  </div>
+                  <span class="chart-legend secondary-legend left"></span>
+                  <label for="bonds" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-blue.png"></span>Bonds</label>
+                </div>
+                <div class="portfolio-input-item clearfix">
+                  <div class="portfolio-input left">
+                    <span>{{input.cash}}%</span>
+                    <input type="hidden" id="cash" value="{{input.cash}}">
+                  </div>
+                  <span class="chart-legend ternary-legend left"></span>
+                  <label for="cash" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-orange.png"></span>Cash</label>
+                </div>
+              </div>
+            </div>
+            <div class="medium-6 columns">
+              <div class="pie-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {{#if premium}}
+    {{!-- <div class="print-only">
+      {{#if whiteLabel}}
+        {{> _header_whitelabel_logo_only_print}}
+      {{else}}
+        {{> _header_logo_only}}
+      {{/if}}
+    </div> --}}
+    <div class="container-input-row">
+      <div class="row">
+        <div class="medium-5 large-6 columns">
+          <div class="container-info">
+            <h3>Enter your current <strong>Detailed Stock Allocation</strong> (must add up to 100%)</h3>
+            <p>This input represents the composition of your broad stock allocation. If this response is left unchanged, Nest Egg Guru will assume a detailed stock allocation of 45% large cap stocks, 30% mid- and small cap stocks, and 25% foreign stocks.</p>
+          </div>
+        </div>
+        <div class="medium-7 large-6 columns">
+          <div class="container-portfolio-input">
+            <div class="row">
+              <div class="medium-6 columns">
+                <div class="portfolio-input-group">
+                  <div class="portfolio-input-item clearfix">
+                    <div class="portfolio-input left">
+                      <span>{{input.lgEquities}}%</span>
+                      <input type="hidden" id="large-usa-stocks" value="{{input.lgEquities}}">
+                    </div>
+                    <span class="chart-legend primary-legend left"></span>
+                    <label for="large-usa-stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-green.png"></span>Large U.S. Stocks</label>
+                  </div>
+                  <div class="portfolio-input-item clearfix">
+                    <div class="portfolio-input left">
+                      <span>{{input.smEquities}}%</span>
+                      <input type="hidden" id="mid-small-usa-stocks" value="{{input.smEquities}}">
+                    </div>
+                    <span class="chart-legend secondary-legend left"></span>
+                    <label for="mid-small-usa-stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-blue.png"></span>Mid &amp; Small U.S. Stocks</label>
+                  </div>
+                  <div class="portfolio-input-item clearfix">
+                    <div class="portfolio-input left">
+                      <span>{{input.iEquities}}%</span>
+                      <input type="hidden" id="foreign-stocks" value="{{input.iEquities}}">
+                    </div>
+                    <span class="chart-legend ternary-legend left"></span>
+                    <label for="foreign-stocks" class="portfolio-labels left"><span class="legend-dot show-for-print"><img src="/img/legend-orange.png"></span>Foreign Stocks</label>
+                  </div>
+                </div>
+              </div>
+              <div class="medium-6 columns">
+                <div class="pie-chart2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
+  {{!-- <div class="print-only">
+    {{#if whiteLabel}}
+      {{> _header_whitelabel_logo_only_print}}
+    {{else}}
+      {{#if premium}}
+        {{> _header_logo_only}}
+      {{/if}}
+    {{/if}}
+  </div> --}}
+  <div class="page-breaker"></div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-8 columns">
+        <div class="container-info">
+          <h3>Enter an expected constant fixed rate of return that you may reasonably expect to earn on the “bond” portion of your nest egg:</h3>
+          <p>Although many retirement calculators still use historical bond index returns in their simulations, Nest Egg Guru believes it is more prudent to allow users to enter the rate of return they may realistically expect to earn in the current low rate environment. For bonds, it is suggested that users enter the current 10-year treasury rate or the yield on a 5-year certificate of deposit as a reasonable proxy.</p>
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="container-slider">
+          <h3 id="cdRate" class="calculator-input-text">{{input.cdRate}}%</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-8 columns">
+        <div class="container-info">
+          <h3>Enter an expected constant fixed rate of return that you may reasonably expect to earn on the cash or stable value portion of your nest egg:</h3>
+          <p>Although many retirement calculators still use historical short term bond index data as a proxy for cash, in the current low yield environment, Nest Egg Guru believes it is more prudent to allow users to enter the rate of return they may realistically expect to earn on their bank savings or money market accounts.</p>
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="container-slider">
+          <h3 id="moneyRate" class="calculator-input-text">{{input.moneyRate}}%</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-8 columns">
+        <div class="container-info">
+          <h3>Enter your nest egg’s estimated annual investment expenses (expressed as a % of your total nest egg value):</h3>
+          <p>Research has shown that investment expenses can have a significant impact on wealth accumulation and sustainability.  Failing to properly account for the impact of expenses may produce overly optimistic results. Be sure to account for all internal and external fees.</p>
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="container-slider">
+          <h3 id="investment" class="calculator-input-text">{{input.investment}}%</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

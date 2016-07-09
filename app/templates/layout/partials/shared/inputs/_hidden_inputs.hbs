@@ -1,0 +1,35 @@
+<section class="container-bottom">
+  {{!-- default values --}}
+  <input id="bondSelect" name="bondSelect" type="text" value="3" style="display: none;">
+  <input id="cashSelect" name="cashSelect" type="text" value="2" style="display: none;">
+  <input type="hidden" name="email" id="email" />
+  <input type="hidden" name="firstname" id="firstname" />
+  <input type="hidden" name="lastname" id="lastname" />
+  <input type="hidden" name="leadGenTool" id="leadGenTool" value="{{leadGenTool}}" />
+
+  <button class="primary-btn" id="submit-calculator-inputs">Submit</button>
+</section>
+
+<section class="container-modal-email">
+  <div id="SubmitEmailModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h2 id="modalTitle">Email Confirm</h2>
+    <p>Please provide your email address to have this analysis sent to your inbox. While your advisor will receive notification that a report has been delivered he/she will not receive a copy the report itself.  Your advisor’s contact information will appear on the report if you have questions.</p>
+    <form id="email-input-form" action="" role="form" method="get">
+      <div class="row">
+          <label class="columns medium-6" style="padding-left: 0px;">First Name
+              <input id="firstnameInput" type="text" class="general-input no-spaces" name="firstnameInput" value="" required />
+          </label>
+          <label class="columns medium-6" style="padding-right: 0px;">Last Name
+              <input id="lastnameInput" type="text" class="general-input no-spaces" name="lastnameInput" value="" required />
+          </label>
+      </div>
+      <div class="row">
+        <label>Email
+          <input id="emailInput" type="text" class="general-input no-spaces" name="emailInput" value="" required />
+        </label>
+      </div>
+      <a href="#" class="secondary-btn close-modal" aria-label="Close">Cancel</a>&nbsp;
+      <button id="submit-email-calculator" type="submit" class="primary-btn submit-email">Confirm</button>
+    </form>
+  </div>
+</section>

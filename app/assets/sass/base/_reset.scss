@@ -1,0 +1,19 @@
+body {
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #6D777D;
+  font-size: 100%;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1180px;
+}
+
+.top-bar {
+	.toggle-topbar {
+		&.menu-icon {
+			margin-top: 10px !important;
+		}
+	}
+}

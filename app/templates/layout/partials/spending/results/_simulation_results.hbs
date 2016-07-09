@@ -1,0 +1,38 @@
+<h2>Complete Retirement Nest Egg Sustainability Simulation Results</h2>
+<section class="container-simulation-results">
+  <div class="intro-text">
+    <p>The complete range of simulated remaining balances is presented below in five year increments for your <strong><span class="NumberofYearsinRetirementHorizon"></span> year</strong> estimated retirement horizon.  These detailed results are intended to help you quantify your risk of running out of money in retirement.</p>
+
+    <p>All users are encouraged to experiment with the calculator to see how changing the various inputs may impact the results.</p>
+  </div>
+  <div class="simulation-views">
+    <div class="container-scroll-message scroll-message-spending-table show-for-medium-down">
+      <div class="scroll-message">
+        <p>Please scroll left and right to view all data.</p>
+      </div>
+      <div class="scroll-image">
+        <img src="/img/double_arrow.png" alt="Please scroll left and right to view all data.">
+      </div>
+    </div>
+    <div class="table-view">
+      <p class="text-center vertical-chart-top-title">Remaining Balance…</p>
+      <p class="text-center vertical-chart-left-title">Simulation Percentile</p>
+      {{> spending/results/_results_table}}
+    </div>
+    <div class="container-scroll-message scroll-message-spending-graph show-for-medium-down">
+      <div class="scroll-message">
+        <p>Please scroll left and right to view all data.</p>
+      </div>
+      <div class="scroll-image">
+        <img src="/img/double_arrow.png" alt="Please scroll left and right to view all data.">
+      </div>
+    </div>
+    <div class="bar-graph-view">
+      {{!-- <p class="text-center vertical-chart-top-title">Remaining Balance After...</p> --}}
+      {{!-- <p class="text-center vertical-chart-left-title">Simulation Percentile</p> --}}
+      <div class="vertical-bar legend {{type}}"></div>
+      <div class="vertical-bar-chart graph"></div>
+    </div>
+    {{> shared/_upgrade_notice}}
+  </div>
+</section>

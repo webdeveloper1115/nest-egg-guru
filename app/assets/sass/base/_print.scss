@@ -1,0 +1,204 @@
+@media print {
+  // @page {
+  //   size: landscape
+  // }
+  // general
+  html, .bar-graph-view, .line-graph-view {
+    overflow: hidden !important;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  .page-breaker {
+    page-break-after: always;
+  }
+
+  .no-break-after {
+    page-break-after: avoid !important;
+  }
+
+  .no-break-before {
+    page-break-before: avoid !important;
+  }
+
+  .no-break-inside {
+    page-break-inside: avoid !important;
+  }
+
+  .no-space {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .min-space {
+    margin: 10 !important;
+    padding: 10 !important;
+  }
+
+  .min-margin {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .medium-margin {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .min-padding {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .no-margin-bot {
+    margin-bottom: 0 !important;
+  }
+
+  .no-padding-bot {
+    padding-bottom: 0 !important;
+  }
+
+  h1 {
+    font-size: 16pt !important;
+  }
+  h2 {
+    font-size: 8pt !important;
+  }
+  h3 {
+    font-size: 12pt !important;
+    font-weight: 400 !important;
+  }
+  p {
+    font-size: 9pt !important;
+    line-height: 1.3 !important;
+  }
+  a:link,
+  a:visited {
+    background: transparent;
+    text-decoration: none;
+  }
+  a[href]:after {
+    content: none !important;
+  }
+  main a:link:after,
+  main a:visited:after {
+    content: " (" attr(href) ") ";
+    font-size: 80%;
+  }
+
+  // layout
+  .company {
+    font-size: 11pt !important;
+  }
+  .motto {
+    font-size: 7pt !important;
+  }
+  .product-label {
+    border: 1px solid #ccc;
+    color: #666;
+  }
+
+  // calculators
+  .page-print {
+    .container-input-row {
+      margin-top: 20px;
+    }
+    .container-header {
+      padding: 20px 0 0 0;
+    }
+    h3, .summary-value {
+      font-size: 11pt !important;
+      line-height: 1.3;
+      font-weight: 400 !important;
+    }
+    .column, .columns {
+      float: left;
+    }
+    .medium-6 {
+      width: 50%;
+    }
+    .medium-8 {
+      width: 75%;
+    }
+    .medium-4 {
+      width: 25%;
+    }
+    .columns.remove-float-on-print {
+      float: none;
+    }
+    .columns.medium-centered {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      float: none !important;
+    }
+    .header-logo-only {
+      page-break-before: always !important;
+      page-break-inside: avoid !important;
+      .top-bar {
+        height: $print-topbar-height;
+      }
+      .company-logo {
+        img {
+          height: $logo-size;
+          width: $logo-size;
+        }
+      }
+    }
+    .no-page-break .header-logo-only {
+      page-break-before: avoid !important;
+    }
+    p {
+      font-size: 8pt !important;
+      font-weight: 400 !important;
+      color: #666;
+    }
+    .notes {
+      padding: 10px !important;
+    }
+    .portfolio-input {
+      font-size: 10pt !important;
+      width: auto !important;
+      height: auto !important;
+      line-height: 12pt;
+      padding: 0 10px;
+    }
+    .container-withdrawal-adjustment {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    .container-value {
+      margin-top: 0 !important;
+    }
+    .portfolio-labels {
+      font-size: 9pt;
+    }
+    .legend-dot {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .print-h1 {
+      font-size: 18pt !important;
+    }
+
+    .print-h2 {
+      font-size: 14pt !important;
+    }
+
+    .print-p-large {
+      font-size: 12pt !important;
+    }
+
+    .print-p-medium {
+      font-size: 10pt !important;
+    }
+
+
+    .print-content-list {
+      padding-left: 30px;
+    }
+  }
+
+}

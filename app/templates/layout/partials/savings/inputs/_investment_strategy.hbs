@@ -1,0 +1,61 @@
+<h2>Retirement Accumulation Investment Strategy</h2>
+<section class="container-strategy">
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info{{freeVersion}}">
+          <h3>Choose a retirement accumulation investment strategy.</h3>
+        </div>
+        {{> shared/_upgrade_notice}}
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-strategy-options{{freeVersion}}">
+          <ul>
+            <li class="option-item">
+              <input type="radio" class="strategy-options{{freeDisabled}}" name="investmentStrategy" id="investment-strategy-option1" value="1" checked="checked"{{disabled}}>
+              <label for="investment-strategy-option1" class="strategy-labels" id="investment-strategy-option1-label">Maintain your current asset allocation until retirement.</label>
+              <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                        title="This option represents one of the most common retirement savings strategies and is analogous to the approach used in the “risk-based” portfolio models (e.g., conservative, moderate, growth, aggressive, etc.)  offered in many employer retirement plans.">
+              <div class="radio-btn-check" id="investment-strategy-option1-check"></div>
+            </li>
+
+            <li class="option-item{{freeDisabled}}">
+              <input type="radio" class="strategy-options{{freeDisabled}}" name="investmentStrategy" id="investment-strategy-option2" value="2"{{disabled}}>
+              <label for="investment-strategy-option2" class="strategy-labels" id="investment-strategy-option2-label">
+              <p style="margin-left: 0px">Apply a declining glidepath strategy until retirement. Enter your target stock allocation at retirement. (This % MUST be lower than your current stock allocation.)
+              <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                  title="This option is roughly analogous to the approach used in the “target-date”  portfolio models that are offered in many employer retirement plans.  With this strategy, the stock allocation is reduced and the bond allocation is increased in linear fashion each year until the target allocation is reached in the year of retirement.">
+              </p>
+              </label>
+
+              <div class="radio-btn-check" id="investment-strategy-option2-check"></div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info">
+          <h3>Target Stock Allocation at Retirement:
+            <span class="right">
+              <input type="text" id="target-stocks" class="calculator-input input-medium percent" name="targetStocks" value="50" min="0" max="100" maxlength="3" disabled><span class="percent-sign">%</span>.
+            </span>
+          </h3>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-slider">
+          <input type="range" id="target-stocks-slider" class="range-slider" min="0" max="100" step="1" value="50" data-rangeslider disabled>
+          <div class="slider-labels clearfix">
+            <span class="left">0%</span>
+            <span class="right">100%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

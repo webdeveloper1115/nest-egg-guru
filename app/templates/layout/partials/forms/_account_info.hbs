@@ -1,0 +1,77 @@
+{{#if accountInfo}}
+<div class="row">
+  <div class="medium-6 columns">
+    <label>First Name
+      <input type="text" class="general-input no-spaces" id="firstName" name="firstName" value="{{accountInfo.firstName}}" required />
+    </label>
+  </div>
+  <div class="medium-6 columns">
+    <label>Last Name
+      <input type="text" class="general-input no-spaces" id="lastName" name="lastName" value="{{accountInfo.lastName}}" required />
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Professional Designation(s) e.g., CFP, MBA, J.D., Ph.d, CFA
+      <input type="text" class="general-input no-spaces no-special-char" id="proDesignation" name="proDesignation" value="{{accountInfo.proDesignation}}"/>
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Advisor Email
+      <input type="email" class="general-input no-spaces" id="email" name="email" value="{{accountInfo.email}}" required />
+    </label>
+  </div>
+</div>
+{{else}}
+<div class="row">
+  <div class="medium-6 columns">
+    <label>First Name
+      <input type="text" class="general-input no-spaces" id="firstName" name="firstName" value="{{firstName}}" required />
+    </label>
+  </div>
+  <div class="medium-6 columns">
+    <label>Last Name
+      <input type="text" class="general-input no-spaces" id="lastName" name="lastName" value="{{lastName}}" required />
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Professional Designation(s) e.g., CFP, MBA, J.D., Ph.d, CFA
+      <input type="text" class="general-input no-spaces no-special-char" id="proDesignation" name="proDesignation" value="{{proDesignation}}"/>
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Advisor Email
+      <input type="email" class="general-input no-spaces" id="email" name="email" value="{{email}}" required />
+    </label>
+  </div>
+</div>
+{{/if}}
+
+{{#if account}}
+  <div class="row" id="reset-password-container">
+    <div class="medium-12 columns">
+      <a href="/user/forgot-password" class="secondary-btn" target="_blank">Reset Password</a>
+    </div>
+  </div>
+{{else}}
+  <div class="row">
+    <div class="medium-6 columns">
+      <label>Password
+        <img id="password-info" src="/img/info.png" width="24" height="24" aria-haspopup="true" class="has-tip tip-bottom" data-tooltip data-options="show_on:medium" title="Password MUST contain as least 6 characters, contain both upper and lower case letters, at least one number.">
+        <input id="password" type="password" class="general-input password" name="password" minlength="6" required />
+      </label>
+    </div>
+    <div class="medium-6 columns">
+      <label>Re-type Password
+        <input id="confirmPassword" type="password" class="general-input password" name="confirmPassword" minlength="6" required />
+      </label>
+    </div>
+  </div>
+{{/if}}

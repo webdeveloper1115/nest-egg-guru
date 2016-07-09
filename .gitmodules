@@ -1,0 +1,7 @@
+[submodule "ghost/nest-egg-guru-blog"]
+	path = ghost/nest-egg-guru-blog
+	url = git@bitbucket.org:nesteggguru/nest-egg-guru-blog.git
+  ignore = dirty
+[submodule "lib/nest-egg-calculator"]
+	path = lib/nest-egg-calculator
+	url = git@bitbucket.org:nesteggguru/nest-egg-calculator.git

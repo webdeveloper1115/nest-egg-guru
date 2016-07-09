@@ -1,0 +1,68 @@
+{{#if active}}
+  <p>It appears you have already registered a company in the past.  Feel free to make any changes to the information below.  Note, however, that you cannot change your company subdomain unless you create a new user account.</p>
+{{/if}}
+{{#if error}}
+  <div class="user-errors">{{error}}</div>
+{{/if}}
+<div class="row">
+  <div class="large-12 columns">
+    <label>Company Name
+      <input type="text" class="general-input" name="name" placeholder="Example: XYZ Advisory Group" value="{{name}}" required />
+      <small id="company-name-error" class="error company-err invisible">Company name required.</small>
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Website
+      <input type="text" class="general-input no-spaces" name="url" id="url" placeholder="Example: xyzadvisorygroup.com" value="{{url}}"/>
+      <small id="url-error" class="error company-err invisible">Please include a TLD like ".com" or ".org".</small>
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Company Email (optional. If you provide one it can appear on your printed reports)
+      <input type="email" class="general-input no-spaces" name="emailCompany" placeholder="Example: email@xyzadvisorygroup.com" value="{{email}}"/>
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Phone Number
+      <input id="phone" type="text" class="general-input no-spaces" name="phone" placeholder="Example: 555-555-5555" value="{{phone}}"/>
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <label>Address 1
+      <input type="text" class="general-input" name="address_1" placeholder="Example: 100 Main Street Suite #123" name="address_1" value="{{address_1}}" />
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <label>Address 2
+      <input type="text" class="general-input" name="address_2" placeholder="Example: Suite #123" name="address_2" value="{{address_2}}" />
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns">
+    <label>City
+      <input type="text" class="general-input" name="address_city" placeholder="Example: Honolulu" value="{{address_city}}"/>
+    </label>
+  </div>
+  <div class="medium-3 columns">
+    <label>State
+      <input type="text" class="general-input no-spaces" id="address_state" name="address_state" value="{{address_state}}"/>
+    </label>
+  </div>
+  <div class="medium-3 columns">
+    <label>Zip Code
+      <input type="text" minlength="5" id="zip-code" class="general-input" placeholder="Ex. 12345" name="address_zip" value="{{address_zip}}"/>
+    </label>
+  </div>
+</div>

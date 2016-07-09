@@ -1,0 +1,168 @@
+<main class="page-confirm-payment">
+	<div class="banner">
+		<h1>Confirm Payment</h1>
+		<p>Please review your information and click the <strong>Purchase</strong> button.</p>
+		<div class="user-errors">{{error}}</div>
+	</div>
+
+	<!-- left column -->
+	<div class="row">
+		<div class="large-6 large-centered columns">
+			<h2>Account Information</h2>
+
+			<div class="row pre-fill">
+		    <div class="small-5 columns">
+		      <label>Name</label>
+		    </div>
+		    <div class="small-7 columns">
+		    	<p class="input-answer">{{accountInfo.fullName}}</p>
+		    </div>
+		  </div>
+			<div class="row pre-fill">
+		    <div class="small-5 columns">
+		      <label>Email</label>
+		    </div>
+		    <div class="small-7 columns">
+		    	<p class="input-answer">{{accountInfo.email}}</p>
+		    </div>
+		  </div>
+
+		  {{#compare type 'Subscription'}}
+				<h2>General Information</h2>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Company Name</label>
+			    </div>
+			    <div class="small-7 columns">
+            <p class="input-answer">{{startCase name}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Subdomain Name</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{subdomain}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Website</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{url}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Email</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{email}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Phone Number</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{phone}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Address 1</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{address_1}}</p>
+			    </div>
+			  </div>
+			   <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Address 2</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{address_2}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>City</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{address_city}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>State</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{address_state}}</p>
+			    </div>
+			  </div>
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Zip Code</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{address_zip}}</p>
+			    </div>
+			  </div>
+
+			  <h2>Company Information</h2>
+        {{#if img}}
+          <div class="row pre-fill">
+            <div class="small-5 columns">
+              <label>Logo</label>
+            </div>
+            <div class="small-7 columns">
+              <div class="company-logo preview-logo-confirm">
+                  <div id="img-stream" data={{{img}}} class="hide"></div>
+                  <img id="logo-img" class="input-answer" src="">
+              </div>
+            </div>
+          </div>
+        {{/if}}
+			  <div class="row pre-fill">
+			    <div class="small-5 columns">
+			      <label>Bio</label>
+			    </div>
+			    <div class="small-7 columns">
+			    	<p class="input-answer">{{copy}}</p>
+			    </div>
+			  </div>
+		  {{/compare}}
+
+			{{#if cardMonth }}
+				<h2>Payment Information</h2>
+				{{#if hasStripeUser}}
+					<p>You have previously entered your payment information for a past Financial Professional subscription.  Your card ending in <strong class="card-number">{{last4}}</strong> will be charged.</p>
+				{{else}}
+					<div class="row pre-fill">
+						<div class="small-5 columns">
+							<label>Credit Card Number</label>
+						</div>
+						<div class="small-7 columns">
+							<p class="input-answer">**** **** **** {{last4}}</p>
+						</div>
+					</div>
+					<div class="row pre-fill">
+						<div class="small-5 columns">
+							<label>Expiration Date</label>
+						</div>
+						<div class="small-7 columns">
+							<p class="input-answer">{{cardMonth}} / {{cardYear}}</p>
+						</div>
+					</div>
+				{{/if}}
+			{{/if}}
+
+			<hr>
+			<form class="confirm-payment-form clearfix" method="POST" action="/checkout/confirm" role="form">
+				<a href="/user/register?type=financial-professionals&step=company" class="secondary-btn">Back</a>&nbsp;&nbsp;
+				<button type="submit" class="primary-btn">Purchase</button>
+			</form>
+		</div>
+	</div>
+</main>

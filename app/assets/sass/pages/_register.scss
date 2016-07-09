@@ -1,0 +1,71 @@
+.page-register {
+	background-color: #F6F9FA;
+	.banner {
+		width: 100%;
+		padding: 50px 0 0 0;
+		text-align: center;
+	}
+  .notes {
+    background: $notes-bg;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    p {
+      color: $notes-color;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+  .tabs-content >.content {
+    padding: 0;
+  }
+	.pricing {
+		margin-bottom: 30px;
+	}
+	h3 {
+		font-weight: 400;
+		font-size: 1rem;
+	}
+  #company-subdomain {
+    border-radius: 3px 0 0 3px !important;
+    border-right: 0;
+  }
+  .subdomain-postfix {
+    padding: 0 !important;
+    border-radius: 0 3px 3px 0 !important;
+  }
+  .company-logo {
+    overflow: hidden;
+    border: 3px dashed $dashed-border;
+    background-color: $white;
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+    float: left;
+    padding: 5px;
+  }
+  #textarea {
+    min-height: 120px;
+  }
+	.basic-list {
+		font-size: rem-calc(14px);
+		margin-top: 20px;
+		@include max-breakpoint(tablet) {
+			font-size: 16px;
+		}
+	}
+	img {
+		@include max-breakpoint(screen-sm) {
+			max-width: 300px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+  .problems-registering {
+    @include font-size(11px);
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,88 @@
+upstream nestegg {
+  server 127.0.0.1:8000;
+}
+
+upstream nesteggblog {
+  server 127.0.0.1:2368;
+}
+
+server {
+  listen 80;
+  server_name *.nesteggguru.com www.nesteggguru.com;
+  return 302 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl;
+
+  root /var/www/nesteggguru.com;
+  index index.html index.htm index.js server.js;
+
+  # Make site accessible from http://localhost/
+  server_name www.nesteggguru.com nesteggguru.com 162.243.130.54;
+
+  ssl on;
+  ssl_certificate /etc/nginx/ssl/nestegg.pem;
+  ssl_certificate_key /etc/nginx/ssl/*.nestegg.key;
+
+   location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm|svg)$ {
+          root   /var/www/nesteggguru.com/public/;
+     }
+
+  location / {
+    # First attempt to serve request as file, then
+    
+    # as directory, then fall back to displaying a 404.
+#   try_files $uri $uri/ =404;
+    # Uncomment to enable naxsi on this location
+    # include /etc/nginx/naxsi.rules
+    proxy_pass  http://nestegg;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_read_timeout 300; 
+            proxy_connect_timeout 300; 
+  }
+
+}
+
+server {
+  listen 443 ssl;
+
+
+  root /var/www/blog.nesteggguru.com;
+  index index.html index.htm index.js server.js;
+
+  # Make site accessible from http://localhost/
+  server_name blog.nesteggguru.com ;
+
+  add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
+
+  ssl on;
+  ssl_certificate /etc/nginx/ssl/*.nestegg.crt;
+  ssl_certificate_key /etc/nginx/ssl/*.nestegg.key;
+
+
+  # location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm|svg)$ {
+        # root   /var/www/blog.nesteggguru.com/public/;
+    # }
+
+  location / {
+    # First attempt to serve request as file, then
+    
+    # as directory, then fall back to displaying a 404.
+    # Uncomment to enable naxsi on this location
+    # include /etc/nginx/naxsi.rules
+    proxy_pass  http://nesteggblog;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_read_timeout 300; 
+            proxy_connect_timeout 300; 
+  }
+
+}

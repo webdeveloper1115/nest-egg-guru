@@ -1,0 +1,60 @@
+<table class="responsive results-table">
+  <tr>
+    <th>Simulation Percentile</th>
+    <th>Nest Egg Value</th>
+  </tr>
+  <tr>
+    <td>80%</td>
+    <td>$<span class="80thPercentileBalance"></span></td>
+  </tr>
+  <tr>
+    <td>60%</td>
+    <td>$<span class="60thPercentileBalance"></span></td>
+  </tr>
+  <tr>
+    <td>Median</td>
+    <td>$<span class="MedianBalance"></span></td>
+  </tr>
+  <tr>
+    <td>40%</td>
+    <td>$<span class="40thPercentileBalance"></span></td>
+  </tr>
+  <tr>
+    <td>20%</td>
+    <td>$<span class="20thPercentileBalance"></span></td>
+  </tr>
+  <tr class="emphasized-values">
+    <td>10%</td>
+    <td>
+      {{#if premium}}
+        $<span class="10ValueatRisk"></span>
+      {{else}}
+        <span><a href="/user/register#savings">Premium</a></span> version only
+      {{/if}}
+    </td>
+  </tr>
+  <tr class="emphasized-values">
+    <td>5%</td>
+    <td>
+      {{#if premium}}
+        $<span class="5ValueatRisk"></span>
+      {{else}}
+        <span><a href="/user/register#savings">Premium</a></span> version only
+      {{/if}}
+    </td>
+  </tr>
+  <tr class="emphasized-values">
+    <td>1%</td>
+    <td>
+      {{#if premium}}
+        $<span class="1ValueatRisk"></span>
+      {{else}}
+        <span><a href="/user/register#savings">Premium</a></span> version only
+      {{/if}}
+    </td>
+  </tr>
+  <tr>
+    <td>Worst</td>
+    <td>$<span class="WorstCaseMinimumAccumulatedBalance"></span></td>
+  </tr>
+</table>

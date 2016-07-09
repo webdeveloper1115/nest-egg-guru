@@ -1,0 +1,81 @@
+.container-simulation-tabs {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  ul.tabs {
+    box-shadow: inset 0 -10px 0 -8px $h2-border;
+    li {
+      display: inline-block;
+      float: none;
+    }
+    a {
+      @include font-size(11px);
+      width: 130px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border: 2px solid $h2-border;
+      border-bottom: 0;
+      padding: 14px 0;
+      letter-spacing: 1px;
+      line-height: 12px;
+      font-family: $special-font;
+      text-transform: uppercase;
+      background-color: $tab-inactive-bg;
+      color: $tab-color;
+      outline: 0;
+      &:first-child {
+        margin-right: 5px;
+      }
+      &:hover {
+        border: 2px solid #D3D9DD;
+        background-color: #D3D9DD;
+        color: $text-color;
+        border-bottom: 0;
+      }
+      @include max-breakpoint(mobile) {
+        font-size: 10px;
+        letter-spacing: 1px;
+        width: 100%;
+        padding: 10px 7px;
+      }
+    }
+  }
+}
+
+.container-scroll-message {
+  border-top: 2px solid $h2-border;
+  border-bottom: 2px solid $h2-border;
+  width: 100%;
+  &.scroll-message-savings-results {
+    margin-bottom: 32px;
+  }
+  &.scroll-message-spending-table {
+    margin-bottom: 10px;
+  }
+  &.scroll-message-spending-graph {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  > div {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .scroll-message {
+    width: 60%;
+    p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+  .scroll-image {
+    width: 38%;
+    img {
+      width: 108px;
+      height: auto;
+    }
+  }
+}

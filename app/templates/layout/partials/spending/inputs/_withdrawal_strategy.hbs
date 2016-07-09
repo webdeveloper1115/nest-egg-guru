@@ -1,0 +1,70 @@
+<h2>Retirement Withdrawal Strategy</h2>
+<section class="container-strategy">
+  <div class="container-input-row">
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="container-info{{freeVersion}}">
+          <h3>
+            Choose your withdrawal strategy.
+            <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                     title="The manner in which you spend down your retirement nest egg may have a significant impact on how long it may last. Select the withdrawal strategy that most closely resembles your current or anticipated approach and then test how different strategies may affect your results.">
+          </h3>
+        </div>
+        {{> shared/_upgrade_notice}}
+      </div>
+      <div class="medium-6 columns">
+        <div class="container-strategy-options{{freeVersion}}">
+          <ul>
+            <li class="option-item">
+              <input type="radio" class="strategy-options{{freeDisabled}}" id="withdrawal-strategy-option1" name="withdrawalStrategy" value="1" checked="checked"{{disabled}}>
+              <label for="withdrawal-strategy-option1" class="strategy-labels">
+                <span>
+                  Maintain a current allocation with annual rebalancing throughout retirement
+                  <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                          title="While most retirement planning calculators automatically assume that investors maintain a constant allocation with rebalancing in their spending analysis, recent research suggests that this may NOT be an optimal solution. Users are strongly encouraged to test all four withdrawal strategy choices.">
+                </span>
+              </label>
+              <div class="radio-btn-check"></div>
+            </li>
+
+            <li class="option-item{{freeDisabled}}">
+              <input type="radio" class="strategy-options{{freeDisabled}}" id="withdrawal-strategy-option2" name="withdrawalStrategy" value="2"{{disabled}}>
+              <label for="withdrawal-strategy-option2" class="strategy-labels">
+                <span>
+                  Stocks First Glidepath – Spend down the stocks first, then bonds, then cash
+                  <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                          title="With a “stocks first” withdrawal strategy, your nest egg may be expected to become more conservative over time, as the stock portion of the portfolio is liquidated before the bond or cash allocations are reduced.">
+                </span>
+              </label>
+              <div class="radio-btn-check"></div>
+            </li>
+
+            <li class="option-item{{freeDisabled}}">
+              <input type="radio" class="strategy-options{{freeDisabled}}" id="withdrawal-strategy-option3" name="withdrawalStrategy" value="3"{{disabled}}>
+              <label for="withdrawal-strategy-option3" class="strategy-labels">
+                <span>
+                  Bonds/Cash First Glidepath – Spend down the bonds first, then cash, then stocks
+                  <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                          title="With a “bonds/cash first” withdrawal strategy, your nest egg may be expected to become more heavily weighted in stocks over time.">
+                </span>
+              </label>
+              <div class="radio-btn-check"></div>
+            </li>
+
+            <li class="option-item{{freeDisabled}}">
+              <input type="radio" class="strategy-options{{freeDisabled}}" id="withdrawal-strategy-option4" name="withdrawalStrategy" value="4"{{disabled}}>
+              <label for="withdrawal-strategy-option4" class="strategy-labels">
+                <span>
+                  Guardrail Strategy – Do not spend down stocks following negative return years
+                  <img src="/img/info.png" aria-haspopup="true" class="has-tip tip-top icon-info" data-tooltip data-options="show_on:medium"
+                                                          title="Research has shown that certain decision-based withdrawal strategies may enhance nest egg sustainability. The “guardrail” strategy illustrated in Nest Egg Guru entails shifting the gains each year (if any) from stocks and bonds to cash and then spending down the cash portion of the portfolio first, followed by bonds, and, lastly, stocks. Using this strategy, no withdrawals are made from equities following flat or down years.">
+                </span>
+              </label>
+              <div class="radio-btn-check"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

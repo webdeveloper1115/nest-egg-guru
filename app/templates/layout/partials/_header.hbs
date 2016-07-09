@@ -1,0 +1,58 @@
+<header>
+  <div class="container-header">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <a href="/" class="nest-egg-company-logo">
+            <img src="/img/logo.png" alt="Nest Egg Guru Logo">
+            <span class="nest-egg-company">Nest Egg Guru</span>
+            <span class="motto uppercase">Enlightened Retirement Planning</span>
+          </a>
+        </li>
+        <li class="toggle-topbar menu-icon hide-for-print"><a href="#"><span></span></a></li>
+      </ul>
+
+      <section class="top-bar-section show-for-large-up">
+        <ul class="right user-pane">
+          {{#unless whiteLabel}}
+            <li><a class="uppercase user-controls" href="/features">Features</a></li>
+            {{#if DEVELOPMENT}}
+              <li><a  class="uppercase user-controls" href="http://blog.nesteggguru.com">Blog</a></li>
+            {{else}}
+              <li><a class="uppercase user-controls" href="https://blog.{{DOMAIN}}">Blog</a></li>
+            {{/if}}
+            <li><a class="uppercase user-controls" href="/about">About</a></li>
+          {{/unless}}
+          {{#if user}}
+            <li><a class="uppercase user-controls" href="{{domain}}/user">My Account</a></li>
+            <li><a class="uppercase user-controls" href="{{domain}}/user/logout">Logout</a></li>
+          {{else}}
+            <li><a class="uppercase user-controls sign-in-link" href="{{domain}}/user/login">Sign In</a></li>
+            <li><a class="uppercase user-controls register-link" href="{{domain}}/user/register?type=financial-professionals&step=info" class="primary-btn">Register</a></li>
+          {{/if}}
+        </ul>
+      </section>
+
+      <section class="top-bar-section bottom-top-bar">
+        <ul class="right">
+          {{#unless whiteLabel}}
+            <li class="show-for-medium-down"><a href="/features">Features</a></li>
+            <li class="show-for-medium-down"><a href="/about">About</a></li>
+            {{#if DEVELOPMENT}}
+              <li class="show-for-medium-down"><a href="http://blog.nesteggguru.com">Blog</a></li>
+            {{else}}
+              <li class="show-for-medium-down"><a href="https://blog.{{DOMAIN}}">Blog</a></li>
+            {{/if}}
+          {{/unless}}
+          {{#if user}}
+            <li class="show-for-medium-down"><a href="/user">My Account</a></li>
+            <li class="show-for-medium-down"><a href="/user/logout">Logout</a></li>
+          {{else}}
+            <li class="show-for-medium-down"><a class="sign-in-link" href="/user/login">Sign In</a></li>
+            <li class="show-for-medium-down"><a class="register-link" href="/user/register?type=financial-professionals&step=info">Register</a></li>
+          {{/if}}
+        </ul>
+      </section>
+    </nav>
+  </div>
+</header>

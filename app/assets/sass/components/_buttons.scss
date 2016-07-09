@@ -1,0 +1,60 @@
+// Green Button
+.primary-btn {
+  margin: 0;
+  padding: 10px 26px 11px;
+  background-color: $primary-btn-bg;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: $white;
+  font-size: 16px;
+  line-height: 17px;
+  &:hover {
+    color: $white;
+    background: $secondary-color;
+  }
+  &:focus {
+    color: $white;
+    background: $primary-color;
+  }
+}
+
+.back-btn {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+// Grey Button
+.secondary-btn {
+  margin: 0;
+  padding: 10px 26px 11px 25px;
+  background-color: $secondary-btn-bg;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: $secondary-btn-color;
+  font-size: 16px;
+  line-height: 17px;
+  &:hover {
+    color: $white;
+    background: #B5BDC3;
+  }
+}
+
+.confirm-btn {
+  width: 200px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 0;
+  margin-top: 25px;
+  text-align: center;
+  font-weight: $light-weight;
+  @include font-size(16px);
+  color: $white;
+  background-color: $primary-color;
+}
+
+.small-btn {
+  @include font-size(12px);
+  padding: 5px 15px;
+}

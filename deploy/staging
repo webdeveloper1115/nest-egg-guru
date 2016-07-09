@@ -1,0 +1,9 @@
+[nesteggguru]
+staging.nesteggguru.com
+
+[nesteggguru:vars]
+ansible_connection=ssh
+ansible_ssh_port=22000
+ansible_ssh_user=nestegg
+deployment_branch=master
+node_env=staging
